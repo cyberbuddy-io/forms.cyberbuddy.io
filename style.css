@@ -1,0 +1,144 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input {
+	font-size: 16px;
+}
+
+span{
+	color: red;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+h1 {
+	font-size: 30px;
+	font-weight: 700;
+}
+
+li {
+	margin-left: 25px;
+}
+
+body {
+	margin: 0;
+	background: #ebebeb;
+}
+
+div {
+	background: #ebebeb;
+	width: 60%;
+	margin: auto;
+	margin-top: 30px;
+	padding: 20px 0px;
+	border-radius: 12px;
+	box-shadow:  7px 7px 14px #c8c8c8,
+             -7px -7px 14px #ffffff;
+}
+
+div:focus-within {
+	box-shadow:  13px 14px 15px rgba(0, 0, 0, 0.2),
+             -10px -14px 15px #ffffff;
+}
+
+div {
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out
+}
+
+section {
+	width: 90%;
+	margin: auto;
+}
+
+section h1 {
+	color: RGB(39,52,82);
+	text-align: left;
+}
+
+section p {
+	font-size: 18px;
+	margin-top: 15px;
+	color: RGB(29,30,37);
+	text-align: left;
+}
+
+.qna h2 {
+	font-size: 20px;
+	color: RGB(39,52,82);
+}
+
+ul {
+	border-top: 2px solid rgba(39,52,82, 0.5);
+	padding-top: 10px;
+}
+
+section input {
+	margin-top: 30px;
+	background-color: transparent;
+	width: 50%;
+	border: none;
+	border-bottom-style: solid;
+	border-bottom-color: rgba(4,29,68,0.1);
+}
+
+section input:focus{
+	outline: none;
+	border-bottom-color: RGB(4,29,68);
+}
+
+input[type="radio"] {
+	width: 3%;
+}
+
+footer {
+	width: 60%;
+	height: 100px;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+}
+
+footer input {
+	margin-top: 25px;
+	width: 200px;
+	height: 50px;
+	font-weight: 900;
+	font-size: 18px;
+	border: none;
+	color: RGB(39,52,82);
+	border-radius: 20px;
+	box-shadow:  7px 7px 14px #c8c8c8,
+             -7px -7px 14px #ffffff;
+    cursor: pointer;
+}
+
+footer input:focus {
+	box-shadow:  13px 14px 15px rgba(0, 0, 0, 0.2),
+             -10px -14px 15px #ffffff;
+  -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out
+}
+
+@media screen and (max-width: 730px) {
+	div{
+		width: 90%;
+	}
+	section input{
+		width: 90%;
+	}
+}

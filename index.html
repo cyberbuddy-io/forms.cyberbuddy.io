@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Team Selection Form</title>
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="Files/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="Files/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="Files/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<!-- Main CSS -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div>
+		<img src="Files/hero.jpg" style="width: 100%;">
+	</div>
+	<div>
+		<section>
+			<h1>Don't Get Left Behind</h1>
+			<p>Hey Fellas, this is your Cyberbuddy!! I am creating a team to develop some projects and contribute in Open Source. Just look at the perks and decide if you wanna be a part of it :</p><br>
+			<ul>
+				<li>Resume mentionable Working Project.</li>
+				<li>Exposure to the Open Source.</li>
+				<li>Grasping new skills like Devops, Git-Github, Web Dev etc.</li>
+				<li>Mentorship from industry experts.</li>
+				<li>Participation in future Hackathons as a team.</li>
+				<li>New connections.</li>
+				<li>Guidance in most fields.</li>
+				<li>Goodies if possible in future.</li>
+			</ul>
+			<p style="font-size: 17px;">To contact us directly : <a href="mailto:contact@cyberbuddy.io">contact@cyberbuddy.io</a></p>
+		</section>
+	</div>
+	<div>
+		<section class="qna">
+			<h2>Full Name <span>*</span></h2>
+			<input type="text" id="name" placeholder="Your name" required="Please enter your name">
+		</section>
+	</div>
+	<div>
+		<section class="qna">
+			<h2>Whatsapp Number <span>*</span></h2>
+			<input type="number" id="number" placeholder="Your number" required="Please enter your valid Whatsapp Number">
+		</section>
+	</div>
+	<div>
+		<section class="qna">
+			<h2>Your Email ID <span>*</span></h2>
+			<input type="email" id="email" placeholder="Your mail" required="Please enter your valid Whatsapp Number">
+		</section>
+	</div>
+	<div>
+		<section class="qna">
+			<h2>Willing to spend 3+ hrs per day ? <span>*</span></h2>
+			<input type="radio" id="yes" name = ".." value=".."> <label>Yes</label> </br>
+			<input type="radio" id="no" name = ".." value=".."> <label>No</label> </br>
+			<input type="radio" id="maybe" name = ".." value=".."> <label>Maybe</label> </br>
+		</section>
+	</div>
+	<div>
+		<section class="qna">
+			<h2>Languages you're familiar with <span>*</span></h2>
+			<input type="radio" id="html"> <label>HTML and CSS</label> </br>
+			<input type="radio" id="js"> <label>JavaScript</label> </br>
+			<input type="radio" id="python"> <label>Python</label> </br>
+			<input type="radio" id="cpp"> <label>C or C++</label> </br>
+			<input type="radio" id="java"> <label>Java</label> </br>
+		</section>
+	</div>
+	<div>
+		<section class="qna">
+			<h2>Any queries or message</h2>
+			<input type="text" id="message" placeholder="Your answer" autocomplete="off">
+		</section>
+	</div>
+	<footer>
+		<input type="submit" placeholder="Submit" onclick="send_message()">
+	</footer>
+	<p style="text-align: center;margin: 20px 0px;">Made by Team <a style="text-decoration: none;color: black;" href="https://cyberbuddy.io" target="_blank">Cyberbuddy</a></p>
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+	     https://firebase.google.com/docs/web/setup#available-libraries -->
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase.js"></script>
+
+	<script>
+	  // Your web app's Firebase configuration
+	  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	  var firebaseConfig = {
+	    apiKey: "AIzaSyDZ1NxB4nGBfCDMGQGvZ4r4E_2s1Oa1rsg",
+	    authDomain: "forms-c041d.firebaseapp.com",
+	    databaseURL: "https://forms-c041d-default-rtdb.firebaseio.com",
+	    projectId: "forms-c041d",
+	    storageBucket: "forms-c041d.appspot.com",
+	    messagingSenderId: "576426258209",
+	    appId: "1:576426258209:web:ee8cbe1d80149bd9aa5860",
+	    measurementId: "G-7C12LRLDLW"
+	  };
+	  // Initialize Firebase
+	  firebase.initializeApp(firebaseConfig);
+	  firebase.analytics();
+	</script>
+	<script src="main.js"></script>
+</body>
+</html>
