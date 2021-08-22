@@ -10,7 +10,7 @@ input {
 }
 
 span{
-	color: red;
+	color: #C80140;
 }
 
 * {
@@ -30,23 +30,23 @@ li {
 
 body {
 	margin: 0;
-	background: #ebebeb;
+	background: rgba(186,255,201, 0.9);
 }
 
 div {
-	background: #ebebeb;
 	width: 60%;
 	margin: auto;
 	margin-top: 30px;
 	padding: 20px 0px;
-	border-radius: 12px;
-	box-shadow:  7px 7px 14px #c8c8c8,
-             -7px -7px 14px #ffffff;
+	border-radius: 8px;
+	background-color: rgba(186,255,201, 0.5);
+	box-shadow:  7px 7px 14px #bbd9c1,
+            -7px -7px 8px rgba(444,444,400,0.4);
 }
 
 div:focus-within {
-	box-shadow:  13px 14px 15px rgba(0, 0, 0, 0.2),
-             -10px -14px 15px #ffffff;
+	box-shadow:  5px 5px 12px #97cfa3,
+             -5px -5px 12px #ddffef;
 }
 
 div {
@@ -63,25 +63,26 @@ section {
 }
 
 section h1 {
-	color: RGB(39,52,82);
+	color: black;
 	text-align: left;
 }
 
 section p {
 	font-size: 18px;
 	margin-top: 15px;
-	color: RGB(29,30,37);
+	color: #001F3F;
 	text-align: left;
 }
 
 .qna h2 {
 	font-size: 20px;
-	color: RGB(39,52,82);
+	color: #001F3F;
 }
 
 ul {
 	border-top: 2px solid rgba(39,52,82, 0.5);
 	padding-top: 10px;
+	color: #001F3F;
 }
 
 section input {
@@ -95,7 +96,7 @@ section input {
 
 section input:focus{
 	outline: none;
-	border-bottom-color: RGB(4,29,68);
+	border-bottom-color: rgba(4,29,68,0.8);
 }
 
 input[type="radio"] {
@@ -117,16 +118,17 @@ footer input {
 	font-weight: 900;
 	font-size: 18px;
 	border: none;
-	color: RGB(39,52,82);
+	color: #001F3F;
 	border-radius: 20px;
-	box-shadow:  7px 7px 14px #c8c8c8,
-             -7px -7px 14px #ffffff;
+	background: #BAFFC9;
+	box-shadow:  6px 6px 12px #97cfa3,
+             -6px -6px 12px #ddffef;
     cursor: pointer;
 }
 
 footer input:focus {
-	box-shadow:  13px 14px 15px rgba(0, 0, 0, 0.2),
-             -10px -14px 15px #ffffff;
+	box-shadow:  6px 6px 12px #97cfa3,
+             -6px -6px 12px #ddffef;
   -webkit-transition: all .2s ease-out;
     -moz-transition: all .2s ease-out;
     -ms-transition: all .2s ease-out;
