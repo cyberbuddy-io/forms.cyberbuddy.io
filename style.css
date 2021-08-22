@@ -143,4 +143,14 @@ footer input:focus {
 	section input{
 		width: 90%;
 	}
+
+	body {
+		background: rgba(186,255,201, 0.7);
+	}
+
+	div {
+		background-color: rgba(186,255,201, 0.3);
+		box-shadow:  7px 7px 14px #bbd9c1,
+	            -7px -7px 8px rgba(444,444,400,0.4);
+	}
 }
