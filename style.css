@@ -30,6 +30,10 @@ li {
 
 body {
 	margin: 0;
+	background: #ebebeb;
+}
+
+.green-bg {
 	background: rgba(186,255,201, 0.9);
 }
 
@@ -39,14 +43,25 @@ div {
 	margin-top: 30px;
 	padding: 20px 0px;
 	border-radius: 8px;
+	background: #ebebeb;
+	box-shadow:  7px 7px 14px #c8c8c8,
+             -7px -7px 14px #ffffff;
+}
+
+.green-bg-div {
 	background-color: rgba(186,255,201, 0.5);
 	box-shadow:  7px 7px 14px #bbd9c1,
             -7px -7px 8px rgba(444,444,400,0.4);
 }
 
 div:focus-within {
-	box-shadow:  5px 5px 12px #97cfa3,
-             -5px -5px 12px #ddffef;
+  box-shadow:  13px 14px 15px rgba(0, 0, 0, 0.2),
+             -10px -14px 15px #ffffff;
+}
+
+.green-bg-div:focus-within {
+	box-shadow:  9px 9px 10px rgba(0, 0, 0, 0.2),
+            -9px -9px 10px rgba(444,444,400,0.5);
 }
 
 div {
@@ -120,20 +135,31 @@ footer input {
 	border: none;
 	color: #001F3F;
 	border-radius: 20px;
+  cursor: pointer;
+  background: #ebebeb;
+	box-shadow:  7px 7px 14px #c8c8c8,
+             -7px -7px 14px #ffffff;
+}
+
+.green-bg-input input {
 	background: #BAFFC9;
 	box-shadow:  6px 6px 12px #97cfa3,
              -6px -6px 12px #ddffef;
-    cursor: pointer;
 }
 
 footer input:focus {
-	box-shadow:  6px 6px 12px #97cfa3,
-             -6px -6px 12px #ddffef;
+	box-shadow:  13px 14px 15px rgba(0, 0, 0, 0.2),
+             -10px -14px 15px #ffffff;
   -webkit-transition: all .2s ease-out;
     -moz-transition: all .2s ease-out;
     -ms-transition: all .2s ease-out;
     -o-transition: all .2s ease-out;
     transition: all .2s ease-out
+}
+
+.green-bg-input input:focus {
+	box-shadow:  13px 10px 15px #97cfa3,
+             -10px -10px 15px #ddffef;
 }
 
 @media screen and (max-width: 730px) {
@@ -146,11 +172,5 @@ footer input:focus {
 
 	body {
 		background: rgba(186,255,201, 0.7);
-	}
-
-	div {
-		background-color: rgba(186,255,201, 0.3);
-		box-shadow:  7px 7px 14px #bbd9c1,
-	            -7px -7px 8px rgba(444,444,400,0.4);
 	}
 }

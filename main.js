@@ -50,3 +50,12 @@ function send_message() {
     }
   );
 }
+
+function hello() {
+  var divs = document.querySelectorAll('#div-test');
+  document.getElementById("test").classList.add("green-bg");
+  for (var i = 0; i < divs.length; i++) {
+    divs[i].classList.add('green-bg-div');
+  }
+  document.getElementById("input-test").classList.add("green-bg-input");
+}

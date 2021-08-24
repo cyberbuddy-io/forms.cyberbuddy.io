@@ -12,11 +12,11 @@
 	<!-- Main CSS -->
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
-	<div>
-		<img src="" style="width: 100%;">
+<body id="test">
+	<div id="div-test" style="padding: 10px;">
+		<img src="Files/hero.jpg" style="width: 100%;">
 	</div>
-	<div>
+	<div id="div-test">
 		<section>
 			<h1>Don't Get Left Behind</h1>
 			<p>Hey Fellas, this is your Cyberbuddy!! I am creating a team to develop some projects and contribute in Open Source. Just look at the perks and decide if you wanna be a part of it :</p><br>
@@ -33,25 +33,25 @@
 			<p style="font-size: 17px;">To contact us directly : <a href="mailto:contact@cyberbuddy.io">contact@cyberbuddy.io</a></p>
 		</section>
 	</div>
-	<div>
+	<div id="div-test">
 		<section class="qna">
 			<h2>Full Name <span>*</span></h2>
 			<input type="text" id="name" placeholder="Your name" required="Please enter your name">
 		</section>
 	</div>
-	<div>
+	<div id="div-test">
 		<section class="qna">
 			<h2>Whatsapp Number <span>*</span></h2>
 			<input type="number" id="number" placeholder="Your number" required="Please enter your valid Whatsapp Number">
 		</section>
 	</div>
-	<div>
+	<div id="div-test">
 		<section class="qna">
 			<h2>Your Email ID <span>*</span></h2>
 			<input type="email" id="email" placeholder="Your mail" required="Please enter your valid Whatsapp Number">
 		</section>
 	</div>
-	<div>
+	<div id="div-test">
 		<section class="qna">
 			<h2>Willing to spend 3+ hrs per day ? <span>*</span></h2>
 			<input type="radio" id="yes" name = ".." value=".."> <label>Yes</label> </br>
@@ -59,7 +59,7 @@
 			<input type="radio" id="maybe" name = ".." value=".."> <label>Maybe</label> </br>
 		</section>
 	</div>
-	<div>
+	<div id="div-test">
 		<section class="qna">
 			<h2>Languages you're familiar with <span>*</span></h2>
 			<input type="radio" id="html"> <label>HTML and CSS</label> </br>
@@ -69,16 +69,18 @@
 			<input type="radio" id="java"> <label>Java</label> </br>
 		</section>
 	</div>
-	<div>
+	<div id="div-test">
 		<section class="qna">
 			<h2>Any queries or message</h2>
 			<input type="text" id="message" placeholder="Your answer" autocomplete="off">
 		</section>
 	</div>
-	<footer>
+	<footer id="input-test">
 		<input type="submit" placeholder="Submit" onclick="send_message()">
 	</footer>
 	<p style="text-align: center;margin: 20px 0px;color: #001F3F;">Made by Team <a style="text-decoration: none;color: black;" href="https://cyberbuddy.io" target="_blank">Cyberbuddy</a></p>
+
+	<input type="button" onclick="hello()" value="Submit">
 
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
