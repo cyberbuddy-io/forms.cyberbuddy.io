@@ -9,6 +9,10 @@ input {
 	font-size: 16px;
 }
 
+label {
+	margin-left: 3px;
+}
+
 span{
 	color: #C80140;
 }
@@ -17,11 +21,17 @@ span{
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
+	line-height: 21px;
 }
 
 h1 {
 	font-size: 30px;
 	font-weight: 700;
+	color: #001F3F;
+}
+
+.green-bg-div h1 {
+	color: black;
 }
 
 li {
@@ -38,14 +48,14 @@ body {
 }
 
 div {
-	width: 60%;
+	width: 70%;
 	margin: auto;
 	margin-top: 30px;
 	padding: 20px 0px;
 	border-radius: 8px;
 	background: #ebebeb;
 	box-shadow:  7px 7px 14px #c8c8c8,
-             -7px -7px 14px #ffffff;
+             -7px -7px 10px #ffffff;
 }
 
 .green-bg-div {
@@ -78,30 +88,29 @@ section {
 }
 
 section h1 {
-	color: black;
 	text-align: left;
+	color: RGB(39,52,82);
 }
 
 section p {
 	font-size: 18px;
 	margin-top: 15px;
-	color: #001F3F;
 	text-align: left;
 }
 
 .qna h2 {
 	font-size: 20px;
 	color: #001F3F;
+	font-weight: 700;
 }
 
 ul {
 	border-top: 2px solid rgba(39,52,82, 0.5);
 	padding-top: 10px;
-	color: #001F3F;
 }
 
 section input {
-	margin-top: 30px;
+	margin-top: 20px;
 	background-color: transparent;
 	width: 50%;
 	border: none;
@@ -116,6 +125,7 @@ section input:focus{
 
 input[type="radio"] {
 	width: 3%;
+	height: 15px;
 }
 
 footer {

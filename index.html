@@ -4,22 +4,53 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Team Selection Form</title>
+
 	<!-- Favicons -->
 	<link rel="apple-touch-icon" sizes="180x180" href="Files/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="Files/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="Files/favicon-16x16.png">
 	<link rel="manifest" href="/site.webmanifest">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 	<!-- Main CSS -->
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<style type="text/css">
+		nav input[type=radio] {
+	      width: 2em;
+	      height: 2em;
+	    }
+
+	    nav li {
+	      margin-left: 96px;
+	    }
+
+	    nav button {
+	    	border: none;
+	    }
+
+	    nav button:focus {
+	    	border: none;
+	    	outline: none;
+	    }
+	</style>
+
 </head>
+
 <body id="test">
+
 	<div id="div-test" style="padding: 10px;">
 		<img src="Files/hero.jpg" style="width: 100%;">
 	</div>
+
 	<div id="div-test">
 		<section>
 			<h1>Don't Get Left Behind</h1>
-			<p>Hey Fellas, this is your Cyberbuddy!! I am creating a team to develop some projects and contribute in Open Source. Just look at the perks and decide if you wanna be a part of it :</p><br>
+			<p>Hey Fellas, this is your Cyberbuddy!! I am creating a team to develop some projects and contribute in Open Source. Just look at the perks and decide if you wanna be a part of it :</p>
 			<ul>
 				<li>Resume mentionable Working Project.</li>
 				<li>Exposure to the Open Source.</li>
@@ -33,24 +64,28 @@
 			<p style="font-size: 17px;">To contact us directly : <a href="mailto:contact@cyberbuddy.io">contact@cyberbuddy.io</a></p>
 		</section>
 	</div>
+
 	<div id="div-test">
 		<section class="qna">
 			<h2>Full Name <span>*</span></h2>
 			<input type="text" id="name" placeholder="Your name" required="Please enter your name">
 		</section>
 	</div>
+
 	<div id="div-test">
 		<section class="qna">
 			<h2>Whatsapp Number <span>*</span></h2>
 			<input type="number" id="number" placeholder="Your number" required="Please enter your valid Whatsapp Number">
 		</section>
 	</div>
+
 	<div id="div-test">
 		<section class="qna">
 			<h2>Your Email ID <span>*</span></h2>
 			<input type="email" id="email" placeholder="Your mail" required="Please enter your valid Whatsapp Number">
 		</section>
 	</div>
+
 	<div id="div-test">
 		<section class="qna">
 			<h2>Willing to spend 3+ hrs per day ? <span>*</span></h2>
@@ -59,6 +94,7 @@
 			<input type="radio" id="maybe" name = ".." value=".."> <label>Maybe</label> </br>
 		</section>
 	</div>
+
 	<div id="div-test">
 		<section class="qna">
 			<h2>Languages you're familiar with <span>*</span></h2>
@@ -69,18 +105,32 @@
 			<input type="radio" id="java"> <label>Java</label> </br>
 		</section>
 	</div>
+
 	<div id="div-test">
 		<section class="qna">
 			<h2>Any queries or message</h2>
 			<input type="text" id="message" placeholder="Your answer" autocomplete="off">
 		</section>
 	</div>
+
 	<footer id="input-test">
 		<input type="submit" placeholder="Submit" onclick="send_message()">
 	</footer>
+
 	<p style="text-align: center;margin: 20px 0px;color: #001F3F;">Made by Team <a style="text-decoration: none;color: black;" href="https://cyberbuddy.io" target="_blank">Cyberbuddy</a></p>
 
-	<input type="button" onclick="hello()" value="Submit">
+	<nav style="position: fixed;bottom: 30px;right: 30px;" class="dropup">
+      <button style="background-color: white;border-radius: 50%;" data-toggle="dropdown">
+        <img width="40px" height="40px" src="Files/ico-fixed.png">
+      </button>
+      <ul class="dropdown-menu" style="border: none;background: transparent;">
+        <li><input style="filter: saturate(0%) brightness(0.6);" checked="on" type="radio" onclick=""></li>
+        <li><input style="filter: grayscale(100%) brightness(2.7);" checked="on" type="radio" onclick="white_bg()"></li><br>
+        <li><input style="filter: saturate(500%) brightness(1.2) hue-rotate(180deg);" checked="on" type="radio" onclick=""></li>
+        <li><input style="filter: brightness(1.2) hue-rotate(280deg);" checked="on" type="radio" onclick="green_bg()"></li>
+        <li><input style="filter: brightness(1.2) hue-rotate(70deg);" checked="on" type="radio" onclick=""></li>
+      </ul>
+  </nav>
 
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
