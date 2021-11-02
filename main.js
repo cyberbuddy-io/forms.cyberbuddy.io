@@ -1,5 +1,15 @@
 var database = firebase.database();
 
+const date = new Date();
+
+function start() {
+  var ele = document.querySelectorAll("input");
+  ele.forEach((e) => {
+    e.disabled = true;
+    e.placeholder = "This form is closed.";
+  });
+}
+
 function send_message() {
   var name = document.getElementById("name").value;
   var number = document.getElementById("number").value;
@@ -15,30 +25,30 @@ function send_message() {
   var java = document.getElementById("java");
   var db = firebase.database();
   if (yes.checked == true) {
-  	db.ref(name + number).push({work : yes.id})
+    db.ref(name + number).push({work : yes.id})
   }
   else if (no.checked == true) {
-  	db.ref(name + number).push({work : no.id})
+    db.ref(name + number).push({work : no.id})
   }
   else {
-  	db.ref(name + number).push({work : maybe.id})
+    db.ref(name + number).push({work : maybe.id})
   }
   if (html.checked == true) {
-  	db.ref(name + number).push({language : html.id})
+    db.ref(name + number).push({language : html.id})
   }
   if (js.checked == true) {
-  	db.ref(name + number).push({language : js.id})
+    db.ref(name + number).push({language : js.id})
   }
   if (python.checked == true) {
-  	db.ref(name + number).push({language : python.id})
+    db.ref(name + number).push({language : python.id})
   }
   if (cpp.checked == true) {
-  	db.ref(name + number).push({language : cpp.id})
+    db.ref(name + number).push({language : cpp.id})
   }
   if (java.checked == true) {
-  	db.ref(name + number).push({language : java.id})
+    db.ref(name + number).push({language : java.id})
   }
-  db.ref(name + number).push({
+  db.ref(name + number + date).push({
     username: name,
     number: number,
     message: message,
@@ -51,23 +61,23 @@ function send_message() {
   );
 }
 
-function green_bg() {
-  var divs = document.querySelectorAll('#div-test');
-  document.getElementById("test").classList.add("green-bg");
-  for (var i = 0; i < divs.length; i++) {
-    divs[i].classList.add('green-bg-div');
-  }
-  document.getElementById("input-test").classList.add("green-bg-input");
-}
-
 function white_bg() {
-  var color_div = document.querySelector("#div-test").classList.value;
   var color_body = document.querySelector("#test").classList.value;
+  document.getElementById("test").classList.remove(color_body);
+  var color_div = document.querySelector("#div-test").classList.value;
   var color_input = document.querySelector("#input-test").classList.value;
   var divs = document.querySelectorAll('#div-test');
-  document.getElementById("test").classList.remove(color_body);
-  for (var i = 0; i < divs.length; i++) {
-    divs[i].classList.remove(color_div);
-  }
+  divs.forEach((e) => {
+    e.classList.remove(color_div);
+  });
   document.getElementById("input-test").classList.remove(color_input);
+}
+
+function green_bg() {
+  document.getElementById("test").classList.add("green-bg");
+  var divs = document.querySelectorAll('#div-test');
+  divs.forEach((e) => {
+    e.classList.add("green-bg-div");
+  });
+  document.getElementById("input-test").classList.add("green-bg-input");
 }
