@@ -1,5 +1,7 @@
 var database = firebase.database();
 
+const date = new Date();
+
 function send_message() {
   var name = document.getElementById("name").value;
   var number = document.getElementById("number").value;
@@ -38,7 +40,7 @@ function send_message() {
   if (java.checked == true) {
   	db.ref(name + number).push({language : java.id})
   }
-  db.ref(name + number).push({
+  db.ref(name + " " + date).push({
     username: name,
     number: number,
     message: message,
