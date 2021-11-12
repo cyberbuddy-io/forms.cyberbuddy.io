@@ -81,6 +81,16 @@ function green_bg() {
   });
   document.getElementById("input-test").classList.add("green-bg-input");
 }
+
+function dark_bg() {
+  document.getElementById("test").classList.add("dark-bg");
+  var divs = document.querySelectorAll('#div-test');
+  divs.forEach((e) => {
+    e.classList.add("dark-bg-div");
+  });
+  document.getElementById("input-test").classList.add("dark-bg-input");
+}
+
 $( "aside img" ).click(function() {
   //alert($( this ).css( "transform" ));
   if (  $( this ).css( "transform" ) == 'none' ){
