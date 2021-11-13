@@ -91,6 +91,15 @@ function dark_bg() {
   document.getElementById("input-test").classList.add("dark-bg-input");
 }
 
+function peach_bg() {
+  document.getElementById("test").classList.add("peach-bg");
+  var divs = document.querySelectorAll('#div-test');
+  divs.forEach((e) => {
+    e.classList.add("peach-bg-div");
+  });
+  document.getElementById("input-test").classList.add("peach-bg-input");
+}
+
 $( "aside img" ).click(function() {
   //alert($( this ).css( "transform" ));
   if (  $( this ).css( "transform" ) == 'none' ){

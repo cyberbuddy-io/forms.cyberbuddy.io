@@ -273,6 +273,48 @@ aside img {
              -2px -3px 14px rgba(444, 444, 444, 0.2);
 }
 
+.peach-bg {
+	background: #F5E8C7;
+	-webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out
+}
+
+.peach-bg-div {
+	background: #F5E8C7;
+	box-shadow:  10px 10px 20px #e4cfbb,
+             -10px -10px 20px #fff9df;
+  -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out
+}
+
+.peach-bg-div:focus-within {
+	box-shadow:  10px 10px 20px rgba(444,444,400,0.4),
+             -10px -10px 20px rgba(444,444,400,0.4);
+  -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out
+}
+
+.peach-bg-input footer input {
+	background: #F5E8C7;
+	box-shadow:  10px 10px 20px #e4cfbb,
+             -10px -10px 20px #fff9df;
+}
+
+.peach-bg-input footer input:focus {
+	box-shadow:  13px 14px 15px rgba(0, 0, 0, 0.2),
+             -10px -14px 15px #ffffff;
+}
+
+
 @media screen and (max-width: 730px) {
 	div{
 		width: 90%;
