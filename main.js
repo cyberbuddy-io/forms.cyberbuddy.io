@@ -100,6 +100,15 @@ function peach_bg() {
   document.getElementById("input-test").classList.add("peach-bg-input");
 }
 
+function purple_bg() {
+  document.getElementById("test").classList.add("purple-bg");
+  var divs = document.querySelectorAll('#div-test');
+  divs.forEach((e) => {
+    e.classList.add("purple-bg-div");
+  });
+  document.getElementById("input-test").classList.add("purple-bg-input");
+}
+
 $( "aside img" ).click(function() {
   //alert($( this ).css( "transform" ));
   if (  $( this ).css( "transform" ) == 'none' ){

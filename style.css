@@ -269,8 +269,8 @@ aside img {
 }
 
 .dark-bg-input input:focus {
-	box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.3),
-             -2px -3px 14px rgba(444, 444, 444, 0.2);
+	box-shadow:   16px 16px 32px #cbc1a5,
+             -16px -16px 32px #ffffe9;
 }
 
 .peach-bg {
@@ -294,8 +294,8 @@ aside img {
 }
 
 .peach-bg-div:focus-within {
-	box-shadow:  10px 10px 20px rgba(444,444,400,0.4),
-             -10px -10px 20px rgba(444,444,400,0.4);
+	box-shadow:    16px 16px 32px #cbc1a5,
+             -16px -16px 32px #ffffe9;
   -webkit-transition: all .2s ease-out;
     -moz-transition: all .2s ease-out;
     -ms-transition: all .2s ease-out;
@@ -303,15 +303,56 @@ aside img {
     transition: all .2s ease-out
 }
 
-.peach-bg-input footer input {
+.peach-bg-input input {
 	background: #F5E8C7;
 	box-shadow:  10px 10px 20px #e4cfbb,
              -10px -10px 20px #fff9df;
 }
 
-.peach-bg-input footer input:focus {
-	box-shadow:  13px 14px 15px rgba(0, 0, 0, 0.2),
-             -10px -14px 15px #ffffff;
+.peach-bg-input input:focus {
+	box-shadow:   16px 16px 32px #cbc1a5,
+             -16px -16px 32px #ffffe9;
+}
+
+.purple-bg {
+	background: #e0c5f7;
+	-webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out
+}
+
+.purple-bg-div {
+	background: #e0c5f7;
+	box-shadow:      14px 14px 30px #c5add9,
+             -14px -14px 30px #fbddff;
+  -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out
+}
+
+.purple-bg-div:focus-within {
+	box-shadow:    18px 18px 36px #bea7d2,
+             -18px -18px 36px #ffe3ff;
+  -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out
+}
+
+.purple-bg-input input {
+	background: #e0c5f7;
+	box-shadow:     14px 14px 30px #c5add9,
+             -14px -14px 30px #fbddff;
+}
+
+.purple-bg-input input:focus {
+	box-shadow:    18px 18px 36px #bea7d2,
+             -18px -18px 36px #ffe3ff;
 }
 
 
