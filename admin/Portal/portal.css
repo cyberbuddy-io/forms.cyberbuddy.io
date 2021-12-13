@@ -1,0 +1,211 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Montserrat", sans-serif;
+	text-decoration: none;
+}
+
+body {
+	background: #F3F3FF;
+	overflow-x: hidden;
+}
+
+input:focus {
+	outline: none;
+}
+
+aside {
+	display: grid;
+	justify-content: center;
+	position: fixed;
+	background-color: #20154D;
+	height: 100vh;
+	width: 100px;
+}
+
+aside div:nth-child(1) {
+	margin-top: 20px;
+	width: 75px;
+	height: 75px;
+	border-radius: 50%;
+	background-color: #EAEBFF;
+}
+
+aside div:nth-child(1) img {
+	position: relative;
+	top: 10px;
+	left: 2px;
+}
+
+figure {
+	position: fixed;
+	bottom: 20px;
+	right: 35px;
+}
+
+figure h2 {
+	position: absolute;
+	font-style: normal;
+	font-weight: 800;
+	font-size: 50px;
+	color: #6E74FF12;
+}
+
+figure span {
+	font-size: 32px;
+}
+
+figure h1 {
+	font-size: 15px;
+	font-weight: 400;
+	margin-left: 22px;
+	margin-top: 22px;
+}
+
+section {
+	margin-left: 100px;
+}
+
+section div:nth-child(1) {
+	height: 100px;
+	display: flex;
+	align-items: center;
+}
+
+section div:nth-child(1) div h2{
+	margin: 0px 30px;
+}
+
+section div:nth-child(1) input:nth-child(1) {
+	height: 40px;
+	width: 380px;
+	font-size: 36px;
+	letter-spacing: 0.14em;
+	background-color: transparent;
+	border: none;
+	border-bottom: solid 3px black;
+}
+
+section div:nth-child(1) div:nth-child(1) {
+	display: flex;
+	width: 40%;
+	height: 100%;
+	margin: auto;
+	margin-left: 150px;
+}
+
+section div:nth-child(1) div:nth-child(2) {
+	display: flex;
+	align-items: center;
+	width: 40%;
+	height: 100%;
+	margin: auto;
+}
+
+section div:nth-child(1) div:nth-child(2) h2:nth-child(1) {
+	font-style: normal;
+	font-weight: 600;
+	font-size: 24px;
+}
+
+section div:nth-child(1) div:nth-child(2) h2:nth-child(3) {
+	font-style: normal;
+	font-weight: 300;
+	font-size: 24px;
+}
+
+section div:nth-child(2) div {
+	width: 648px;
+	min-height: 156px;
+	margin-left: 130px;
+	margin-top: 60px;
+
+	background: #F3F3FF;
+	box-shadow: -8px -7px 16px #FFFFFF, 8px 7px 60px #CFCFD9;
+	border-radius: 11px;
+}
+
+section div:nth-child(2) dir h3 {
+	position: relative;
+	font-weight: normal;
+	font-size: 24px;
+	top: 25px;
+	right: 110px;
+	transform: rotate(90deg);
+}
+
+.back-white {
+	width: 350px;
+	height: 51px;
+	background: #F8FBFF;
+	border-radius: 11px;
+}
+
+.back-white input {
+	font-size: 36px;
+	font-weight: normal;
+	letter-spacing: 0.14em;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

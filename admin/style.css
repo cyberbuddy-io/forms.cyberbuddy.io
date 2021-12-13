@@ -1,0 +1,179 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Montserrat", sans-serif;
+}
+
+body {
+	overflow: hidden;
+}
+
+button:focus {
+	outline: none;
+	border: none;
+}
+
+button {
+	outline: none;
+	border: none;
+}
+
+.side-bar {
+	position: absolute;
+	width: 4%;
+	height: 100vh;
+	background-color: #F1F1FF;
+}
+
+.position-sb {
+	background-color: #F1F1FF;
+	right: 0px;
+}
+
+nav {
+	background-color: white;
+	width: 92%;
+	margin: auto;
+	height: 13vh;
+	display: flex;
+}
+
+nav div:nth-child(1) h2 {
+	position: absolute;
+	z-index: 1;
+	font-style: normal;
+	font-weight: 800;
+	font-size: 64px;
+	line-height: 78px;
+	color: #F0F0FF;
+}
+
+nav div:nth-child(1) span {
+	font-size: 36px;
+}
+
+nav div:nth-child(1) h1 {
+	font-size: 20px;
+	font-weight: 400;
+	z-index: 2;
+	margin-left: 22px;
+	margin-top: 25px;
+}
+
+nav div button h1 {
+	font-style: normal;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 22px;
+}
+
+nav div:nth-child(1) {
+	width: 40%;
+	display: flex;
+	align-items: center;
+}
+
+nav	div:nth-child(2) {
+	width: 50%;
+	display: grid;
+	justify-content: right;
+	align-items: center;
+}
+
+nav div:nth-child(2) h1 {
+	margin-top: 5px;
+	font-size: 34px;
+	color: #031634;
+}
+
+nav	div:nth-child(2) div {
+	display: flex;
+	width: 100%;
+	justify-content: flex-end;
+	padding-bottom: 10px;
+}
+
+nav button {
+	background-color: white;
+	border-radius: 10px;
+	width: 95px;
+	height: 31px;
+}
+
+nav a:nth-child(1) button {
+	border: solid 2px #031634;
+}
+
+nav	a:nth-child(2) button {
+	margin: 0 7px 0 20px;
+	background-color: #031634;
+	border: solid 2px #031634;
+}
+
+nav a h2 {
+	font-size: 18px;
+}
+
+nav	a:nth-child(2) h2 {
+	color: white;
+	font-weight: 600;
+}
+
+nav	div:nth-child(3) {
+	width: 10%;
+	display: grid;
+	place-items: center;
+}
+
+nav div:nth-child(3) img {
+	width: 80px;
+	height: 80px;
+}
+
+section div {
+	width: 92%;
+	margin: auto;
+	display: grid;
+	place-items: center;
+}
+
+section div:nth-child(1) {
+	height: 17vh;
+}
+
+section div:nth-child(1) h1 {
+	margin-top: 30px;
+	font-size: 64px;
+	font-weight: 600;
+}
+
+section div:nth-child(2) {
+	height: 28vh;
+}
+
+section div:nth-child(2) button {
+	width: 155px;
+	height: 160px;
+	background: #EAEBFF;
+	border: 5px solid #D3D5FF;
+	border-radius: 20px;
+	margin-top: 10px;
+}
+
+section div:nth-child(2) h1 {
+	position: relative;
+	bottom: 10px;
+	font-size: 140px;
+	font-weight: 300;
+}
+
+section div:nth-child(3) {
+	height: 40vh;
+}
+
+section div:nth-child(3) img {
+	margin-left: 40px;
+	width: 900px;
+	transform: rotate(9.16deg);
+	filter: opacity(90%) contrast(110%);
+}
