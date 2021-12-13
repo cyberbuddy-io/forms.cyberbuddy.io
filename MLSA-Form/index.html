@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Invitation to the Session</title>
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="Files/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="Files/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="Files/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name=”robots” content=”noindex, nofollow”>
+	<meta name=”robots” content=”index, follow”>
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+	<!-- For SEO -->
+	<link rel="canonical" href="http://blog.cyberbuddy.io/">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<!-- Main CSS -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body id="test">
+
+	<div id="div-test" style="padding: 10px;">
+		<img src="Files/hero.png" style="width: 100%;">
+	</div>
+
+	<div id="div-test">
+		<section class="qna">
+			<h2>Full Name <span>*</span></h2>
+			<input type="text" id="name" placeholder="Your name" required="Please enter your name">
+		</section>
+	</div>
+
+	<div id="div-test">
+		<section class="qna">
+			<h2>Valid Email ID <span>*</span></h2>
+			<input type="email" id="email" placeholder="Your mail" required="Please enter your valid Whatsapp Number">
+		</section>
+	</div>
+
+	<div id="div-test">
+		<section class="qna">
+			<h2>Are you already familiar with GitHub?</h2>
+			<input type="radio" id="yes-git" name = ".." value=".."> <label>Yes</label> </br>
+			<input type="radio" id="no-git" name = ".." value=".."> <label>No</label> </br>
+		</section>
+	</div>
+
+	<div id="div-test">
+		<section class="qna">
+			<h2>Would you like to be nominated as next MLSA?</h2>
+			<input type="radio" id="yes-mlsa" name = "hi" value="hi"> <label>Yes</label> </br>
+			<input type="radio" id="no-mlsa" name = "hi" value="hi"> <label>No</label> </br>
+			<input type="radio" id="maybe-mlsa" name = "hi" value="hi"> <label>Maybe</label> </br>
+		</section>
+	</div>
+
+	<div id="div-test">
+		<section class="qna">
+			<h2>Any queries or topic you would like us to cover in the session?</h2>
+			<input type="text" id="message" placeholder="Your answer" autocomplete="off">
+		</section>
+	</div>
+
+	<footer id="input-test">
+		<input type="submit" placeholder="Submit" onclick="send_message()">
+	</footer>
+
+	<p style="text-align: center;margin: 30px 0px 20px 0;color: black;">Made by Team <a style="text-decoration: none;color: #001F3F;font-weight: 500;" href="https://cyberbuddy.io" target="_blank">Cyberbuddy</a></p>
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+	     https://firebase.google.com/docs/web/setup#available-libraries -->
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase.js"></script>
+
+	<script>
+	  // Your web app's Firebase configuration
+	  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	  	const firebaseConfig = {
+		  apiKey: "AIzaSyBPUu1kxJFWfwzlYqUfrxJoU5hNT0jVjXY",
+		  authDomain: "mlsa-a074e.firebaseapp.com",
+		  projectId: "mlsa-a074e",
+		  storageBucket: "mlsa-a074e.appspot.com",
+		  messagingSenderId: "624218926211",
+		  appId: "1:624218926211:web:c6c052f33e6f330d61bfb6",
+		  measurementId: "G-KSGQVQN6S9"
+		};
+	  // Initialize Firebase
+	  firebase.initializeApp(firebaseConfig);
+	  firebase.analytics();
+	</script>
+	<script src="main.js"></script>
+
+	<!-- Adding JQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+</body>
+</html>
