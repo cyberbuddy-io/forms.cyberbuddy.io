@@ -32,7 +32,18 @@
 
 	<!-- Main CSS -->
 	<link rel="stylesheet" type="text/css" href="style.css">
-
+	<style>
+		aside img {
+			-webkit-transition-duration: 0.5s;
+			-moz-transition-duration: 0.5s;
+			-o-transition-duration: 0.5s;
+			transition-duration: 1s;
+			-webkit-transition-property: -webkit-transform;
+			-moz-transition-property: -moz-transform;
+			-o-transition-property: -o-transform;
+			transition-property: transform;
+			}
+		</style>
 </head>
 
 <body id="test">
@@ -117,8 +128,8 @@
       <button style="background-color: white;border-radius: 50%;" data-toggle="dropdown">
         <img src="Files/ico-fixed.png">
       </button>
-      <ul class="dropdown-menu" style="border: none;background: transparent;">
-        <li><input style="filter: saturate(0%) brightness(0.6);" checked="on" type="radio" onclick=""></li>
+      <ul class="dropdown-menu" style="border: none;background: transparent;transition-delay: 0.4s;">
+        <li><input style="filter: saturate(0%) brightness(0.6);" checked="on" type="radio" onclick="dark_bg()"></li>
         <li><input style="filter: grayscale(100%) brightness(2.7);" checked="on" type="radio" onclick="white_bg()"></li><br>
         <li><input style="filter: saturate(500%) brightness(1.2) hue-rotate(180deg);" checked="on" type="radio" onclick=""></li>
         <li><input style="filter: brightness(1.2) hue-rotate(280deg);" checked="on" type="radio" onclick="green_bg()"></li>
