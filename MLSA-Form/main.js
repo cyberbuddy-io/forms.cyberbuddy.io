@@ -15,48 +15,91 @@ function send_message() {
   var message = document.getElementById("message").value;
   var email = document.getElementById("email").value;
 
-  var yes_mlsa = document.getElementById("yes-mlsa");
-  var no_mlsa = document.getElementById("no-mlsa");
-  var maybe_mlsa = document.getElementById("maybe-mlsa");
+  var yes_mlsa = document.getElementById("yes_mlsa");
+  var no_mlsa = document.getElementById("no_mlsa");
+  var maybe_mlsa = document.getElementById("maybe_mlsa");
 
-  var yes_git = document.getElementById("yes-git");
-  var no_git = document.getElementById("no-git");
+  var yes_git = document.getElementById("yes_git");
+  var no_git = document.getElementById("no_git");
+
+  var institute = document.getElementById("institute").value;
+
+  var btech = document.getElementById("btech");
+  var bca = document.getElementById("bca");
+  var bcom = document.getElementById("bcom");
+  var other_branch = document.getElementById("other_branch");
 
   var db = firebase.database();
 
-  if (yes_mlsa.checked == true) {
-    db.ref(name + date).push({work : yes_mlsa.id})
+  if (name == "") {
+    alert("Please enter your name.")
   }
-  else if (no_mlsa.checked == true) {
-    db.ref(name + date).push({work : no_mlsa.id})
+
+  else if (email == "") {
+    alert("Please enter your email.")
   }
-  else if (maybe_mlsa.checked == true){
-    db.ref(name + date).push({work : maybe_mlsa.id})
-  }
+
   else {
-    
-  }
-
-  if (yes_git.checked == true) {
-    db.ref(name + date).push({work : yes_git.id})
-  }
-  else if (no_git.checked == true) {
-    db.ref(name + date).push({work : no_git.id})
-  }
-  else {
-
-  }
-
-  db.ref(name + date).push({
-    username: name,
-    message: message,
-    email : email
-  })
-  .then(
-    (onResolved) => {
-      window.alert("Great!! You are registered for the session. You can contact us on contact@cyberbuddy.io")
+    if (yes_mlsa.checked == true) {
+      db.ref(name + date).push({work : yes_mlsa.id})
     }
-  );
+    else if (no_mlsa.checked == true) {
+      db.ref(name + date).push({work : no_mlsa.id})
+    }
+    else if (maybe_mlsa.checked == true){
+      db.ref(name + date).push({work : maybe_mlsa.id})
+    }
+    else {
+      
+    }
+
+    if (btech.checked == true) {
+      db.ref(name + date).push({work : btech.id})
+    }
+    else if (bca.checked == true) {
+      db.ref(name + date).push({work : bca.id})
+    }
+    else if (bcom.checked == true){
+      db.ref(name + date).push({work : bcom.id})
+    }
+    else if (other_branch.checked == true){
+      db.ref(name + date).push({work : other_branch.id})
+    }
+    else {
+      
+    }
+
+    if (yes_git.checked == true) {
+      db.ref(name + date).push({work : yes_git.id})
+    }
+    else if (no_git.checked == true) {
+      db.ref(name + date).push({work : no_git.id})
+    }
+    else {
+
+    }
+
+    db.ref(name + date).push({
+      username: name,
+      message: message,
+      email : email,
+      institute : institute
+    })
+    .then(
+      (onResolved) => {
+        window.alert("Great!! You are registered for the session. Youl'll recieve a mail from our side soon. You can contact us on contact@cyberbuddy.io")
+      }
+    );
+  }
+
+  var ele = document.querySelectorAll("input");
+  ele.forEach((e) => {
+    e.value = null;
+    e.checked = false;
+  });
+  
+  var sub = document.getElementById("submit");
+  if (sub.value == "") {sub.value = "Awesome!!";}
 }
 /*
 function white_bg() {
