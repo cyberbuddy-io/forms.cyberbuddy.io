@@ -36,61 +36,21 @@ span{
 h1 {
 	font-size: 30px;
 	font-weight: 700;
-	color: #001F3F;
 }
 
 li {
 	margin-left: 25px;
 }
 
-body {
-	margin: 0;
-	background: #ededed;
-}
 
-div {
-	width: 60%;
-	margin: auto;
-	margin-top: 30px;
-	padding: 20px 0px;
-	border-radius: 12px;
-	background: #ebebeb;
-	box-shadow: 7px 7px 14px #c8c8c8,
-             -7px -7px 10px #ffffff;
-}
 
-div:focus-within {
-  box-shadow: 11px 11px 27px #a6a6a6,
-            -11px -11px 27px #ffffff;
-}
 
-div {
-    -webkit-transition: all .2s ease-out;
-    -moz-transition: all .2s ease-out;
-    -ms-transition: all .2s ease-out;
-    -o-transition: all .2s ease-out;
-    transition: all .2s ease-out;
-}
 
-section {
-	width: 90%;
-	margin: auto;
-}
 
-section h1 {
-	text-align: left;
-	color: RGBA(39,52,82);
-}
 
-section p {
-	font-size: 17px;
-	margin-top: 15px;
-	text-align: left;
-}
 
 .qna h2 {
 	font-size: 21px;
-	color: RGBA(39,52,82);
 	font-weight: 700;
 }
 
@@ -100,19 +60,7 @@ ul {
 	font-size: 16px;
 }
 
-section input {
-	margin-top: 20px;
-	background-color: transparent;
-	width: 50%;
-	border: none;
-	border-bottom-style: solid;
-	border-bottom-color: rgba(4,29,68,0.1);
-}
 
-section input:focus{
-	outline: none;
-	border-bottom-color: rgba(4,29,68,0.8);
-}
 
 input[type="radio"] {
 	width: 3%;
@@ -120,7 +68,7 @@ input[type="radio"] {
 }
 
 input[type="checkbox"] {
-	width: 3%;'
+	width: 3%;
 	height: 15px;
 }
 
