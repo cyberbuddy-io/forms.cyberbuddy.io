@@ -62,18 +62,16 @@ function send_message() {
 }
 
 function white_bg() {
-  var color_body = document.querySelector("#test").classList.value;
-  document.getElementById("test").classList.remove(color_body);
-  var color_div = document.querySelector("#div-test").classList.value;
-  var color_input = document.querySelector("#input-test").classList.value;
+  document.getElementById("test").classList = null;
   var divs = document.querySelectorAll('#div-test');
   divs.forEach((e) => {
-    e.classList.remove(color_div);
+    e.classList = null;
   });
-  document.getElementById("input-test").classList.remove(color_input);
+  document.getElementById("input-test").classList = null;
 }
 
 function green_bg() {
+  white_bg();
   document.getElementById("test").classList.add("green-bg");
   var divs = document.querySelectorAll('#div-test');
   divs.forEach((e) => {
@@ -83,6 +81,7 @@ function green_bg() {
 }
 
 function dark_bg() {
+  white_bg();
   document.getElementById("test").classList.add("dark-bg");
   var divs = document.querySelectorAll('#div-test');
   divs.forEach((e) => {
@@ -92,6 +91,7 @@ function dark_bg() {
 }
 
 function peach_bg() {
+  white_bg();
   document.getElementById("test").classList.add("peach-bg");
   var divs = document.querySelectorAll('#div-test');
   divs.forEach((e) => {
@@ -101,6 +101,7 @@ function peach_bg() {
 }
 
 function purple_bg() {
+  white_bg();
   document.getElementById("test").classList.add("purple-bg");
   var divs = document.querySelectorAll('#div-test');
   divs.forEach((e) => {

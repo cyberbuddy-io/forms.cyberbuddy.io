@@ -180,6 +180,18 @@ aside img {
 	height: 40px;
 }
 
+p {
+	text-align: center;
+	margin: 30px 0px 20px 0;
+}
+
+a {
+	text-decoration: none;
+	color: #001F3F;
+	font-weight: 500;
+	
+}
+
 .green-bg {
 	background: rgba(186,255,201, 0.9);
 }
@@ -221,6 +233,7 @@ aside img {
 .dark-bg-div label {
 	color: #A1A1A3;
 }
+
 .dark-bg-div {
 	background: #26282b;
 	box-shadow: 7px 7px 22px rgba(0, 0, 0, 0.1),
@@ -254,11 +267,13 @@ aside img {
 }
 
 .dark-bg-div section input {
+
 	border-bottom-color: rgba(161,161,163, 0.2);
 }
 
 .dark-bg-div section input:focus {
 	border-bottom-color: rgba(161,161,163, 0.4);
+	color: #CACBCF;
 }
 
 .dark-bg-input input {
@@ -271,6 +286,14 @@ aside img {
 .dark-bg-input input:focus {
 	box-shadow:   16px 16px 32px #cbc1a5,
              -16px -16px 32px #ffffe9;
+}
+
+.dark-bg p {
+	color: white;
+}
+
+.dark-bg a {
+	color: #d9d44e;
 }
 
 .peach-bg {
