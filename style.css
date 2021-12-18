@@ -147,12 +147,6 @@ footer input {
              -7px -7px 14px #ffffff;
 }
 
-.green-bg-input input {
-	background: #BAFFC9;
-	box-shadow:  6px 6px 12px #97cfa3,
-             -6px -6px 12px #ddffef;
-}
-
 footer input:focus {
 	box-shadow:  13px 14px 15px rgba(0, 0, 0, 0.2),
              -10px -14px 15px #ffffff;
@@ -161,11 +155,6 @@ footer input:focus {
     -ms-transition: all .2s ease-out;
     -o-transition: all .2s ease-out;
     animation: all .2s alternate;
-}
-
-.green-bg-input input:focus {
-	box-shadow:  13px 10px 15px #97cfa3,
-             -10px -10px 15px #ddffef;
 }
 
 aside input[type=radio] {
@@ -212,6 +201,17 @@ aside img {
 .green-bg-div:focus-within {
 	box-shadow:  11px 11px 22px #a1d6ad,
              -11px -11px 22px #dfffef;
+}
+
+.green-bg-input input {
+	background: #BAFFC9;
+	box-shadow:  6px 6px 12px #97cfa3,
+             -6px -6px 12px #ddffef;
+ }
+             
+.green-bg-input input:focus {
+	box-shadow:  13px 10px 15px #97cfa3,
+             -10px -10px 15px #ddffef;
 }
 
 .dark-bg {
