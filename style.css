@@ -147,12 +147,6 @@ footer input {
              -7px -7px 14px #ffffff;
 }
 
-.green-bg-input input {
-	background: #BAFFC9;
-	box-shadow:  6px 6px 12px #97cfa3,
-             -6px -6px 12px #ddffef;
-}
-
 footer input:focus {
 	box-shadow:  13px 14px 15px rgba(0, 0, 0, 0.2),
              -10px -14px 15px #ffffff;
@@ -161,11 +155,6 @@ footer input:focus {
     -ms-transition: all .2s ease-out;
     -o-transition: all .2s ease-out;
     animation: all .2s alternate;
-}
-
-.green-bg-input input:focus {
-	box-shadow:  13px 10px 15px #97cfa3,
-             -10px -10px 15px #ddffef;
 }
 
 aside input[type=radio] {
@@ -191,6 +180,18 @@ aside img {
 	height: 40px;
 }
 
+p {
+	text-align: center;
+	margin: 30px 0px 20px 0;
+}
+
+a {
+	text-decoration: none;
+	color: #001F3F;
+	font-weight: 500;
+	
+}
+
 .green-bg {
 	background: rgba(186,255,201, 0.9);
 }
@@ -214,6 +215,17 @@ aside img {
              -11px -11px 22px #dfffef;
 }
 
+.green-bg-input input {
+	background: #BAFFC9;
+	box-shadow:  6px 6px 12px #97cfa3,
+             -6px -6px 12px #ddffef;
+ }
+             
+.green-bg-input input:focus {
+	box-shadow:  13px 10px 15px #97cfa3,
+             -10px -10px 15px #ddffef;
+}
+
 .dark-bg {
 	background: #26282b;
 }
@@ -221,6 +233,7 @@ aside img {
 .dark-bg-div label {
 	color: #A1A1A3;
 }
+
 .dark-bg-div {
 	background: #26282b;
 	box-shadow: 7px 7px 22px rgba(0, 0, 0, 0.1),
@@ -254,11 +267,13 @@ aside img {
 }
 
 .dark-bg-div section input {
+
 	border-bottom-color: rgba(161,161,163, 0.2);
 }
 
 .dark-bg-div section input:focus {
 	border-bottom-color: rgba(161,161,163, 0.4);
+	color: #CACBCF;
 }
 
 .dark-bg-input input {
@@ -269,9 +284,100 @@ aside img {
 }
 
 .dark-bg-input input:focus {
-	box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.3),
-             -2px -3px 14px rgba(444, 444, 444, 0.2);
+	box-shadow:   16px 16px 32px #cbc1a5,
+             -16px -16px 32px #ffffe9;
 }
+
+.dark-bg p {
+	color: white;
+}
+
+.dark-bg a {
+	color: #d9d44e;
+}
+
+.peach-bg {
+	background: #F5E8C7;
+	-webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out
+}
+
+.peach-bg-div {
+	background: #F5E8C7;
+	box-shadow:  10px 10px 20px #e4cfbb,
+             -10px -10px 20px #fff9df;
+  -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out
+}
+
+.peach-bg-div:focus-within {
+	box-shadow:    16px 16px 32px #cbc1a5,
+             -16px -16px 32px #ffffe9;
+  -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out
+}
+
+.peach-bg-input input {
+	background: #F5E8C7;
+	box-shadow:  10px 10px 20px #e4cfbb,
+             -10px -10px 20px #fff9df;
+}
+
+.peach-bg-input input:focus {
+	box-shadow:   16px 16px 32px #cbc1a5,
+             -16px -16px 32px #ffffe9;
+}
+
+.purple-bg {
+	background: #e0c5f7;
+	-webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out
+}
+
+.purple-bg-div {
+	background: #e0c5f7;
+	box-shadow:      14px 14px 30px #c5add9,
+             -14px -14px 30px #fbddff;
+  -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out
+}
+
+.purple-bg-div:focus-within {
+	box-shadow:    18px 18px 36px #bea7d2,
+             -18px -18px 36px #ffe3ff;
+  -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out
+}
+
+.purple-bg-input input {
+	background: #e0c5f7;
+	box-shadow:     14px 14px 30px #c5add9,
+             -14px -14px 30px #fbddff;
+}
+
+.purple-bg-input input:focus {
+	box-shadow:    18px 18px 36px #bea7d2,
+             -18px -18px 36px #ffe3ff;
+}
+
 
 @media screen and (max-width: 730px) {
 	div{
