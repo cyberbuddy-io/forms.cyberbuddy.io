@@ -52,7 +52,7 @@
 		</style>
 </head>
 
-<body onload="start()" id="test">
+<body id="test">
 
 	<div id="div-test" style="padding: 10px;">
 		<img src="Files/hero.png" style="width: 100%;">
@@ -182,7 +182,7 @@
 	</div>
 
 	<footer id="input-test">
-		<input type="submit" value="Next" onclick="send_message1()">
+		<input type="submit" value="Next" onclick="window.open('follow-up.html','_self'),send_message()">
 	</footer>
 
 	<p>Made by Team <a href="https://cyberbuddy.io" target="_blank">Cyberbuddy</a></p>
@@ -225,8 +225,10 @@
 	  firebase.initializeApp(firebaseConfig);
 	  firebase.analytics();
 	</script>
+	<script src="./app.js"></script>
 
-	<script src="/forms.cyberbuddy.io/All-About-Programming/app.js"></script>
+	<!-- Adding JQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 </body>
 </html>

@@ -12,8 +12,13 @@ function start() {
   });
 };
 
+function name_var() {
+  var username = document.getElementById("name").value;
+}
+
 function send_message1() {
-  var name = document.getElementById("name").value;
+  name_var();
+  var name1 = username;
   var number = document.getElementById("number").value;
   var email = document.getElementById("email").value;
   var linkedin = document.getElementById("linkedin").value;
@@ -43,8 +48,8 @@ function send_message1() {
       discord = No;
   }
   var db = firebase.database();
-  db.ref(name + date).set({
-    name: name,
+  db.ref(name1 + date + " next").set({
+    name: name1,
     number: number,
     email : email,
     linkedin : linkedin,
@@ -58,9 +63,12 @@ function send_message1() {
 };
 
 function send_message2() {
+  name_var();
+  var name2 = username;
   var level = null;
   var tech = document.getElementById("tech").value;
   var language = ["html","js","python","cpp","java"];
+  var language_push = "";
   var proj = document.getElementById("proj").value;
   var exp = document.getElementById("exp").value;
   var feed = document.getElementById("feed").value;
@@ -73,12 +81,14 @@ function send_message2() {
   }
   for (var i = 0; i < language.length; i++) {
     if(document.getElementById(language[i]).checked == true) {
-      db.ref(name + date).set({});
+      language_push = language_push + language[i] + ", ";
     }
   }
-  db.ref(name + date).set({
+
+  db.ref(name2 + date).set({
     level : level,
     tech : tech,
+    language : language_push,
     proj : proj,
     exp : exp,
     feed : feed
