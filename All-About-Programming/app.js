@@ -150,7 +150,7 @@ function purple_bg() {
 }
 
 $( "aside img" ).click(function() {
-  //alert($( this ).css( "transform" ));
+  alert($( this ).css( "transform" ));
   if (  $( this ).css( "transform" ) == 'none' ){
       $(this).css("transform","rotate(180deg)");
   } else {

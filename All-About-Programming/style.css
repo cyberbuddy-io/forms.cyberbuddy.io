@@ -284,8 +284,8 @@ a {
 }
 
 .dark-bg-input input:focus {
-	box-shadow:   16px 16px 32px #cbc1a5,
-             -16px -16px 32px #ffffe9;
+	box-shadow:   11px 11px 18px #1e2022,
+			-8px -8px 13px rgba(444, 444, 444, 0.1);
 }
 
 .dark-bg p {
