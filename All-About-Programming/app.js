@@ -1,6 +1,8 @@
+console.log("hi");
+
 var database = firebase.database();
 
-const date = new Date();
+const date = (new Date()).toLocaleDateString('en-US');
 
 function start() {
   var ele = document.querySelectorAll("input");
@@ -8,55 +10,82 @@ function start() {
     e.disabled = true;
     e.placeholder = "This form is closed.";
   });
-}
+};
 
-function send_message() {
+function send_message1() {
   var name = document.getElementById("name").value;
   var number = document.getElementById("number").value;
-  var message = document.getElementById("message").value;
   var email = document.getElementById("email").value;
-  var yes = document.getElementById("yes");
-  var no = document.getElementById("no");
-  var maybe = document.getElementById("maybe");
-  var html = document.getElementById("html");
-  var js = document.getElementById("js");
-  var python = document.getElementById("python");
-  var cpp = document.getElementById("cpp");
-  var java = document.getElementById("java");
+  var linkedin = document.getElementById("linkedin").value;
+  var college = document.getElementById("college").value;
+  var branch = document.getElementById("branch").value;
+  var whatsapp = Yes;
+  var instagram = Yes;
+  var linkedin = Yes;
+  var discord = Yes;
+  var message = document.getElementById("message").value;
+  var year = null;
+  for (var i = 1; i <= 5; i++) {
+    if (document.getElementById("year-"+i).checked == true) {
+      year = "year" + i;
+    }
+  }
+  if (document.getElementById("whatsapp").checked == false) {
+      whatsapp = No;
+  }
+  if (document.getElementById("instagram").checked == false) {
+      instagram = No;
+  }
+  if (document.getElementById("linkedin").checked == false) {
+      linkedin = No;
+  }
+  if (document.getElementById("discord").checked == false) {
+      discord = No;
+  }
   var db = firebase.database();
-  if (yes.checked == true) {
-    db.ref(name + number).push({work : yes.id})
-  }
-  else if (no.checked == true) {
-    db.ref(name + number).push({work : no.id})
-  }
-  else {
-    db.ref(name + number).push({work : maybe.id})
-  }
-  if (html.checked == true) {
-    db.ref(name + number).push({language : html.id})
-  }
-  if (js.checked == true) {
-    db.ref(name + number).push({language : js.id})
-  }
-  if (python.checked == true) {
-    db.ref(name + number).push({language : python.id})
-  }
-  if (cpp.checked == true) {
-    db.ref(name + number).push({language : cpp.id})
-  }
-  if (java.checked == true) {
-    db.ref(name + number).push({language : java.id})
-  }
-  db.ref(name + number + date).push({
-    username: name,
+  db.ref(name + date).set({
+    name: name,
     number: number,
-    message: message,
-    email : email
+    email : email,
+    linkedin : linkedin,
+    college : college,
+    branch : branch,
+    whatsapp : whatsapp,
+    instagram : instagram,
+    linkedin : linkedin,
+    discord : discord
+  });
+};
+
+function send_message2() {
+  var level = null;
+  var tech = document.getElementById("tech").value;
+  var language = ["html","js","python","cpp","java"];
+  var proj = document.getElementById("proj").value;
+  var exp = document.getElementById("exp").value;
+  var feed = document.getElementById("feed").value;
+  var db = firebase.database();
+
+  for (var i = 1; i <= 3; i++) {  //coding level
+    if (document.getElementById("level-"+i).checked == true) {
+      level = "level" + i;
+    }
+  }
+  for (var i = 0; i < language.length; i++) {
+    if(document.getElementById(language[i]).checked == true) {
+      db.ref(name + date).set({});
+    }
+  }
+  db.ref(name + date).set({
+    level : level,
+    tech : tech,
+    proj : proj,
+    exp : exp,
+    feed : feed
   })
   .then(
     (onResolved) => {
-      window.alert("Your response has been sent. We'll contact you soon on your Email ID. You can contact us on contact@cyberbuddy.io")
+      window.alert("Your response has been sent. We'll contact you soon.")
     }
   );
 }
