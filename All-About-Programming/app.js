@@ -1,7 +1,3 @@
-console.log("hi");
-
-var database = firebase.database();
-
 const date = (new Date()).toLocaleDateString('en-US');
 
 function start() {
@@ -12,23 +8,19 @@ function start() {
   });
 };
 
-function name_var() {
-  var username = document.getElementById("name").value;
-}
+let name1;
 
 function send_message1() {
-  name_var();
-  var name1 = username;
+  name1 = document.getElementById("name").value;
   var number = document.getElementById("number").value;
   var email = document.getElementById("email").value;
   var linkedin = document.getElementById("linkedin").value;
   var college = document.getElementById("college").value;
   var branch = document.getElementById("branch").value;
-  var whatsapp = Yes;
-  var instagram = Yes;
-  var linkedin = Yes;
-  var discord = Yes;
-  var message = document.getElementById("message").value;
+  var whatsapp = "Yes";
+  var instagram = "Yes";
+  var linkedin = "Yes";
+  var discord = "Yes";
   var year = null;
   for (var i = 1; i <= 5; i++) {
     if (document.getElementById("year-"+i).checked == true) {
@@ -36,19 +28,20 @@ function send_message1() {
     }
   }
   if (document.getElementById("whatsapp").checked == false) {
-      whatsapp = No;
+      whatsapp = "No";
   }
   if (document.getElementById("instagram").checked == false) {
-      instagram = No;
+      instagram = "No";
   }
   if (document.getElementById("linkedin").checked == false) {
-      linkedin = No;
+      linkedin = "No";
   }
   if (document.getElementById("discord").checked == false) {
-      discord = No;
+      discord = "No";
   }
   var db = firebase.database();
-  db.ref(name1 + date + " next").set({
+  db.ref(name1).set({
+    date : date,
     name: name1,
     number: number,
     email : email,
@@ -59,12 +52,23 @@ function send_message1() {
     instagram : instagram,
     linkedin : linkedin,
     discord : discord
+  })
+  .then( (onResolved) => {
+    document.getElementById("form-1").style.display = "none";
+    document.getElementById("form-2").style.display = "unset";
+    document.getElementById("username").innerHTML = name1;
+    window.scrollTo(0,0);
   });
-};
+}
+
+function back() {
+  document.getElementById("form-1").style.display = "unset";
+  document.getElementById("form-2").style.display = "none";
+  window.scrollTo(0,0);
+}
 
 function send_message2() {
-  name_var();
-  var name2 = username;
+  const name2 = document.getElementById("username").innerHTML; 
   var level = null;
   var tech = document.getElementById("tech").value;
   var language = ["html","js","python","cpp","java"];
@@ -85,7 +89,7 @@ function send_message2() {
     }
   }
 
-  db.ref(name2 + date).set({
+  db.ref(name1).push({
     level : level,
     tech : tech,
     language : language_push,
@@ -95,7 +99,8 @@ function send_message2() {
   })
   .then(
     (onResolved) => {
-      window.alert("Your response has been sent. We'll contact you soon.")
+      window.alert("Your response has been sent. We'll contact you soon.");
+      window.scrollTo(0,0);
     }
   );
 }
@@ -150,7 +155,7 @@ function purple_bg() {
 }
 
 $( "aside img" ).click(function() {
-  alert($( this ).css( "transform" ));
+  /*alert($( this ).css( "transform" ));*/
   if (  $( this ).css( "transform" ) == 'none' ){
       $(this).css("transform","rotate(180deg)");
   } else {
