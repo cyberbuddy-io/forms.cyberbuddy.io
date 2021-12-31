@@ -1,5 +1,17 @@
 const date = new Date();
 
+document.getElementById('other_lang').addEventListener('focus', function() {
+  document.getElementById('other_lang_check').checked = true;
+});
+
+document.getElementById('other_lang').addEventListener('blur', function() {
+  document.getElementById('other_lang_check').checked = false;
+});
+
+document.getElementById('other_lang_check').addEventListener('click', function() {
+  document.getElementById('other_lang').focus();
+});
+
 function start() {
   var ele = document.querySelectorAll("input");
   ele.forEach((e) => {
@@ -46,7 +58,7 @@ function send_message1() {
 
   var bin = 0;
   var fields = [name1, number, email, linkedin, college, branch];
-  for (var i = 0; i <= (fields.length - 1) ; i++) {
+  for (var i = 0; i < fields.length ; i++) {
     if (fields[i].value == '') {
       fields[i].focus();
       snackbar();
@@ -94,6 +106,7 @@ function send_message2() {
   var tech = document.getElementById("tech").value;
   var language = ["html","js","python","cpp","java"];
   var language_push = "";
+  var other_lang = document.getElementById("other_lang").value;
   var proj = document.getElementById("proj").value;
   var exp = document.getElementById("exp").value;
   var feed = document.getElementById("feed").value;
@@ -110,6 +123,8 @@ function send_message2() {
     }
   }
 
+  language_push += other_lang;
+
   db.ref(name2).push({
     level : level,
     tech : tech,
@@ -121,9 +136,8 @@ function send_message2() {
   .then(
     (onResolved) => {
       window.alert("Your response has been sent. We'll contact you soon.");
-      window.scrollTo(0,0);
-    }
-  );
+      back();
+  });
 }
 
 function white_bg() {
