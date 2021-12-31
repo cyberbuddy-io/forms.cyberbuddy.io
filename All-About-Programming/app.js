@@ -1,4 +1,4 @@
-const date = (new Date()).toLocaleDateString('en-US');
+const date = new Date();
 
 function start() {
   var ele = document.querySelectorAll("input");
@@ -8,18 +8,22 @@ function start() {
   });
 };
 
-let name1;
+function snackbar() {
+  var x = document.getElementById("snackbar");
+  x.className = "show";
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
 
 function send_message1() {
-  name1 = document.getElementById("name").value;
-  var number = document.getElementById("number").value;
-  var email = document.getElementById("email").value;
-  var linkedin = document.getElementById("linkedin").value;
-  var college = document.getElementById("college").value;
-  var branch = document.getElementById("branch").value;
+  var name1 = document.getElementById("name");
+  var number = document.getElementById("number");
+  var email = document.getElementById("email");
+  var linkedin = document.getElementById("linkedin");
+  var college = document.getElementById("college");
+  var branch = document.getElementById("branch");
   var whatsapp = "Yes";
   var instagram = "Yes";
-  var linkedin = "Yes";
+  var linkedin1 = "Yes";
   var discord = "Yes";
   var year = null;
   for (var i = 1; i <= 5; i++) {
@@ -33,32 +37,49 @@ function send_message1() {
   if (document.getElementById("instagram").checked == false) {
       instagram = "No";
   }
-  if (document.getElementById("linkedin").checked == false) {
-      linkedin = "No";
+  if (document.getElementById("linkedin1").checked == false) {
+      linkedin1 = "No";
   }
   if (document.getElementById("discord").checked == false) {
       discord = "No";
   }
-  var db = firebase.database();
-  db.ref(name1).set({
-    date : date,
-    name: name1,
-    number: number,
-    email : email,
-    linkedin : linkedin,
-    college : college,
-    branch : branch,
-    whatsapp : whatsapp,
-    instagram : instagram,
-    linkedin : linkedin,
-    discord : discord
-  })
-  .then( (onResolved) => {
-    document.getElementById("form-1").style.display = "none";
-    document.getElementById("form-2").style.display = "unset";
-    document.getElementById("username").innerHTML = name1;
-    window.scrollTo(0,0);
-  });
+
+  var bin = 0;
+  var fields = [name1, number, email, linkedin, college, branch];
+  for (var i = 0; i <= (fields.length - 1) ; i++) {
+    if (fields[i].value == '') {
+      fields[i].focus();
+      snackbar();
+      break;
+    }
+  }
+  if (name1.value != '' && number.value != '' && email.value != '' && linkedin.value != '' && college.value != '' && branch.value != '') {
+    bin = 1;
+  }
+
+  var p_key = name1.value;
+  if (bin == 1) {
+    var db = firebase.database();
+    db.ref(p_key).set({
+      date : date,
+      name: name1.value,
+      number: number.value,
+      email : email.value,
+      linkedin : linkedin.value,
+      college : college.value,
+      branch : branch.value,
+      whatsapp : whatsapp,
+      instagram : instagram,
+      linkedin : linkedin1,
+      discord : discord
+    })
+    .then( (onResolved) => {
+      document.getElementById("form-1").style.display = "none";
+      document.getElementById("form-2").style.display = "unset";
+      document.getElementById("username").innerHTML = name1.value;
+      window.scrollTo(0,0);
+    });
+  }
 }
 
 function back() {
@@ -89,7 +110,7 @@ function send_message2() {
     }
   }
 
-  db.ref(name1).push({
+  db.ref(name2).push({
     level : level,
     tech : tech,
     language : language_push,
@@ -177,3 +198,4 @@ $( "aside img" ).click(function() {
       $(this).css("transform","" );
   }
 });
+
