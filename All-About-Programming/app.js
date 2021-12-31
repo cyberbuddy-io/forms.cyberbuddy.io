@@ -111,7 +111,10 @@ function white_bg() {
   divs.forEach((e) => {
     e.classList = null;
   });
-  document.getElementById("input-test").classList = null;
+  var btns = document.querySelectorAll('#input-test');
+  btns.forEach((e) => {
+    e.classList = null;
+  });
 }
 
 function green_bg() {
@@ -121,7 +124,10 @@ function green_bg() {
   divs.forEach((e) => {
     e.classList.add("green-bg-div");
   });
-  document.getElementById("input-test").classList.add("green-bg-input");
+  var btns = document.querySelectorAll('#input-test');
+  btns.forEach((e) => {
+    e.classList.add("green-bg-input");
+  });
 }
 
 function dark_bg() {
@@ -131,7 +137,10 @@ function dark_bg() {
   divs.forEach((e) => {
     e.classList.add("dark-bg-div");
   });
-  document.getElementById("input-test").classList.add("dark-bg-input");
+  var btns = document.querySelectorAll('#input-test');
+  btns.forEach((e) => {
+    e.classList.add("dark-bg-input");
+  });
 }
 
 function peach_bg() {
@@ -141,7 +150,10 @@ function peach_bg() {
   divs.forEach((e) => {
     e.classList.add("peach-bg-div");
   });
-  document.getElementById("input-test").classList.add("peach-bg-input");
+  var btns = document.querySelectorAll('#input-test');
+  btns.forEach((e) => {
+    e.classList.add("peach-bg-input");
+  });
 }
 
 function purple_bg() {
@@ -151,7 +163,10 @@ function purple_bg() {
   divs.forEach((e) => {
     e.classList.add("purple-bg-div");
   });
-  document.getElementById("input-test").classList.add("purple-bg-input");
+  var btns = document.querySelectorAll('#input-test');
+  btns.forEach((e) => {
+    e.classList.add("purple-bg-input");
+  });
 }
 
 $( "aside img" ).click(function() {
