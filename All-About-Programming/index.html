@@ -55,10 +55,11 @@
 <body id="test">
 
 	<content id="form-1">
-		<form id="form1">
 		<div id="div-test" style="padding: 10px;">
 			<img src="Files/hero.png" style="width: 100%;">
 		</div>
+
+		<hello id="snackbar">Please enter valid value.</hello>
 
 		<div id="div-test">
 			<section>
@@ -170,7 +171,7 @@
 				<h2>Have you followed us on Linkedin? <span>*</span></h2>
 				<a class="truncate" style="font-size: 13px; opacity: 0.8;" href="https://www.linkedin.com/company/all-about-programming/">https://www.linkedin.com/company/all-about-programming/</a><br>
 				<input type="radio" id="Yes_l" name = "...." value="...."> <label>Yes</label> </br>
-				<input type="radio" id="linkedin" name = "...." value="...."> <label>No</label> </br>
+				<input type="radio" id="linkedin1" name = "...." value="...."> <label>No</label> </br>
 			</section>
 		</div>
 
@@ -186,7 +187,6 @@
 		<footer id="input-test">
 			<input type="submit" value="Next" onclick="send_message1()">
 		</footer>
-		</form>
 	</content>
 
 	<content id="form-2">
@@ -231,7 +231,7 @@
 
 		<div id="div-test">
 			<section class="qna">
-				<h2>Technologies familiar with? <span>*</span></h2>
+				<h2>Technologies familiar with?</h2>
 				<input type="text" id="tech" placeholder="Your answer" required="Please enter your valid answer">
 			</section>
 		</div>
@@ -244,6 +244,8 @@
 				<input type="checkbox" id="python"> <label>Python</label> </br>
 				<input type="checkbox" id="cpp"> <label>C or C++</label> </br>
 				<input type="checkbox" id="java"> <label>Java</label> </br>
+				<input type="checkbox" id="other_lang_check">
+				<input type="text" id="other_lang" placeholder="Other language">
 			</section>
 		</div>
 
