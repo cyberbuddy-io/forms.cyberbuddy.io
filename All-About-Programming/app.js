@@ -36,7 +36,7 @@ function send_message1() {
   var whatsapp = "Yes";
   var instagram = "Yes";
   var linkedin1 = "Yes";
-  var discord = "Yes";
+  var telegram = "Yes";
   var year = null;
   for (var i = 1; i <= 5; i++) {
     if (document.getElementById("year-"+i).checked == true) {
@@ -52,8 +52,8 @@ function send_message1() {
   if (document.getElementById("linkedin1").checked == false) {
       linkedin1 = "No";
   }
-  if (document.getElementById("discord").checked == false) {
-      discord = "No";
+  if (document.getElementById("telegram").checked == false) {
+      telegram = "No";
   }
 
   var bin = 0;
@@ -83,7 +83,7 @@ function send_message1() {
       whatsapp : whatsapp,
       instagram : instagram,
       linkedin : linkedin1,
-      discord : discord
+      telegram : telegram
     })
     .then( (onResolved) => {
       document.getElementById("form-1").style.display = "none";
