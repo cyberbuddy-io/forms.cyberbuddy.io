@@ -135,8 +135,10 @@ function send_message2() {
   })
   .then(
     (onResolved) => {
-      window.alert("Your response has been sent. We'll contact you soon.");
-      back();
+      document.getElementById("form-1").style.display = "none";
+      document.getElementById("form-2").style.display = "none";
+      document.getElementById("form-3").style.display = "unset";
+      window.scrollTo(0,0);
   });
 }
 
