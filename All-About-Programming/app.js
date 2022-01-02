@@ -82,7 +82,7 @@ function send_message1() {
       branch : branch.value,
       whatsapp : whatsapp,
       instagram : instagram,
-      linkedin : linkedin1,
+      linkedin1 : linkedin1,
       telegram : telegram
     })
     .then( (onResolved) => {
