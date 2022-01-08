@@ -1,4 +1,4 @@
-const date = new Date();
+var date = new Date();
 
 document.getElementById('other_lang').addEventListener('focus', function() {
   document.getElementById('other_lang_check').checked = true;
@@ -31,38 +31,35 @@ function snackbar() {
   setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
 
-function send_message1() {
+function send_message() {
   var name1 = document.getElementById("name");
   var number = document.getElementById("number");
   var email = document.getElementById("email");
-  var linkedin = document.getElementById("linkedin");
-  var college = document.getElementById("college");
-  var branch = document.getElementById("branch");
-  var whatsapp = "Yes";
-  var instagram = "Yes";
-  var linkedin1 = "Yes";
-  var telegram = "Yes";
-  var year = null;
-  for (var i = 1; i <= 5; i++) {
-    if (document.getElementById("year-"+i).checked == true) {
-      year = "year" + i;
+  var html = document.getElementById("html");
+  var css = document.getElementById("css");
+  var js = document.getElementById("js");
+  var other_lang = document.getElementById("other_lang");
+  var other_lang_check = document.getElementById("other_lang_check");
+  var other_tech = document.getElementById("other_tech");
+  var ques = document.getElementById("ques");
+
+  var checkboxes = [html,css,js,other_lang_check];
+  var check_done = true;
+  var languages = "";
+  for (var i = 0; i < checkboxes.length ; i++) {
+    if (checkboxes[0].checked == false && checkboxes[1].checked == false && checkboxes[2].checked == false && checkboxes[3].checked == false) {
+      other_lang.focus();
+      snackbar();
+      check_done = false;
+      break;
     }
-  }
-  if (document.getElementById("whatsapp").checked == false) {
-      whatsapp = "No";
-  }
-  if (document.getElementById("instagram").checked == false) {
-      instagram = "No";
-  }
-  if (document.getElementById("linkedin1").checked == false) {
-      linkedin1 = "No";
-  }
-  if (document.getElementById("telegram").checked == false) {
-      telegram = "No";
+    if (checkboxes[i].checked) {
+      languages += checkboxes[i].id + ' ';
+    }
   }
 
   var bin = 0;
-  var fields = [name1, number, email, linkedin, college, branch];
+  var fields = [name1, number, email];
   for (var i = 0; i < fields.length ; i++) {
     if (fields[i].value == '') {
       fields[i].focus();
@@ -70,7 +67,7 @@ function send_message1() {
       break;
     }
   }
-  if (name1.value != '' && number.value != '' && email.value != '' && linkedin.value != '' && college.value != '' && branch.value != '') {
+  if (name1.value != '' && number.value != '' && email.value != '' && check_done == true) {
     bin = 1;
   }
 
@@ -82,18 +79,15 @@ function send_message1() {
       name: name1.value,
       number: number.value,
       email : email.value,
-      linkedin : linkedin.value,
-      college : college.value,
-      branch : branch.value,
-      whatsapp : whatsapp,
-      instagram : instagram,
-      linkedin1 : linkedin1,
-      telegram : telegram
+      languages : languages,
+      other_lang : other_lang.value,
+      other_tech : other_tech.value,
+      ques : ques.value
     })
     .then( (onResolved) => {
       document.getElementById("form-1").style.display = "none";
       document.getElementById("form-2").style.display = "unset";
-      document.getElementById("username").innerHTML = name1.value;
+      document.getElementById("name-enter").innerHTML = name1.value;
       window.scrollTo(0,0);
     });
   }
@@ -103,48 +97,6 @@ function back() {
   document.getElementById("form-1").style.display = "unset";
   document.getElementById("form-2").style.display = "none";
   window.scrollTo(0,0);
-}
-
-function send_message2() {
-  const name2 = document.getElementById("username").innerHTML; 
-  var level = null;
-  var tech = document.getElementById("tech").value;
-  var language = ["html","js","python","cpp","java"];
-  var language_push = "";
-  var other_lang = document.getElementById("other_lang").value;
-  var proj = document.getElementById("proj").value;
-  var exp = document.getElementById("exp").value;
-  var feed = document.getElementById("feed").value;
-  var db = firebase.database();
-
-  for (var i = 1; i <= 3; i++) {  //coding level
-    if (document.getElementById("level-"+i).checked == true) {
-      level = "level" + i;
-    }
-  }
-  for (var i = 0; i < language.length; i++) {
-    if(document.getElementById(language[i]).checked == true) {
-      language_push = language_push + language[i] + ", ";
-    }
-  }
-
-  language_push += other_lang;
-
-  db.ref(name2).push({
-    level : level,
-    tech : tech,
-    language : language_push,
-    proj : proj,
-    exp : exp,
-    feed : feed
-  })
-  .then(
-    (onResolved) => {
-      document.getElementById("form-1").style.display = "none";
-      document.getElementById("form-2").style.display = "none";
-      document.getElementById("form-3").style.display = "unset";
-      window.scrollTo(0,0);
-  });
 }
 
 function white_bg() {

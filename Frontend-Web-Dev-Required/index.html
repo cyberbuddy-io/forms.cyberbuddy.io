@@ -58,7 +58,7 @@
 			<img src="Files/hero.png" style="width: 100%;">
 		</div>
 
-		<hello id="snackbar">Please enter valid value.</hello>
+		<hello id="snackbar">Kindly fill fields marked with *</hello>
 
 		<div id="div-test">
 			<section>
@@ -110,7 +110,7 @@
 
 		<div id="div-test">
 			<section class="qna">
-				<h2>Any other Web Technologies you are familiar with: <span>*</span></h2>
+				<h2>Any other Web Technologies you are familiar with</h2>
 				<input type="text" id="other_tech" placeholder="Your input" required="Please enter your valid Email ID">
 			</section>
 		</div>
@@ -121,20 +121,24 @@
 				<input type="text" id="ques" placeholder="Your input">
 			</section>
 		</div>
+
+		<footer id="input-test">
+			<input type="submit" value="Submit" onclick="send_message()">
+		</footer>
 	</content>
 
 	<content id="form-2">
+		<div id="div-test" style="padding: 10px;">
+			<img src="Files/hero.png" style="width: 100%;">
+		</div>
+		
 		<div id="div-test">
 			<section class="qna">
 				<h6 style="font-size: 15px"><span>To refill the form, reload the page.</span></h6>
-				<h1>Thank you for filling out this form. We will contact you soon.</h1>
+				<h1>Thank you <span id="name-enter"></span> for filling out this form. We will contact you soon.</h1>
 			</section>
 		</div>
 	</content>
-
-	<footer id="input-test">
-		<input type="submit" value="Submit" onclick="send_message()">
-	</footer>
 
 	<p>Made by Team <a href="https://cyberbuddy.io" target="_blank">Cyberbuddy</a><br> <span style="font-size: 16px;"></p>
 
