@@ -100,7 +100,7 @@ function send_message() {
   let other_field = document.getElementById('other_field');
 
   let i_fields = [webdev, android, data, ml, dsa, devops, other_field_check];
-  let fields = " ";
+  let fields_of_in = " ";
   let i_fields_done = true;
   for (var i = 0; i < i_fields.length ; i++) {
     if (i_fields[0].checked == false && i_fields[1].checked == false && i_fields[2].checked == false && i_fields[3].checked == false && i_fields[4].checked == false && i_fields[5].checked == false && i_fields[6].checked == false) {
@@ -110,7 +110,7 @@ function send_message() {
       break;
     }
     if (i_fields[i].checked) {
-      fields += i_fields[i].id + ' ';
+      fields_of_in += i_fields[i].id + ' ';
     }
   }
 
@@ -136,7 +136,7 @@ function send_message() {
       email : email.value,
       git : gitcheck,
       languages : languages,
-      fields : fields,
+      fields : fields_of_in,
       ques : ques.value
     })
     .then( (onResolved) => {
@@ -226,4 +226,3 @@ $( "aside img" ).click(function() {
       $(this).css("transform","" );
   }
 });
-
