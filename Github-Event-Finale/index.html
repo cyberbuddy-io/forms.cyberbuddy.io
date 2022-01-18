@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GitHub Event Open Source Contributions</title>
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="Files/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="Files/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="Files/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name=”robots” content=”noindex, nofollow”>
+	<meta name=”robots” content=”index, follow”>
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+	<!-- For SEO -->
+	<link rel="canonical" href="http://blog.cyberbuddy.io/">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<!-- Main CSS -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style>
+		aside img {
+			-webkit-transition-duration: 0.5s;
+			-moz-transition-duration: 0.5s;
+			-o-transition-duration: 0.5s;
+			transition-duration: 1s;
+			-webkit-transition-property: -webkit-transform;
+			-moz-transition-property: -moz-transform;
+			-o-transition-property: -o-transform;
+			transition-property: transform;
+			}
+
+		.truncate{
+		  overflow: hidden;
+		  text-overflow: ellipsis;
+		  word-wrap: break-word;
+		}
+		</style>
+</head>
+
+<body onload="start()" id="test">
+	<content id="form-1">
+		<div id="div-test" style="padding: 10px;">
+			<img src="Files/hero.png" style="width: 100%;">
+		</div>
+
+		<hello id="snackbar">Kindly fill fields marked with *</hello>
+
+		<div id="div-test">
+			<section>
+				<h1>Join us <span>Tomorrow</span></h1>
+				<p>Team Cyberbuddy welcomes members of <a href="cyberbuddy.io/All-About-Programming">All About Programming</a> community to learn about the world of Open Source and add their first contributions to it's repository listed at <a href="https://github.com.cyberbuddy-io/open-source-contribution-for-beginners">GitHub</a>.</p>
+				<p><b>Event Timings: </b>Sunday 9<sup>th</sup> 22' 4:00-5:00PM</p>
+				<p style="margin-top: 35px;"><b>What's in it for you</b></p>
+				<ol>
+					<li>Learn about <b>GIT</b>, the most used tool in the corporates for managing projects.</li>
+					<li>Get a push start in the field of <b>Open Source</b>.</li>
+					<li>Certificate of accomplishment from Microsoft Learn Student Ambassador.</li>
+					<li><b>Stickers</b> for your laptops customised according to your GitHub<b> Username</b> just for you.</li>
+				</ol>
+				<p style="margin-top: 30px;">Connect with Speaker 1: <a href="https://linkedin.com/in/cyberbuddy-manas">linkedin.com/in/cyberbuddy-manas</a></p>
+				<p>Connect with Speaker 2: <a href="https://www.linkedin.com/in/pacific-prashant/">linkedin.com/in/pacific-prashant/</a></p>
+				<p>Contact us at: <a href="mailto:contact@cyberbuddy.io">contact@cyberbuddy.io</a></p>
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Full Name <span>*</span></h2>
+				<input type="text" id="name" placeholder="Your name" required="Please enter your name">
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Email <span>*</span></h2>
+				<input type="email" id="email" placeholder="Your mail" required="Please enter your valid Email ID">
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Are you already familiar with GitHub? <span>*</span></h2>
+				<input type="radio" id="yes_git" name = ".." value=".."> <label>Yes</label> </br>
+				<input type="radio" id="no_git" name = ".." value=".."> <label>No</label> </br>
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Languages you're familiar with <span>*</span></h2>
+				<input type="checkbox" id="html"> <label>HTML & CSS</label> </br>
+				<input type="checkbox" id="js"> <label>JavaScript</label> </br>
+				<input type="checkbox" id="cpp"> <label>C++</label> </br>
+				<input type="checkbox" id="python"> <label>Python</label> </br>
+				<input type="checkbox" id="java"> <label>Java</label> </br>
+				<input type="checkbox" id="other_lang_check">
+				<input type="text" id="other_lang" placeholder="Other language">
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Fields of interest <span>*</span></h2>
+				<input type="checkbox" id="webdev"> <label>Web Development</label> </br>
+				<input type="checkbox" id="android"> <label>Android Development</label> </br>
+				<input type="checkbox" id="data"> <label>Data Science</label> </br>
+				<input type="checkbox" id="ml"> <label>Machine Learning</label> </br>
+				<input type="checkbox" id="dsa"> <label>Data Structures and Algorithms</label> </br>
+				<input type="checkbox" id="devops"> <label>Dev Ops</label> </br>
+				<input type="checkbox" id="other_field_check">
+				<input type="text" id="other_field" placeholder="Other field">
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Any questions for us?</h2>
+				<input type="text" id="ques" placeholder="Your input">
+			</section>
+		</div>
+
+		<footer id="input-test">
+			<input type="submit" value="Submit" onclick="send_message()">
+		</footer>
+	</content>
+
+	<content id="form-2">
+		<div id="div-test" style="padding: 10px;">
+			<img src="Files/hero.png" style="width: 100%;">
+		</div>
+		
+		<div id="div-test">
+			<section class="qna">
+				<h6 style="font-size: 15px"><span>To refill the form, reload the page.</span></h6>
+				<h1>Thank you <span id="name-enter"></span> for filling out this form. We will contact you soon.</h1>
+			</section>
+		</div>
+	</content>
+
+	<p>Made by Team <a href="https://cyberbuddy.io" target="_blank">Cyberbuddy</a><br> <span style="font-size: 16px;"></p>
+
+	<aside style="position: fixed;bottom: 30px;right: 30px;" class="dropup">
+      <button style="background-color: white;border-radius: 50%;" data-toggle="dropdown">
+        <img src="Files/ico-fixed.png">
+      </button>
+      <ul class="dropdown-menu" style="border: none;background: transparent;transition-delay: 0.4s;">
+        <li><input style="filter: saturate(0%) brightness(0.6);" checked="on" type="radio" onclick="dark_bg()"></li>
+        <li><input style="filter: grayscale(100%) brightness(2.7);" checked="on" type="radio" onclick="white_bg()"></li><br>
+        <li><input style="filter: saturate(500%) brightness(1.2) hue-rotate(180deg);" checked="on" type="radio" onclick="peach_bg()"></li>
+        <li><input style="filter: brightness(1.2) hue-rotate(280deg);" checked="on" type="radio" onclick="green_bg()"></li>
+        <li><input style="filter: brightness(1.2) hue-rotate(70deg);" checked="on" type="radio" onclick="purple_bg()"></li>
+      </ul>
+  </aside>
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+	     https://firebase.google.com/docs/web/setup#available-libraries -->
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase.js"></script>
+
+	<script>
+	  // Your web app's Firebase configuration
+	  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	  const firebaseConfig = {
+	    apiKey: "AIzaSyDJwT6AW78BN0bBc9N-uz7VeRLHDmYZ9_8",
+	    authDomain: "git-event-sunday8th.firebaseapp.com",
+	    projectId: "git-event-sunday8th",
+	    storageBucket: "git-event-sunday8th.appspot.com",
+	    messagingSenderId: "823327290684",
+	    appId: "1:823327290684:web:e170a70a98ae403e34da39",
+	    measurementId: "G-PP83GN719X"
+	  };
+	  // Initialize Firebase
+	  firebase.initializeApp(firebaseConfig);
+	  firebase.analytics();
+	</script>
+	<script src="./main.js"></script>
+	<script src="./app.js"></script>
+
+	<!-- Adding JQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+</body>
+</html>
