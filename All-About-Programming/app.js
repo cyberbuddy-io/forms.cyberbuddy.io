@@ -1,4 +1,4 @@
-const date = new Date();
+let date = new Date();
 
 document.getElementById('other_lang').addEventListener('focus', function() {
   document.getElementById('other_lang_check').checked = true;
