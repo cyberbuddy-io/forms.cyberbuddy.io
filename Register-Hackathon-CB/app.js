@@ -35,7 +35,6 @@ function send_message() {
     bin = 1;
   }
 
-  var p_key = name1.value;
   if (bin == 1) {
     var db = firebase.database();
     db.ref("1/").push({
