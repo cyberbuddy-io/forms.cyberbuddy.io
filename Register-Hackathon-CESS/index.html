@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register for HACKATHON '22</title>
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="Files/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="Files/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="Files/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name=”robots” content=”noindex, nofollow”>
+	<meta name=”robots” content=”index, follow”>
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+	<!-- For SEO -->
+	<link rel="canonical" href="http://blog.cyberbuddy.io/">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<!-- Main CSS -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style>
+		aside img {
+			-webkit-transition-duration: 0.5s;
+			-moz-transition-duration: 0.5s;
+			-o-transition-duration: 0.5s;
+			transition-duration: 1s;
+			-webkit-transition-property: -webkit-transform;
+			-moz-transition-property: -moz-transform;
+			-o-transition-property: -o-transform;
+			transition-property: transform;
+			}
+
+		.truncate{
+		  overflow: hidden;
+		  text-overflow: ellipsis;
+		  word-wrap: break-word;
+		}
+		</style>
+</head>
+
+<body id="test">
+
+	<content id="form-1">
+		<hello id="snackbar">Please enter valid value.</hello>
+
+		<div id="div-test">
+			<section>
+				<h1>Register for Hackathon'22</h1>
+				<h2 style="font-size: 18px">For GNDU RC Jalandhar</h2>
+				<p>The event will take place in the span of <b>24 hours (Saturday-Sunday)</b> and will go through different interesting and enthusiastic rounds where participants will test their knowledge, learn new things about programming world, test their limits and skills. This event is <b>beginner friendly</b> that means beginners and advanced coders can participate in this.</p>
+				<p><b>Venue:</b>&nbsp;&nbsp;Computer Lab 3<sup>rd</sup> Floor, Maharaja Ranjit Singh Bhawan, Guru Nanak Dev University Amritsar.</p>
+				<p><b>Date:</b>&nbsp;&nbsp;12-13 March (Saturday-Sunday)</p>
+				<p><b>Event Fees:</b>&nbsp;&nbsp;₹150 (2 members)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;₹200 (4 members)</p>
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Name of the Participants <span>*</span></h2>
+				<p>Kindly use Full Name</p>
+				<input type="text" id="name1" placeholder="Team Mate 1" required="Please enter your name">
+				<input type="text" id="name2" placeholder="Team Mate 2" required="Please enter your name">
+				<input type="text" id="name3" placeholder="Team Mate 3" required="Please enter your name">
+				<input type="text" id="name4" placeholder="Team Mate 4" required="Please enter your name">
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Name of the Team</h2>
+				<input type="text" id="team" placeholder="Team name" required="Please enter your name">
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Contact Number <span>*</span></h2>
+				<input type="number" id="number" placeholder="Phone Number" required="Please enter your valid Email ID">
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Complete the Payment <span>*</span></h2>
+				<img style="width: 200px" src="Files/hardik.jpeg" />
+				<p><b>Upi ID: </b>hardikdude1409@okhdfcbank</p>
+				<p style="font-size: 12px">Scan the above code and after successful payment check the bottom box. </p>
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Please contact the person below to Verify <span>*</span></h2>
+				<p><b>Contact: </b>Hardik Chandan (+91 87080 08946) to verify.</p>
+				<p><b>Whatsapp: </b><a href="https://wa.me/918708008946">Click Here!!</a></p>
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="imagess" class="qna">
+				<img src="Files/posters/1.jpeg">
+				<img src="Files/posters/2.jpeg">
+				<img src="Files/posters/3.jpeg">
+			</section>
+		</div>
+
+		<footer id="input-test">
+			<input type="submit" value="Submit" onclick="send_message()">
+		</footer>
+	</content>
+
+	<content id="form-2">
+		<div id="div-test">
+			<section class="qna">
+				<h6 style="font-size: 15px"><span>To refill the form, reload the page.</span></h6>
+				<h1>Thank you <span id="username"></span> for filling out this form. We will contact you soon.</h1>
+			</section>
+		</div>
+	</content>
+
+	<p>Made by Team <a href="https://cyberbuddy.io" target="_blank">Cyberbuddy</a>
+
+	<aside style="position: fixed;bottom: 30px;right: 30px;" class="dropup">
+      <button style="background-color: white;border-radius: 50%;" data-toggle="dropdown">
+        <img src="Files/ico-fixed.png" />
+      </button>
+      <ul class="dropdown-menu" style="border: none;background: transparent;transition-delay: 0.4s;">
+        <li><input style="filter: saturate(0%) brightness(0.6);" checked="on" type="radio" onclick="dark_bg()"></li>
+        <li><input style="filter: grayscale(100%) brightness(2.7);" checked="on" type="radio" onclick="white_bg()"></li><br>
+        <li><input style="filter: saturate(500%) brightness(1.2) hue-rotate(180deg);" checked="on" type="radio" onclick="peach_bg()"></li>
+        <li><input style="filter: brightness(1.2) hue-rotate(280deg);" checked="on" type="radio" onclick="green_bg()"></li>
+        <li><input style="filter: brightness(1.2) hue-rotate(70deg);" checked="on" type="radio" onclick="purple_bg()"></li>
+      </ul>
+  </aside>
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+	     https://firebase.google.com/docs/web/setup#available-libraries -->
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase.js"></script>
+
+	<script>
+	  // Your web app's Firebase configuration
+	  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	  const firebaseConfig = {
+	    apiKey: "AIzaSyByR80O8BudGXhyi-GnmehTsAv3OQ4eo8Q",
+		  authDomain: "hardik-e1e3c.firebaseapp.com",
+		  projectId: "hardik-e1e3c",
+		  storageBucket: "hardik-e1e3c.appspot.com",
+		  messagingSenderId: "115377347793",
+		  appId: "1:115377347793:web:922b03ec4538f7b6be39f0",
+		  measurementId: "G-SY92HHQEKR"
+	  };
+	  // Initialize Firebase
+	  firebase.initializeApp(firebaseConfig);
+	  firebase.analytics();
+	</script>
+	<script src="./app.js"></script>
+
+	<!-- Adding JQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+</body>
+</html>
