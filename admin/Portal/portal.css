@@ -5,172 +5,186 @@
 	text-decoration: none;
 }
 
+html {
+	zoom: 0.95;
+}
+
 body {
 	background: #F3F3FF;
-	overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 input:focus {
 	outline: none;
 }
 
-aside {
-	display: grid;
-	justify-content: center;
-	position: fixed;
-	background-color: #20154D;
-	height: 100vh;
-	width: 100px;
+[data-title]:hover:after {
+  opacity: 1;
+  transition: all 0.1s ease 0.5s;
+  visibility: visible;
 }
 
-aside div:nth-child(1) {
-	margin-top: 20px;
-	width: 75px;
-	height: 75px;
-	border-radius: 50%;
+[data-title]:after {
+	font-size: 14px;
+	letter-spacing: 1.5px;
+  content: attr(data-title);
+  background-color: black;
+  border-radius: 5px;
+  color: #F3F3FF;
+  position: absolute;
+  padding: 1px 5px 2px 5px;
+  bottom: -1.8em;
+  left: 60%;
+  white-space: nowrap;
+  box-shadow: 1px 1px 3px #222222;
+  opacity: 0;
+  z-index: 99999;
+  visibility: hidden;
+}
+
+[data-title] {
+  position: relative;
+}
+
+.disable-select {
+    user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+/*=========== Sidebar Panel ============*/
+
+aside {
+	position: fixed;
+	width: 90px;
+	height: 106vh;
+	background-color: #20154D;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+}
+
+aside div {
+	display: grid;
+	align-items: center;
+	height: 20vh;
+	margin: auto;
+}
+
+aside div:nth-child(1) figure {
+	width: 66px;
+	height: 66px;
+	border-radius: 10px;
 	background-color: #EAEBFF;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+aside div img {
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
 }
 
 aside div:nth-child(1) img {
-	position: relative;
-	top: 10px;
-	left: 2px;
+	width: 90%;
 }
 
-figure {
-	position: fixed;
-	bottom: 20px;
-	right: 35px;
+aside div img:hover {
+	transform: translateY(-1.5px);
+	filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5));
 }
 
-figure h2 {
-	position: absolute;
-	font-style: normal;
-	font-weight: 800;
-	font-size: 50px;
-	color: #6E74FF12;
-}
-
-figure span {
-	font-size: 32px;
-}
-
-figure h1 {
-	font-size: 15px;
-	font-weight: 400;
-	margin-left: 22px;
-	margin-top: 22px;
-}
+/*============= Main Body ================*/
 
 section {
-	margin-left: 100px;
+	width: calc(85vw);
+	margin-left: 90px;
+	padding: 35px 0 35px 10%;
 }
 
-section div:nth-child(1) {
-	height: 100px;
+section header {
 	display: flex;
+}
+
+section header div {
+	width: 50%;
+}
+
+section header div:nth-child(2) {
+	margin-top: 10px;
+}
+
+section header div:nth-child(2) main {
+	width: 130px;
+	display: flex;
+	justify-content: center;
 	align-items: center;
 }
 
-section div:nth-child(1) div h2{
-	margin: 0px 30px;
-}
-
-section div:nth-child(1) input:nth-child(1) {
-	height: 40px;
-	width: 380px;
-	font-size: 36px;
-	letter-spacing: 0.14em;
+section header div #title {
+	width: 350px;
+	height: 50px;
 	background-color: transparent;
 	border: none;
-	border-bottom: solid 3px black;
+	outline: none;
+	border-bottom: 2px solid #000000;
+
+	font-size: 32px;
+	color: #000000;
 }
 
-section div:nth-child(1) div:nth-child(1) {
-	display: flex;
-	width: 40%;
-	height: 100%;
-	margin: auto;
-	margin-left: 150px;
-}
-
-section div:nth-child(1) div:nth-child(2) {
-	display: flex;
-	align-items: center;
-	width: 40%;
-	height: 100%;
-	margin: auto;
-}
-
-section div:nth-child(1) div:nth-child(2) h2:nth-child(1) {
-	font-style: normal;
-	font-weight: 600;
-	font-size: 24px;
-}
-
-section div:nth-child(1) div:nth-child(2) h2:nth-child(3) {
-	font-style: normal;
-	font-weight: 300;
-	font-size: 24px;
-}
-
-section div:nth-child(2) div {
-	width: 648px;
-	min-height: 156px;
-	margin-left: 130px;
-	margin-top: 60px;
-
-	background: #F3F3FF;
-	box-shadow: -8px -7px 16px #FFFFFF, 8px 7px 60px #CFCFD9;
-	border-radius: 11px;
-}
-
-section div:nth-child(2) dir h3 {
-	position: relative;
-	font-weight: normal;
-	font-size: 24px;
-	top: 25px;
-	right: 110px;
-	transform: rotate(90deg);
-}
-
-.back-white {
-	width: 350px;
-	height: 51px;
-	background: #F8FBFF;
-	border-radius: 11px;
-}
-
-.back-white input {
-	font-size: 36px;
-	font-weight: normal;
+section header div #title::placeholder {
+	font-size: 32px;
 	letter-spacing: 0.14em;
+	color: #000000;
 }
 
-/* The switch - the box around the slider */
+section .label {
+	font-size: 24px;
+	align-items: center;
+	text-align: center;
+	margin: 0 20px;
+	font-weight: 300;
+	width: 130px;
+}
+
+/*============= Toggle Button ===============*/
+
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 90px;
+  height: 22px;
+  margin-top: 10px;
 }
 
-/* Hide default HTML checkbox */
-.switch input {
+.switch input { 
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider */
 .slider {
   position: absolute;
   cursor: pointer;
-  top: 0;
+  top: -7px;
   left: 0;
   right: 0;
-  bottom: 0;
-  background-color: #ccc;
+  bottom: 3px;
+  background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -180,15 +194,15 @@ section div:nth-child(2) dir h3 {
   content: "";
   height: 26px;
   width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
+  left: -1px;
+  bottom: -1px;
+  background-color: black;
   -webkit-transition: .4s;
   transition: .4s;
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #E9EAFE;
 }
 
 input:focus + .slider {
@@ -196,16 +210,447 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  -webkit-transform: translateX(54px);
+  -ms-transform: translateX(54px);
+  transform: translateX(63px);
 }
 
-/* Rounded sliders */
 .slider.round {
   border-radius: 34px;
+  border: 1px solid #000000;
 }
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+/*=========== Fields ============*/
+
+.field {
+	display: flex;
+	width: 55%;
+	min-width: 520px;
+	height: auto;
+	padding: 20px;
+	margin: 55px 0;
+	min-height: 150px;
+	background: #F3F3FF;
+	box-shadow: -8px -7px 16px #FFFFFF, 8px 7px 60px #CFCFD9;
+	border-radius: 11px;
+	transition: all 0.8s ease-in-out;
+}
+
+/*First Field*/
+
+section content .field:nth-child(1) {
+	margin: 0;
+	margin-top: 85px;
+}
+
+section content .div1 {
+	display: flex;
+}
+
+section  content .optional {
+	transform: rotate(90deg);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+section content label[for="field1"] {
+	margin-top: 90px;
+	margin-left: 85px;
+	text-align: center;
+	font-size: 24px;
+	font-weight: 400;
+	letter-spacing: 0.14em;
+	color: #000000;
+}
+
+content #field1 {
+	display: grid;
+}
+
+content #field1 div {
+	display: flex;
+	align-items: center;
+}
+
+content #field1 h2 {
+	cursor: pointer;
+	padding-left: 10px;
+	display: flex;
+	align-items: center;
+	min-width: 250px;
+	height: 50px;
+	font-size: 28px;
+	font-weight: 400;
+	letter-spacing: 0.14em;
+	background: #F8FBFF;
+	border-radius: 11px;
+	outline: none;
+	border: none;
+	color: #000000;
+}
+
+content #field1 button {
+	margin-left: 20px;
+	width: 67px;
+	height: 78px;
+	background: #D3D5FF;
+	border: 2px solid #000000;
+	box-sizing: border-box;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+content #field1 h1 {
+	position: relative;
+	bottom: 10px;
+	font-size: 75px;
+	font-weight: 300;
+	cursor: pointer;
+}
+
+/*Last Field*/
+
+content #newField {
+	display: grid;
+}
+
+content #newField div {
+	display: flex;
+	align-items: center;
+}
+
+content #newField h2 {
+	cursor: pointer;
+	padding-left: 10px;
+	display: flex;
+	align-items: center;
+	min-width: 250px;
+	height: 50px;
+	font-size: 28px;
+	font-weight: 400;
+	letter-spacing: 0.14em;
+	background: #F8FBFF;
+	border-radius: 11px;
+	outline: none;
+	border: none;
+	color: #000000;
+}
+
+content #newField button {
+	margin-left: 20px;
+	width: 67px;
+	height: 78px;
+	background: #D3D5FF;
+	border: 2px solid #000000;
+	box-sizing: border-box;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+content #newField h1 {
+	position: relative;
+	bottom: 10px;
+	font-size: 75px;
+	font-weight: 300;
+	cursor: pointer;
+}
+
+/*Field 2*/
+
+section content .main {
+	width: 80%;
+	display: grid;
+}
+
+section .main input:nth-child(1) {
+	padding-left: 10px;
+	width: 90%;
+	min-width: 250px;
+	height: 50px;
+	font-size: 28px;
+	letter-spacing: 0.14em;
+	background: #F8FBFF;
+	border-radius: 11px;
+	outline: none;
+	border: none;
+	color: #000000;
+}
+
+section .main input:nth-child(1)::placeholder {
+	color: black;
+}
+
+section .main span[contenteditable]:empty::before {
+  content: "Add Description";
+  color: gray;
+}
+
+section .main span {
+	background-color: transparent;
+	color: black;
+	padding-left: 10px;
+	width: 90%;
+	min-height: 70px;
+	outline: none;
+	margin-top: 30px;
+	font-size: 18px;
+	display: block;
+	resize: both;
+  overflow: hidden;
+  line-height: 20px;
+}
+
+section .main textarea::placeholder {
+	font-size: 16px;
+}
+
+/*============ btns =================*/
+
+section .right{
+	width: 20%;
+	display: grid;
+}
+
+section .btns {
+	font-size: 22px;
+	display: flex;
+	justify-content: end;
+	cursor: pointer;
+	height: 20px;
+}
+
+section .btns .arrow #a1 {
+	width: 25px;
+	margin-right: 25px;
+}
+
+section .btns .arrow #a1::before,
+section .btns .arrow #a1::after,
+section .btns .cross #c1::before,
+section .btns .cross #c1::after {
+	content: " ";
+	position: absolute;
+	width: 3px;
+	height: 19px;
+	border-radius: 100px;
+	background-color: black;
+	border-radius: 3px;
+	transition: all .5s ease-in-out;
+}
+
+section .btns .arrow #a1::before {
+	transform: translateX(22px) rotate(-45deg);
+}
+
+section .btns .arrow #a1::after {
+	transform: translateX(10px) rotate(45deg);
+}
+
+section .btns .cross #c1 {
+	width: 20px;
+}
+
+section .btns .cross #c1::before {
+	transform: translateX(10px) rotate(-45deg);
+}
+
+section .btns .cross #c1::after {
+	transform: translateX(10px) rotate(45deg);
+}
+
+/*============ Animation btns ==================*/
+
+section .btns .arrow-active #a1::before {
+	transform: translateX(22px) rotate(45deg);
+} 
+
+section .btns .arrow-active #a1::after {
+	transform: translateX(10px) rotate(-45deg);
+}
+
+section .btns .cross-active #c1::before {
+	transform: translateX(10px) rotate(315deg);
+}
+
+section .btns .cross-active #c1::after {
+	transform: translateX(10px) rotate(405deg);
+}
+
+section div:nth-child(2) .require {
+	display: flex;
+	justify-content: end;
+	align-items: flex-end;
+	width: 100%;
+}
+
+section div:nth-child(2) .require div {
+	width: 10px;
+	height: 10px;
+	margin-right: 10px;
+	margin-bottom: 3px;
+	border: 1.7px solid rgba(0, 0, 0, .62);
+	border-radius: 3px;
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	cursor: pointer;
+}
+
+section div:nth-child(2) .require label {
+	cursor: pointer;
+}
+
+section div:nth-child(2) .require div img {
+	position: absolute;
+	width: 22px;
+	z-index: 0;
+}
+
+/*============ Categories Menu ================*/
+
+section content #cat-menu-tainer {
+	position: relative;
+	height: 70px;
+	width: auto;
+}
+
+content #cat-menu {
+	position: absolute;
+	display: none;
+	width: 150px;
+	height: auto;
+	background: #F9F9FF;
+	box-shadow: 4px 4px 10px #E5E5FF;
+	border-radius: 15px;
+	padding: 22px 9px;
+	transition: all .3s ease-in-out;
+	animation-play-state: forwards;
+	z-index: 10;
+}
+
+@keyframes appear {
+	0% { opacity: 0; transform: translateY(-15px); }
+	100% { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes disappear {
+	0% { opacity: 1; transform: translateY(0); }
+	100% { opacity: 0; transform: translateY(-60px);}
+}
+
+content #cat-menu ul {
+	list-style: none;
+	font-weight: 400;
+	display: grid;
+	justify-content: center;
+}
+
+content #cat-menu a {
+	margin-top: 20px;
+	color: black;
+}
+
+content #cat-menu li {
+	font-size: 17px;
+	display: flex;
+}
+
+content #cat-menu a:nth-child(1) {
+	margin-top: 0;
+}
+
+content #cat-menu img {
+	margin-right: 9px;
+}
+
+/*============ Footer Branding ================*/
+
+footer {
+	position: fixed;
+	bottom: 20px;
+	right: 40px;
+}
+
+footer div {
+	width: 40%;
+	margin-left: 4vw;
+	display: flex;
+	align-items: center;
+}
+
+footer div h2 {
+	position: absolute;
+	z-index: 1;
+	font-style: normal;
+	font-weight: 800;
+	font-size: 64px;
+	line-height: 78px;
+	color: #6E74FF;
+	opacity: 7%;
+}
+
+footer div span {
+	font-size: 37px;
+}
+
+footer div h1 {
+	font-size: 25px;
+	font-weight: 400;
+	z-index: 1;
+	margin-left: 22px;
+	margin-top: 35px;
+}
+
+@media screen and (max-width: 1240px) {
+	footer {
+		zoom: 0.8;
+	}
+}
+
+@media screen and (max-width: 1133px) {
+	header div:nth-child(2) {
+		zoom: 0.8;
+	}
+}
+
+@media screen and (max-width: 1080px) {
+	footer {
+		zoom: 0.7;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	footer {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	aside {
+		display: none;
+	}
+
+	section {
+		margin: 0;
+		padding: 20px 20px;
+		width: 100%;
+	}
+
+	section header {
+		display: grid;
+	}
+
+	section header div {
+		width: 100%;
+	}
+
+	section header div:nth-child(2) {
+		margin-top: 30px;
+		justify-content: start;
+	}
 }

@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+	<title>Free Online Form Builder & Form Creator | Cyberbuddy.io</title>
+	
 	<!-- Meta Tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Yet to add">
 	<link rel="canonical" href="http://forms.cyberbuddy.io/">
 
-	<title>Free Online Form Builder & Form Creator | Cyberbuddy.io</title>
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="Files/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="Files/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="Files/favicon-16x16.png">
 
 	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,53 +21,89 @@
 
 	<!-- Main CSS -->
 	<link rel="stylesheet" type="text/css" href="portal.css">
-
 </head>
-<body>
+<body class="disable-select">
 	<aside>
-		<div><img src="https://fakeimg.pl/70x70"></div>
+		<div><figure data-title="Home"><img src="Files/android-chrome-192x192.png"></figure></div>
+		<div></div>
+		<div></div>
+		<div style="align-items: end;" data-title="Open Forms"><img src="Files/images/folder.png"></div>
+		<div data-title="Logout"><img src="Files/images/logout.png"></div>
 	</aside>
-	<figure>
-		<h2>FORMS</h2>
-		<h1><span>FORMS</span>.cyberbuddy.io</h1>
-	</figure>
-	</div>
 	<section>
-		<div>
+		<header>
 			<div>
-				<input type="text" placeholder="Untitled form">
+				<input id="title" type="text" placeholder="Untitled form">	
 			</div>
-			<div>
-				<h2>Questions</h2>
-				<label class="switch">	<!-- Rounded switch -->
-				  <input type="checkbox">
-				  <span class="slider round"></span>
-				</label>
-				<h2>Response</h2>
+			<div style="display: flex;">
+				<main><label style="font-weight: 600;" id="q_tab" class="label">Questions</label></main>
+				<main>
+					<label class="switch">
+						<input id="qrcheck" type="checkbox">
+						<span class="slider round"></span>
+					</label>
+				</main>
+				<main><label id="r_tab" class="label">Responses</label></main>
 			</div>
-		</div>
-		<div>
-			<dir style="display: flex;">
+		</header>
+		<content>
+			<div class="div1">
+				<div id="field1" class="field">
+					<div>
+						<h2 data-title="Click to add!!">Add Image</h2>
+						<input style="display: none;" type="file" id="img-file">
+						<a href="#" data-title="Click to add!!"><button><h1>+</h1></button></a>
+					</div>
+				</div>
+				<div class="optional"><label for="field1">Optional</label></div>
+			</div>
+			<div id="field2" class="field">
+				<div class="main">
+					<input type="text" placeholder="Add Heading">
+					<span class="input" role="textbox" contenteditable></span>
+				</div>
+				<div class="right">
+					<div class="btns">
+						<div class="arrow">
+							<div id="a1"></div>
+						</div>
+						<div id="cross2" class="cross">
+							<div id="c1"></div>
+						</div>
+					</div>
+					<div id="cat-menu-tainer">
+						<div id="cat-menu">
+							<ul>
+								<a href="#"><li><img src="https://fakeimg.pl/18x18"/> Short Answer</li></a>
+								<a href="#"><li><img src="https://fakeimg.pl/18x18"/> Long Answer</li></a>
+								<a href="#"><li><img src="https://fakeimg.pl/18x18"/> Multi-choice</li></a>
+								<a href="#"><li><img src="https://fakeimg.pl/18x18"/> Checkboxes</li></a>
+								<a href="#"><li><img src="https://fakeimg.pl/18x18"/> File Upload</li></a>
+							</ul>
+						</div>
+					</div>
+					<div class="require require2">
+						<div><img id="tick2" src="Files/images/tick.png"></div>
+						<input type="checkbox" style="display: none;" id="check_req_box2">
+						<label id="labelForReq2" for="required">Required</label>
+					</div>
+				</div>
+			</div>
+			<div id="newField" class="field">
 				<div>
-					<a style="display:flex;" href="#"><dir class="back-white"><h2>Add Image</h2></dir><button>+</button></a>
-				</div><h3>Optional</h3>
-			</dir>
-			<div>
-				<dir class="back-white"><input type="text" id="" placeholder="Add Heading"></dir>
+					<h2 data-title="Click to add!!">Add another field&nbsp;</h2>
+					<input style="display: none;" type="file" id="img-file">
+					<a href="#" data-title="Click to add!!"><button><h1>+</h1></button></a>
+				</div>
 			</div>
-			<div>
-				<dir class="back-white"><input type="text" id="" placeholder="Add Heading"></dir>
-			</div>
-			<div>
-				<dir class="back-white"><input type="text" id="" placeholder="Add Heading"></dir>
-			</div>
-			<div>
-				<dir class="back-white"><input type="text" id="" placeholder="Add Heading"></dir>
-			</div>
-			<div>
-				<dir class="back-white"><input type="text" id="" placeholder="Add Heading"></dir>
-			</div>
-		</div>
+		</content>
 	</section>
+	<footer>
+		<div style="cursor: pointer;">
+			<h2>FORMS</h2>
+			<h1><span>FORMS</span>.cyberbuddy.io</h1>
+		</div>
+	</footer>
+	<script src="portal.js"></script>
 </body>
 </html>

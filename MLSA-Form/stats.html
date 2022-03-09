@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Stats for the form</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		firebase.database().ref('').on('value',(snap)=>{
+		    console.log(snap.val());
+		  });
+	</script>
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+	     https://firebase.google.com/docs/web/setup#available-libraries -->
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase.js"></script>
+
+	<script>
+	  // Your web app's Firebase configuration
+	  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	  	const firebaseConfig = {
+		  apiKey: "AIzaSyBPUu1kxJFWfwzlYqUfrxJoU5hNT0jVjXY",
+		  authDomain: "mlsa-a074e.firebaseapp.com",
+		  projectId: "mlsa-a074e",
+		  storageBucket: "mlsa-a074e.appspot.com",
+		  messagingSenderId: "624218926211",
+		  appId: "1:624218926211:web:c6c052f33e6f330d61bfb6",
+		  measurementId: "G-KSGQVQN6S9"
+		};
+	  // Initialize Firebase
+	  firebase.initializeApp(firebaseConfig);
+	  firebase.analytics();
+	</script>
+</body>
+</html>
