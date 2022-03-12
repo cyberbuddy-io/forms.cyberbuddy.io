@@ -40,10 +40,11 @@ function send_message() {
   var cpp = document.getElementById("cpp");
   var python = document.getElementById("python");
   var java = document.getElementById("java");
+  var number = document.getElementById("number");
   var other_lang = document.getElementById("other_lang");
   var other_lang_check = document.getElementById("other_lang_check");
 
-  var checkboxes = [html, js, cpp, python, java, other_lang_check];
+  var checkboxes = [html, js, cpp, python, java, number, other_lang_check];
   var check_done = true;
   var languages = "";
   for (var i = 0; i < checkboxes.length ; i++) {
@@ -78,6 +79,7 @@ function send_message() {
       date : date,
       name: name1.value,
       email : email.value,
+      number : number.value,
       languages : other_lang.value,
       language : languages,
       team : team.value
