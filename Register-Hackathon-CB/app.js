@@ -1,6 +1,6 @@
 let date = new Date();
 
-document.getElementById('form-1').style.display = 'none';
+// document.getElementById('form-1').style.display = 'none';
 
 function start() {
   var ele = document.querySelectorAll("input");
