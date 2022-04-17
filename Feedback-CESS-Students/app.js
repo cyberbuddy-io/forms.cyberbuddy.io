@@ -1,5 +1,3 @@
-var date = new Date();
-
 document.getElementById('enjoy5').addEventListener('focus', function() {
   document.getElementById('enjoy4').checked = true;
 });
@@ -33,32 +31,50 @@ function snackbar() {
 
 function send_message() {
   var name1 = document.getElementById("name");
-  var email = document.getElementById("email");
-  var remark = document.getElementById("remark");
   var feedback = document.getElementById("feedback");
+
   var enjoy1 = document.getElementById("enjoy1");
   var enjoy2 = document.getElementById("enjoy2");
   var enjoy3 = document.getElementById("enjoy3");
   var enjoy4 = document.getElementById("enjoy4");
   var enjoy5 = document.getElementById("enjoy5");
 
+  var year1 = document.getElementById("year1");
+  var year2 = document.getElementById("year2");
+  var year3 = document.getElementById("year3");
+
+  var year_radio = [year1,year2,year3];
+  var check_done1 = true;
+  var year = "";
+  for (var i = 0; i < year_radio.length ; i++) {
+    if (year_radio[0].checked == false && year_radio[1].checked == false && year_radio[2].checked == false) {
+      year1.focus();
+      snackbar();
+      check_done1 = false;
+      break;
+    }
+    if (year_radio[i].checked) {
+      year += year_radio[i].id + ' ';
+    }
+  }
+
   var checkboxes = [enjoy1,enjoy2,enjoy3,enjoy4];
-  var check_done = true;
-  var languages = "";
+  var check_done2 = true;
+  var enjoy = "";
   for (var i = 0; i < checkboxes.length ; i++) {
     if (checkboxes[0].checked == false && checkboxes[1].checked == false && checkboxes[2].checked == false && checkboxes[3].checked == false) {
       enjoy5.focus();
       snackbar();
-      check_done = false;
+      check_done2 = false;
       break;
     }
     if (checkboxes[i].checked) {
-      languages += checkboxes[i].id + ' ';
+      enjoy += checkboxes[i].id + ' ';
     }
   }
 
   var bin = 0;
-  var fields = [name1, email, feedback];
+  var fields = [feedback];
   for (var i = 0; i < fields.length ; i++) {
     if (fields[i].value == '') {
       fields[i].focus();
@@ -66,21 +82,17 @@ function send_message() {
       break;
     }
   }
-  if (name1.value != '' && feedback.value != '' && email.value != '' && check_done == true) {
+  if (feedback.value != '' && check_done1 == true && check_done2 == true) {
     bin = 1;
   }
 
-  var p_key = name1.value;
   if (bin == 1) {
     var db = firebase.database();
     db.ref().push({
-      date : date,
       name: name1.value,
-      email : email.value,
-      remark : remark.value,
-      feedback : feedback.value,
-      languages : languages,
-      other : enjoy5.value
+      enjoy: enjoy,
+      year: year,
+      feedback : feedback.value
     })
     .then( (onResolved) => {
       document.getElementById("form-1").style.display = "none";
@@ -88,6 +100,9 @@ function send_message() {
       document.getElementById("name-enter").innerHTML = name1.value;
       window.scrollTo(0,0);
     });
+  }
+  else {
+    console.log("hi");
   }
 }
 

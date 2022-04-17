@@ -62,50 +62,45 @@
 
 		<div id="div-test">
 			<section>
-				<h1>Your Input on Hackathon'22</h1>
-				<p>Computer Engineering Students Society managed to host this amazing event where 300+ students engaged and collaborated to create new ideas and showed will to learn something new.</p>
-				<p>We are collecting your Feedbacks to learn from our mistakes and improve them in our next Hackathon and further events.</p>
+				<h1>Your Feedback on <span>CESS</span></h1>
+				<p>Computer Engineering Students Society managed to host an amazing Hackathon'22 where 300+ students engaged and collaborated to create new ideas and showed will to learn something new. It also helped the department in arrangements of Jashan'22. CESS is coming up with its PUBG and Chess tournaments on 19<sup>th</sup> of April. So there has been a lot going on eversince the new heads were selected.</p>
+				<p>We are collecting your Feedbacks to learn from our mistakes and improve them in our upcoming events.</p>
 
-				<p><b>Event Heads:</b> <br><br> Hardik Chandan | <a href="https://wa.me/918708008946">+91 87080 08946</a> <br>Aniket Sharma | <a href="https://wa.me/918054362234">+91 80543 62234</a></p>
+				<p><b>CESS Heads:</b> <br><br> Hardik Chandan | <a href="https://wa.me/918708008946">+91 87080 08946</a> <br>Aniket Sharma | <a href="https://wa.me/918054362234">+91 80543 62234</a></p>
 			</section>
 		</div>
 
 		<div id="div-test">
 			<section class="qna">
-				<h2>Full Name <span>*</span></h2>
+				<h2>Your Name</h2>
 				<input type="text" id="name" placeholder="Your name" required="Please enter your name">
 			</section>
 		</div>
 
 		<div id="div-test">
 			<section class="qna">
-				<h2>Email <span>*</span></h2>
-				<input type="email" id="email" placeholder="Your mail" required="Please enter your valid Email ID">
+				<h2>Year of Degree <span>*</span></h2>
+				<input type="radio" id="year1" name="." value="."> <label for="year1">1<sup>st</sup> Year</label> </br>
+				<input type="radio" id="year2" name="." value="."> <label for="year2">2<sup>nd</sup> Year</label> </br>
+				<input type="radio" id="year3" name="." value="."> <label for="year3">3<sup>rd</sup> Year</label> </br>
 			</section>
 		</div>
 
 		<div id="div-test">
 			<section class="qna">
 				<h2>How would you rate the overall experience <span>*</span></h2>
-				<input type="radio" id="enjoy1" name="." value="."> <label for="enjoy1">Very Enjoyable</label> </br>
-				<input type="radio" id="enjoy2" name="." value="."> <label for="enjoy2">Enjoyable</label> </br>
-				<input type="radio" id="enjoy3" name="." value="."> <label for="enjoy3">Could be better</label> </br>
-				<input type="radio" id="enjoy4" name="." value=".">
+				<input type="radio" id="enjoy1" name=".." value=".."> <label for="enjoy1">Very Enjoyable</label> </br>
+				<input type="radio" id="enjoy2" name=".." value=".."> <label for="enjoy2">Enjoyable</label> </br>
+				<input type="radio" id="enjoy3" name=".." value=".."> <label for="enjoy3">Could be better</label> </br>
+				<input type="radio" id="enjoy4" name=".." value="..">
 				<input type="text" id="enjoy5" placeholder="Other Remarks">
 			</section>
 		</div>
 
 		<div id="div-test">
 			<section class="qna">
-				<h2>Your valuable feedback about the whole event <span>*</span></h2>
-				<input type="text" id="feedback" placeholder="Your input" required="Please enter your valid Email ID">
-			</section>
-		</div>
-
-		<div id="div-test">
-			<section class="qna">
-				<h2>Remarks for Team CESS</h2>
-				<input type="text" id="remark" placeholder="Your input">
+				<h2>Your valuable feedback about CESS <span>*</span></h2>
+				<input style="width: 80%" type="text" id="feedback" placeholder="Your input" required="Please enter your valid Email ID">
 			</section>
 		</div>
 
@@ -122,12 +117,12 @@
 		<div id="div-test">
 			<section class="qna">
 				<h6 style="font-size: 15px"><span>To refill the form, reload the page.</span></h6>
-				<h1>Thank you <span id="name-enter"></span> for filling out this form. We will contact you soon.</h1>
+				<h1>Thank you <span id="name-enter"></span> for filling out this form. Your Feedback matters to us.</h1>
 			</section>
 		</div>
 	</content>
 
-	<p>Made by Team <a href="https://cyberbuddy.io" target="_blank">Cyberbuddy</a><br> <span style="font-size: 16px;"></p>
+	<p>A Product of <a href="https://cyberbuddy.io" target="_blank">Cyberbuddy.io</a><br> <span style="font-size: 16px;"></p>
 
 	<aside style="position: fixed;bottom: 30px;right: 30px;" class="dropup">
       <button style="background-color: white;border-radius: 50%;" data-toggle="dropdown">
@@ -155,12 +150,13 @@
 	  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 	  const firebaseConfig = {
 	    apiKey: "AIzaSyC6ae668Ra34E9IYnO7ZSK0TUuHHLwXUnY",
-	    authDomain: "feedback-3a5df.firebaseapp.com",
-	    projectId: "feedback-3a5df",
-	    storageBucket: "feedback-3a5df.appspot.com",
-	    messagingSenderId: "594968473777",
-	    appId: "1:594968473777:web:5d5752d942d89cda24b290",
-	    measurementId: "G-BMJDCG2TN3"
+		  authDomain: "feedback-3a5df.firebaseapp.com",
+		  databaseURL: "https://feedback-3a5df-default-rtdb.firebaseio.com",
+		  projectId: "feedback-3a5df",
+		  storageBucket: "feedback-3a5df.appspot.com",
+		  messagingSenderId: "594968473777",
+		  appId: "1:594968473777:web:5d5752d942d89cda24b290",
+		  measurementId: "G-BMJDCG2TN3"
 	  };
 	  // Initialize Firebase
 	  firebase.initializeApp(firebaseConfig);
