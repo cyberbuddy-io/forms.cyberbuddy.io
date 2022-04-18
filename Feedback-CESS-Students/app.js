@@ -91,6 +91,7 @@ function send_message() {
     db.ref().push({
       name: name1.value,
       enjoy: enjoy,
+      remarks: enjoy5.value,
       year: year,
       feedback : feedback.value
     })
