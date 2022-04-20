@@ -32,6 +32,7 @@ function snackbar() {
 function send_message() {
   var name1 = document.getElementById("name");
   var team = document.getElementById("team");
+  var suggest = document.getElementById("suggest");
   var feedback = document.getElementById("feedback");
 
   var enjoy1 = document.getElementById("enjoy1");
@@ -75,7 +76,7 @@ function send_message() {
   }
 
   var bin = 0;
-  var fields = [feedback];
+  var fields = [feedback, suggest, team];
   for (var i = 0; i < fields.length ; i++) {
     if (fields[i].value == '') {
       fields[i].focus();
@@ -92,6 +93,7 @@ function send_message() {
     db.ref().push({
       name: name1.value,
       team: team.value,
+      suggest: suggest.value,
       enjoy: enjoy,
       remarks: enjoy5.value,
       year: year,
