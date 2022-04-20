@@ -92,7 +92,7 @@ function send_message() {
     db.ref().push({
       name: name1.value,
       enjoy: enjoy,
-      enjoy: suggest.value,
+      suggest: suggest.value,
       remarks: enjoy5.value,
       year: year,
       feedback : feedback.value
