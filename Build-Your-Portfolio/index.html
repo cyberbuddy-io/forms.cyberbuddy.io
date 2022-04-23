@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Feedback Collection for CESS'22</title>
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="Files/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="Files/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="Files/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name=”robots” content=”noindex, nofollow”>
+	<meta name=”robots” content=”index, follow”>
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+	<!-- For SEO -->
+	<link rel="canonical" href="http://blog.cyberbuddy.io/">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<!-- Main CSS -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style>
+		aside img {
+			-webkit-transition-duration: 0.5s;
+			-moz-transition-duration: 0.5s;
+			-o-transition-duration: 0.5s;
+			transition-duration: 1s;
+			-webkit-transition-property: -webkit-transform;
+			-moz-transition-property: -moz-transform;
+			-o-transition-property: -o-transform;
+			transition-property: transform;
+			}
+
+		.truncate{
+		  overflow: hidden;
+		  text-overflow: ellipsis;
+		  word-wrap: break-word;
+		}
+		</style>
+</head>
+
+<body id="test">
+	<content id="form-1">
+		<div id="div-test" style="padding: 10px;">
+			<img src="Files/hero.gif" style="width: 100%;">
+		</div>
+
+		<hello id="snackbar">Kindly fill fields marked with *</hello>
+
+		<div id="div-test">
+			<section>
+				<h1>Build your <span>Portfolio Website</span></h1>
+				<p>Computer Engineering Students Society is planning to host an offline workshop to help you guys build your portfolio website which you can add on your <b>Resume</b> and maybe on your <b>Linkedin</b> profile to showcase your Projects.</p>
+				<p><b>Note: </b>It's free of cost.</p>
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Your Name <span>*</span></h2>
+				<input type="text" id="name" placeholder="Your name" required="Please enter your name">
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Your Email <span>*</span></h2>
+				<input type="email" id="mail" placeholder="Your mail" required="Please enter your name">
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Year of Degree <span>*</span></h2>
+				<input type="radio" id="year1" name="." value="."> <label for="year1">1<sup>st</sup> Year</label> </br>
+				<input type="radio" id="year2" name="." value="."> <label for="year2">2<sup>nd</sup> Year</label> </br>
+				<input type="radio" id="year3" name="." value="."> <label for="year3">3<sup>rd</sup> Year</label> </br>
+				<input type="radio" id="year4" name="." value="."> <label for="year3">4<sup>th</sup> Year</label> </br>
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Any questions for us?</h2>
+				<input style="width: 80%" type="text" id="ques" placeholder="Your input" required="Please enter your valid Email ID">
+			</section>
+		</div>
+
+		<footer id="input-test">
+			<input type="submit" value="Submit" onclick="send_message()">
+		</footer>
+	</content>
+
+	<content id="form-2">
+		<div id="div-test" style="padding: 10px;">
+			<img src="Files/hero.gif" style="width: 100%;">
+		</div>
+		
+		<div id="div-test">
+			<section class="qna">
+				<h6 style="font-size: 15px"><span>To refill the form, reload the page.</span></h6>
+				<h1>Thank you <span id="name-enter"></span> for filling out this form. Your Feedback matters to us.</h1>
+			</section>
+		</div>
+	</content>
+
+	<p>A Product of <a href="https://cyberbuddy.io" target="_blank">Cyberbuddy.io</a><br> <span style="font-size: 16px;"></p>
+
+	<aside style="position: fixed;bottom: 30px;right: 30px;" class="dropup">
+      <button style="background-color: white;border-radius: 50%;" data-toggle="dropdown">
+        <img src="Files/ico-fixed.png">
+      </button>
+      <ul class="dropdown-menu" style="border: none;background: transparent;transition-delay: 0.4s;">
+        <li><input style="filter: saturate(0%) brightness(0.6);" checked="on" type="radio" onclick="dark_bg()"></li>
+        <li><input style="filter: grayscale(100%) brightness(2.7);" checked="on" type="radio" onclick="white_bg()"></li><br>
+        <li><input style="filter: saturate(500%) brightness(1.2) hue-rotate(180deg);" checked="on" type="radio" onclick="peach_bg()"></li>
+        <li><input style="filter: brightness(1.2) hue-rotate(280deg);" checked="on" type="radio" onclick="green_bg()"></li>
+        <li><input style="filter: brightness(1.2) hue-rotate(70deg);" checked="on" type="radio" onclick="purple_bg()"></li>
+      </ul>
+  </aside>
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+	     https://firebase.google.com/docs/web/setup#available-libraries -->
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase.js"></script>
+
+	<script>
+	  // Your web app's Firebase configuration
+	  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	  const firebaseConfig = {
+	    apiKey: "AIzaSyD_lLg5hzvqyNwx33GBdH8NkMwzTNeyU58",
+		  authDomain: "all-forms-66e2a.firebaseapp.com",
+		  projectId: "all-forms-66e2a",
+		  storageBucket: "all-forms-66e2a.appspot.com",
+		  messagingSenderId: "581577108602",
+		  appId: "1:581577108602:web:60ebe743023f8311905fc3",
+		  measurementId: "G-X8J2FP581Q"
+	  };
+	  // Initialize Firebase
+	  firebase.initializeApp(firebaseConfig);
+	  firebase.analytics();
+	</script>
+	<script src="./app.js"></script>
+
+	<!-- Adding JQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+</body>
+</html>
