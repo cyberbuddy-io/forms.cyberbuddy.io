@@ -17,7 +17,7 @@ function snackbar() {
 
 function send_message(){
   var name = document.getElementById("name");
-  var topic = document.getElementById("topic");
+  // var topic = document.getElementById("topic");
   var number = document.getElementById("number");
 
   var bin = 0;
@@ -38,7 +38,7 @@ function send_message(){
     var db = firebase.database();
     db.ref("Alfaaz-e-rooh").push({
       name : name.value,
-      topic : topic.value,
+      // topic : topic.value,
       number: number.value
     })
     .then( (onResolved) => {
