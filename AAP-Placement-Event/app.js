@@ -20,12 +20,13 @@ function send_message() {
   var name1 = document.getElementById("name");
   var mail = document.getElementById("mail");
   var number = document.getElementById("number");
+  var resume = document.getElementById("resume");
   var cgpa = document.getElementById("cgpa");
   var skills = document.getElementById("skills");
   var ques = document.getElementById("ques");
 
   var bin = 0;
-  var fields = [name1, number, mail, cgpa, skills];
+  var fields = [name1, number, mail, cgpa, skills, resume];
   for (var i = 0; i < fields.length ; i++) {
     if (fields[i].value == '') {
       fields[i].focus();
@@ -43,6 +44,7 @@ function send_message() {
       name1: name1.value,
       number : number.value,
       mail : mail.value,
+      resume : resume.value,
       cgpa : cgpa.value,
       skills : skills.value,
       ques : ques.value,
