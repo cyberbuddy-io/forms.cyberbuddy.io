@@ -34,7 +34,7 @@ function send_message() {
       break;
     }
   }
-  if (name1.value != '' && number.value != '' && mail.value != '' && cgpa.value != '' && skills.value != '') {
+  if (name1.value != '' && number.value != '' && mail.value != '' && cgpa.value != '' && skills.value != '' && resume.value != '') {
     bin = 1;
   }
 
