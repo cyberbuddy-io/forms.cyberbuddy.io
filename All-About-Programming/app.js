@@ -29,7 +29,6 @@ function snackbar() {
 function send_message1() {
   var name1 = document.getElementById("name");
   var number = document.getElementById("number");
-  var email = document.getElementById("email");
   var linkedin = document.getElementById("linkedin");
   var college = document.getElementById("college");
   var branch = document.getElementById("branch");
