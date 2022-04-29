@@ -20,9 +20,10 @@ function send_message(){
   var email = document.getElementById("email");
   var git_username = document.getElementById("git_username");
   var ques = document.getElementById("ques");
+  var pull_request = document.getElementById("pull_request")
 
   var bin = 0;
-  var fields = [name, email, git_username];
+  var fields = [name, email, git_username,pull_request];
   for (var i = 0; i < fields.length ; i++) {
     if (fields[i].value == '') {
       fields[i].focus();
@@ -30,7 +31,7 @@ function send_message(){
       break;
     }
   }
-  if (name.value != '' && email.value != '' && git_username.value != '') {
+  if (name.value != '' && email.value != '' && git_username.value != '' && pull_request.value != '') {
     bin = 1;
   }
 
@@ -42,6 +43,7 @@ function send_message(){
       email : email.value,
       git_username: git_username.value,
       ques: ques.value,
+      pull_request: pull_request.value,
 
     })
     .then( (onResolved) => {
