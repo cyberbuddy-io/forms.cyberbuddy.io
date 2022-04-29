@@ -1,5 +1,6 @@
+let date = new Date();
 
-//document.getElementById('form-1').style.display = 'none';
+// document.getElementById('form-1').style.display = 'none';
 
 function start() {
   var ele = document.querySelectorAll("input");
@@ -15,13 +16,17 @@ function snackbar() {
   setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
 
-function send_message(){
-  var name = document.getElementById("name");
-  // var topic = document.getElementById("topic");
+function send_message() {
+  var name1 = document.getElementById("name");
+  var mail = document.getElementById("mail");
   var number = document.getElementById("number");
+  var resume = document.getElementById("resume");
+  var cgpa = document.getElementById("cgpa");
+  var skills = document.getElementById("skills");
+  var ques = document.getElementById("ques");
 
   var bin = 0;
-  var fields = [name, number];
+  var fields = [name1, number, mail, cgpa, skills, resume];
   for (var i = 0; i < fields.length ; i++) {
     if (fields[i].value == '') {
       fields[i].focus();
@@ -29,22 +34,25 @@ function send_message(){
       break;
     }
   }
-  if (name.value != '' && number.value != '') {
+  if (name1.value != '' && number.value != '' && mail.value != '' && cgpa.value != '' && skills.value != '' && resume.value != '') {
     bin = 1;
   }
 
-  var p_key = name.value;
   if (bin == 1) {
     var db = firebase.database();
-    db.ref("Alfaaz-e-rooh").push({
-      name : name.value,
-      // topic : topic.value,
-      number: number.value
+    db.ref("aap-mock-interviews/").push({
+      name1: name1.value,
+      number : number.value,
+      mail : mail.value,
+      resume : resume.value,
+      cgpa : cgpa.value,
+      skills : skills.value,
+      ques : ques.value,
     })
     .then( (onResolved) => {
       document.getElementById("form-1").style.display = "none";
       document.getElementById("form-2").style.display = "unset";
-      document.getElementById("username").innerHTML = name.value;
+      document.getElementById("username").innerHTML = name1.value;
       window.scrollTo(0,0);
     });
   }
@@ -122,3 +130,4 @@ $( "aside img" ).click(function() {
       $(this).css("transform","" );
   }
 });
+
