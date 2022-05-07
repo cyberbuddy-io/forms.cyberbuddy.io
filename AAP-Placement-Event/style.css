@@ -265,6 +265,31 @@ a {
 	font-weight: 500;
 }
 
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 25px;
+}
+
+object figure {
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+	border: 3.5px solid RGBA(39,52,82);
+}
+
+object figure img {
+	width: 100%;
+}
+
+object h1 {
+	font-size: 22px;
+}
+
+object h3 {
+	font-size: 15px;
+}
+
 .green-bg {
 	background: rgba(186,255,201, 0.9);
 }
