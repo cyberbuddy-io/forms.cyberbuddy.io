@@ -19,7 +19,7 @@ input:required:valid {
 }*/
 
 #snackbar {
-  visibility: hidden;
+	display: none;
   min-width: 340px;
   width: 40%;
   background-color: #333;
@@ -32,16 +32,13 @@ input:required:valid {
   left: 50%;
   transform: translate(-50%, 0);
   bottom: 30px;
-  opacity: 0.95;
+  opacity: 0.9;
   backdrop-filter: saturate(180%) blur(100px);
   border-radius: 10px;
 }
 
-/* Show the snackbar when clicking on a button (class added with JavaScript) */
 #snackbar.show {
-  visibility: visible; /* Show the snackbar */
-  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
-  However, delay the fade out process for 2.5 seconds */
+	display: unset;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
@@ -49,12 +46,12 @@ input:required:valid {
 /* Animations to fade the snackbar in and out */
 @-webkit-keyframes fadein {
   from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+  to {bottom: 30px; opacity: 0.9;}
 }
 
 @keyframes fadein {
   from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+  to {bottom: 30px; opacity: 0.9;}
 }
 
 @-webkit-keyframes fadeout {
