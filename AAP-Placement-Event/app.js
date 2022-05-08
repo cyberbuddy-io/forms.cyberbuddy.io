@@ -20,13 +20,12 @@ function send_message() {
   var name1 = document.getElementById("name");
   var mail = document.getElementById("mail");
   var number = document.getElementById("number");
-  var resume = document.getElementById("resume");
   var cgpa = document.getElementById("cgpa");
   var skills = document.getElementById("skills");
   var ques = document.getElementById("ques");
 
   var bin = 0;
-  var fields = [name1, number, mail, cgpa, skills, resume];
+  var fields = [name1, number, mail, cgpa, skills];
   for (var i = 0; i < fields.length ; i++) {
     if (fields[i].value == '') {
       fields[i].focus();
@@ -34,17 +33,18 @@ function send_message() {
       break;
     }
   }
-  if (name1.value != '' && number.value != '' && mail.value != '' && cgpa.value != '' && skills.value != '' && resume.value != '') {
+  if (name1.value != '' && number.value != '' && mail.value != '' && cgpa.value != '' && skills.value != '') {
     bin = 1;
   }
 
   if (bin == 1) {
+    document.getElementById("submit_btn").disabled = true;
+    document.getElementById("submit_btn").innerHTML = "Loading <i style='margin-left:8px' class='fa fa-spinner spinner'></i>";
     var db = firebase.database();
     db.ref("aap-mock-interviews/").push({
       name1: name1.value,
       number : number.value,
       mail : mail.value,
-      resume : resume.value,
       cgpa : cgpa.value,
       skills : skills.value,
       ques : ques.value,
@@ -56,6 +56,24 @@ function send_message() {
       window.scrollTo(0,0);
     });
   }
+}
+
+function upload_file() {
+  const ref = firebase.storage().ref("aap-mock-interviews");
+  const file = document.querySelector('#resume').files[0];
+  document.getElementById("file-name").innerHTML = file.name;
+  const name = (+new Date()) + '-' + file.name;
+  const metadata = {
+    contentType: file.type
+  };
+  const task = ref.child(name).put(file, metadata);
+
+  document.getElementById("file-upload").innerHTML = "Please Wait <i class='fa fa-spinner spinner'></i>";
+  task
+    .then(snapshot => {
+      document.getElementById("file-upload").innerHTML = "File Uploaded!!";
+    })
+    .catch(console.error);
 }
 
 function white_bg() {

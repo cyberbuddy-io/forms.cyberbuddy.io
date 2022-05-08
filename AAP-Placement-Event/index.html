@@ -21,6 +21,9 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+	<!-- Font Awesome Library -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 	<!-- For SEO -->
 	<link rel="canonical" href="http://blog.cyberbuddy.io/">
 
@@ -135,11 +138,15 @@
 
 		<div id="div-test">
 			<section class="qna">
-				<h2>Resume (Shared drive link)<span>*</span></h2>
-				<input type="text" id="resume" placeholder="Your Input" required="Please enter your valid Email ID">
+				<h2>Your Resume <span>*</span></h2>
+				<label class="file-upload" id="file-upload">
+				    <input type="file" id="resume" onchange="upload_file()">
+				    Upload File <i class="fa fa-arrow-up-from-bracket"></i>
+				</label>
+				<label id="file-name"></label>
 			</section>
 		</div>
-
+		
 		<div id="div-test">
 			<section class="qna">
 				<h2>Any questions for us?</h2>
@@ -191,7 +198,7 @@
 		</div>
 
 		<footer id="input-test">
-			<input type="submit" value="Submit" onclick="send_message()">
+			<button id="submit_btn" onclick="send_message()">Submit</button>
 		</footer>
 	</content>
 
@@ -210,7 +217,7 @@
       <button style="background-color: white;border-radius: 50%;" data-toggle="dropdown">
         <img src="Files/ico-fixed.png" />
       </button>
-      <ul class="dropdown-menu" style="border: none;background: transparent;transition-delay: 0.4s;">
+      <ul class="dropdown-menu" style="border: none;background: transparent;transition: none;">
         <li><input style="filter: saturate(0%) brightness(0.6);" checked="on" type="radio" onclick="dark_bg()"></li>
         <li><input style="filter: grayscale(100%) brightness(2.7);" checked="on" type="radio" onclick="white_bg()"></li><br>
         <li><input style="filter: saturate(500%) brightness(1.2) hue-rotate(180deg);" checked="on" type="radio" onclick="peach_bg()"></li>
