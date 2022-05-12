@@ -3,6 +3,7 @@
 	margin: 0;
 	font-family: "Montserrat",sans-serif;
 	line-height: 20px;
+	transition: 0.4s ease-in-out;
 }
 
 /*input:required:invalid, input:focus:invalid {
@@ -18,7 +19,7 @@ input:required:valid {
 }*/
 
 #snackbar {
-  visibility: hidden;
+	display: none;
   min-width: 340px;
   width: 40%;
   background-color: #333;
@@ -31,16 +32,13 @@ input:required:valid {
   left: 50%;
   transform: translate(-50%, 0);
   bottom: 30px;
-  opacity: 0.95;
+  opacity: 0.9;
   backdrop-filter: saturate(180%) blur(100px);
   border-radius: 10px;
 }
 
-/* Show the snackbar when clicking on a button (class added with JavaScript) */
 #snackbar.show {
-  visibility: visible; /* Show the snackbar */
-  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
-  However, delay the fade out process for 2.5 seconds */
+	display: unset;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
@@ -48,12 +46,12 @@ input:required:valid {
 /* Animations to fade the snackbar in and out */
 @-webkit-keyframes fadein {
   from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+  to {bottom: 30px; opacity: 0.9;}
 }
 
 @keyframes fadein {
   from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+  to {bottom: 30px; opacity: 0.9;}
 }
 
 @-webkit-keyframes fadeout {
@@ -128,21 +126,11 @@ div {
 	padding: 20px 0px;
 	border-radius: 12px;
 	background: #ebebeb;
-	-webkit-transition: all .4s ease-out;
-  -moz-transition: all .4s ease-out;
-  -ms-transition: all .4s ease-out;
-  -o-transition: all .4s ease-out;
-  transition: all .4s ease-out;
 	box-shadow: 7px 7px 14px #c8c8c8,
              -7px -7px 10px #ffffff;
 }
 
 div:focus-within {
-  -webkit-transition: all .4s ease-out;
-  -moz-transition: all .4s ease-out;
-  -ms-transition: all .4s ease-out;
-  -o-transition: all .4s ease-out;
-  transition: all .4s ease-out;
   box-shadow: 11px 11px 27px #a6a6a6,
             -11px -11px 27px #ffffff;
 }
@@ -203,6 +191,44 @@ input[type="checkbox"] {
 	height: 15px;
 }
 
+input[type="file"] {
+	border: none;
+	display: none;
+}
+
+.file-upload {
+  border: 3px solid rgba(4,29,68,0.1);
+  display: inline-block;
+  padding: 6px 22px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0;
+	margin-top: 15px;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.file-upload i {
+	margin-left: 8px;
+}
+
+.file-upload:hover {
+	border-color: rgba(4,29,68,0.8);
+}
+
+.spinner {
+	animation: spinner 5s infinite;
+}
+
+@keyframes spinner {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
 footer {
 	width: 60%;
 	height: 100px;
@@ -211,7 +237,7 @@ footer {
 	justify-content: center;
 }
 
-footer input {
+footer button {
 	margin-top: 35px;
 	width: 200px;
 	height: 50px;
@@ -226,7 +252,7 @@ footer input {
              -7px -7px 14px #ffffff;
 }
 
-footer input:focus {
+footer button:focus {
 	box-shadow:  13px 14px 15px rgba(0, 0, 0, 0.2),
              -10px -14px 15px #ffffff;
 }
@@ -304,42 +330,33 @@ object h3 {
 
 .green-bg-div {
 	background-color: rgba(186,255,201, 0.5);
-	-webkit-transition: all .4s ease-out;
-  -moz-transition: all .4s ease-out;
-  -ms-transition: all .4s ease-out;
-  -o-transition: all .4s ease-out;
-  transition: all .4s ease-out;
 	box-shadow: 9px 9px 10px rgba(0, 0, 0, 0.2),
             -9px -9px 10px rgba(444,444,400,0.5);
 }
 
 .green-bg-div:focus-within {
-	-webkit-transition: all .4s ease-out;
-  -moz-transition: all .4s ease-out;
-  -ms-transition: all .4s ease-out;
-  -o-transition: all .4s ease-out;
-  transition: all .4s ease-out;
 	box-shadow:  11px 11px 22px #a1d6ad,
              -11px -11px 22px #dfffef;
 }
 
 .green-bg-input input {
 	background: #BAFFC9;
-	-webkit-transition: all .4s ease-out;
-  -moz-transition: all .4s ease-out;
-  -ms-transition: all .4s ease-out;
-  -o-transition: all .4s ease-out;
-  transition: all .4s ease-out;
 	box-shadow:  6px 6px 12px #97cfa3,
              -6px -6px 12px #ddffef;
  }
              
 .green-bg-input input:focus {
-	-webkit-transition: all .4s ease-out;
-  -moz-transition: all .4s ease-out;
-  -ms-transition: all .4s ease-out;
-  -o-transition: all .4s ease-out;
-  transition: all .4s ease-out;
+	box-shadow:  13px 10px 15px #97cfa3,
+             -10px -10px 15px #ddffef;
+}
+
+.green-bg-input button {
+	background: #BAFFC9;
+	box-shadow:  6px 6px 12px #97cfa3,
+             -6px -6px 12px #ddffef;
+ }
+             
+.green-bg-input button:focus {
 	box-shadow:  13px 10px 15px #97cfa3,
              -10px -10px 15px #ddffef;
 }
@@ -354,21 +371,11 @@ object h3 {
 
 .dark-bg-div {
 	background: #1C1C1E;
-	-webkit-transition: all .4s ease-out;
-  -moz-transition: all .4s ease-out;
-  -ms-transition: all .4s ease-out;
-  -o-transition: all .4s ease-out;
-  transition: all .4s ease-out;
 	box-shadow: 7px 7px 22px rgba(0, 0, 0, 0.1),
              -4px -4px 12px rgba(444, 444, 444, 0.1);
 }
 
 .dark-bg-div:focus-within {
-	-webkit-transition: all .4s ease-out;
-  -moz-transition: all .4s ease-out;
-  -ms-transition: all .4s ease-out;
-  -o-transition: all .4s ease-out;
-  transition: all .4s ease-out;
 	box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.3),
              -2px -3px 14px rgba(444, 444, 444, 0.2);
 }
@@ -405,21 +412,23 @@ object h3 {
 .dark-bg-input input {
 	color: #CACBCF;
 	background: #1C1C1E;
-	-webkit-transition: all .4s ease-out;
-  -moz-transition: all .4s ease-out;
-  -ms-transition: all .4s ease-out;
-  -o-transition: all .4s ease-out;
-  transition: all .4s ease-out;
 	box-shadow: 7px 7px 23px #1e2022,
            -4px -4px 18px rgba(444, 444, 444, 0.1);
 }
 
 .dark-bg-input input:focus {
-	-webkit-transition: all .4s ease-out;
-  -moz-transition: all .4s ease-out;
-  -ms-transition: all .4s ease-out;
-  -o-transition: all .4s ease-out;
-  transition: all .4s ease-out;
+	box-shadow:   11px 11px 18px #1e2022,
+			-8px -8px 13px rgba(444, 444, 444, 0.1);
+}
+
+.dark-bg-input button {
+	color: #CACBCF;
+	background: #1C1C1E;
+	box-shadow: 7px 7px 23px #1e2022,
+           -4px -4px 18px rgba(444, 444, 444, 0.1);
+}
+
+.dark-bg-input button:focus {
 	box-shadow:   11px 11px 18px #1e2022,
 			-8px -8px 13px rgba(444, 444, 444, 0.1);
 }
@@ -432,48 +441,47 @@ object h3 {
 	color: #d9d44e;
 }
 
+.dark-bg .file-upload {
+	border: 3px solid rgba(444, 444, 444, 0.5);
+}
+
+.dark-bg .file-upload:hover {
+	border: 3px solid rgba(444, 444, 444, 1);
+}
+
 .peach-bg {
 	background: #F5E8C7;
 }
 
 .peach-bg-div {
 	background: #F5E8C7;
-	-webkit-transition: all .4s ease-out;
-  -moz-transition: all .4s ease-out;
-  -ms-transition: all .4s ease-out;
-  -o-transition: all .4s ease-out;
-  transition: all .4s ease-out;
 	box-shadow:  10px 10px 20px #e4cfbb,
              -10px -10px 20px #fff9df;
 }
 
 .peach-bg-div:focus-within {
-	-webkit-transition: all .4s ease-out;
-  -moz-transition: all .4s ease-out;
-  -ms-transition: all .4s ease-out;
-  -o-transition: all .4s ease-out;
-  transition: all .4s ease-out;
 	box-shadow:    16px 16px 32px #cbc1a5,
              -16px -16px 32px #ffffe9;
 }
 
 .peach-bg-input input {
 	background: #F5E8C7;
-	-webkit-transition: all .4s ease-out;
-  -moz-transition: all .4s ease-out;
-  -ms-transition: all .4s ease-out;
-  -o-transition: all .4s ease-out;
-  transition: all .4s ease-out;
 	box-shadow:  10px 10px 20px #e4cfbb,
              -10px -10px 20px #fff9df;
 }
 
 .peach-bg-input input:focus {
-	-webkit-transition: all .4s ease-out;
-  -moz-transition: all .4s ease-out;
-  -ms-transition: all .4s ease-out;
-  -o-transition: all .4s ease-out;
-  transition: all .4s ease-out;
+	box-shadow:   16px 16px 32px #cbc1a5,
+             -16px -16px 32px #ffffe9;
+}
+
+.peach-bg-input button {
+	background: #F5E8C7;
+	box-shadow:  10px 10px 20px #e4cfbb,
+             -10px -10px 20px #fff9df;
+}
+
+.peach-bg-input button:focus {
 	box-shadow:   16px 16px 32px #cbc1a5,
              -16px -16px 32px #ffffe9;
 }
@@ -484,42 +492,33 @@ object h3 {
 
 .purple-bg-div {
 	background: #e0c5f7;
-	-webkit-transition: all .4s ease-out;
-  -moz-transition: all .4s ease-out;
-  -ms-transition: all .4s ease-out;
-  -o-transition: all .4s ease-out;
-  transition: all .4s ease-out;
 	box-shadow:      14px 14px 30px #c5add9,
              -14px -14px 30px #fbddff;
 }
 
 .purple-bg-div:focus-within {
-	-webkit-transition: all .4s ease-out;
-  -moz-transition: all .4s ease-out;
-  -ms-transition: all .4s ease-out;
-  -o-transition: all .4s ease-out;
-  transition: all .4s ease-out;
 	box-shadow:    18px 18px 36px #bea7d2,
              -18px -18px 36px #ffe3ff;
 }
 
 .purple-bg-input input {
 	background: #e0c5f7;
-	-webkit-transition: all .4s ease-out;
-  -moz-transition: all .4s ease-out;
-  -ms-transition: all .4s ease-out;
-  -o-transition: all .4s ease-out;
-  transition: all .4s ease-out;
 	box-shadow:     14px 14px 30px #c5add9,
              -14px -14px 30px #fbddff;
 }
 
 .purple-bg-input input:focus {
-	-webkit-transition: all .4s ease-out;
-  -moz-transition: all .4s ease-out;
-  -ms-transition: all .4s ease-out;
-  -o-transition: all .4s ease-out;
-  transition: all .4s ease-out;
+	box-shadow:    18px 18px 36px #bea7d2,
+             -18px -18px 36px #ffe3ff;
+}
+
+.purple-bg-input button {
+	background: #e0c5f7;
+	box-shadow:     14px 14px 30px #c5add9,
+             -14px -14px 30px #fbddff;
+}
+
+.purple-bg-input button:focus {
 	box-shadow:    18px 18px 36px #bea7d2,
              -18px -18px 36px #ffe3ff;
 }
