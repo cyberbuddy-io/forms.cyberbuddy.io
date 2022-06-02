@@ -4,8 +4,12 @@
 	font-family: 'Montserrat';
 }
 
-body {
-	margin-top: 30px;
+/*============== Table Elements ==============*/
+
+#data {
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
 }
 
 tr:nth-child(even) {

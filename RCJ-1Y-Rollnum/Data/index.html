@@ -35,10 +35,23 @@
 
 	<!-- Main CSS -->
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="pass.css">
 </head>
 <body>
+	
+	<div id="snackbar"></div>
 
-	<table id="table"></table>
+	<section id="login">
+		<div>
+			<h1>Enter the password</h1>
+			<input type="password" id="pass" placeholder="Your Input">
+			<button id="sub">Submit</button>
+		</div>
+	</section>
+
+	<section id="data">
+		<table id="table"></table>
+	</section>
 
 	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
@@ -93,5 +106,7 @@
 
 		readData();
 	</script>
+	
+	<script type="text/javascript" src="pass.js"></script>
 </body>
 </html>
