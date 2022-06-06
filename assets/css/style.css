@@ -5,12 +5,13 @@
 }
 
 body {
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
   display: none;
 }
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -43,7 +44,7 @@ button {
 
 /*Navbar*/
 
-nav {
+	nav {
 	background-color: white;
 	margin: auto;
 	height: 75px;
