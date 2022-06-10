@@ -25,6 +25,16 @@ function send_message() {
   var clgCity = document.getElementById("clgCity");
   var refer = document.getElementById("refer");
 
+  let courses = document.querySelectorAll("input[type=checkbox]");
+  let interest = [];
+  let interestCheck = document.getElementById("Android App Development using Android Studio");
+
+  for (var i = 0; i < courses.length; i++) {
+    if (courses[i].checked == true) {
+      interest.push(courses[i].id);
+    }    
+  }
+
   var bin = 0;
   var fields = [name1, mail, number, clgName, clgDegree, clgCity, refer];
   for (var i = 0; i < fields.length ; i++) {
@@ -33,10 +43,16 @@ function send_message() {
       snackbar();
       break;
     }
+    else if (interest.length == 0) {
+      interestCheck.focus();
+      snackbar();
+    }
   }
-  if (name1.value != '' && number.value != '' && mail.value != '' && clgName.value != '' && clgDegree.value != '' && clgCity.value != '' && refer.value != '') {
+
+  if (name1.value != '' && number.value != '' && mail.value != '' && clgName.value != '' && clgDegree.value != '' && clgCity.value != '' && refer.value != '' && interest.length != 0) {
     bin = 1;
   }
+
 
   if (bin == 1) {
     document.getElementById("submit_btn").disabled = true;
@@ -49,6 +65,7 @@ function send_message() {
       clgCity : clgCity.value,
       clgName : clgName.value,
       clgDegree : clgDegree.value,
+      courses: interest,
       refer : refer.value
     })
     .then( (onResolved) => {

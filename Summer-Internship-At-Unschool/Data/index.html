@@ -79,7 +79,7 @@
 		count = 1;
 
 		function readData() {
-			db.ref("aap-mock-interviews/").once('value', (value) => {
+			db.ref("unschool-summer-internship/").once('value', (value) => {
 				value.forEach((valueInside) => {	//for going inside object
 					let td1 = document.createElement('th');
 					let td2 = document.createElement('td');
