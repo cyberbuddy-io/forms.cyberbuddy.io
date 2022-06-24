@@ -1,0 +1,39 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Montserrat';
+}
+
+/*============== Table Elements ==============*/
+
+#data {
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+}
+
+tr:nth-child(even) {
+	margin: 10px;
+	background-color: rgba(12, 15, 83, 0.1);
+}
+
+td, th {
+	padding: 10px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+td:nth-child(3) {
+	letter-spacing: 2px;
+}
+
+th {
+	text-indent: 30px;
+}
+
+tr {
+	transition: 0.2s ease-in-out;
+}
+
+tr:hover {
+	background-color: rgba(12, 15, 83, 0.3);
+}
