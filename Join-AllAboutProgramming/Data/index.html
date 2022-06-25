@@ -79,22 +79,28 @@
 		count = 1;
 
 		function readData() {
-			db.ref("attendence-unschool/").once('value', (value) => {
+			db.ref("aap-recruitment/").once('value', (value) => {
 				value.forEach((valueInside) => {	//for going inside object
 					let td1 = document.createElement('th');
 					let td2 = document.createElement('td');
 					let td3 = document.createElement('td');
 					let td4 = document.createElement('td');
+					let td5 = document.createElement('td');
+					let td6 = document.createElement('td');
+					let td7 = document.createElement('td');
 
 					td1.innerHTML = count;
 					++count;
 
 					td2.innerHTML = valueInside.val().name1;
 					td3.innerHTML = valueInside.val().mail;
-					td4.innerHTML = valueInside.val().feed;
+					td4.innerHTML = valueInside.val().num;
+					td5.innerHTML = valueInside.val().team;
+					td6.innerHTML = valueInside.val().why;
+					td7.innerHTML = valueInside.val().feed;
 
 					let tr = document.createElement('tr');
-					tr.append(td1, td2, td3, td4);
+					tr.append(td1, td2, td3, td4, td5, td6, td7);
 
 					document.getElementById('table').append(tr);
 				});

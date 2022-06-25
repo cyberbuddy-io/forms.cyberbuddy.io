@@ -73,11 +73,27 @@ function send_message() {
   }
 }
 
+function preventDefault(e) {
+    e.preventDefault();
+}
+
+function upload_check() {
+  var usr = document.getElementById("name");
+  if (usr.value == "") {
+    $("#resume").bind("click", preventDefault);
+    usr.focus();
+    snackbar();
+  } else {
+    $("#resume").unbind("click", preventDefault);
+  }
+}
+
 function upload_file() {
   const ref = firebase.storage().ref("aap-recruitment/");
   const file = document.querySelector('#resume').files[0];
   document.getElementById("file-name").innerHTML = file.name;
-  const name = (+new Date()) + '-' + file.name;
+  var usr = document.getElementById("name");
+  const name = (+new Date()) + '-' + usr.value;
   const metadata = {
     contentType: file.type
   };
