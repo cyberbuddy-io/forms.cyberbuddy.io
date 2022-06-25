@@ -164,3 +164,10 @@ $( "aside img" ).click(function() {
   }
 });
 
+function modal_dis() {
+  document.getElementById("modal").style.display = "none";
+}
+
+function modal() {
+  document.getElementById("modal").style.display = "grid";
+}

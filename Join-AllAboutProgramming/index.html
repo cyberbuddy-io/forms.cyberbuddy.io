@@ -67,6 +67,114 @@
 			user-select: none;
 		}
 		</style>
+		<style type="text/css">
+			/* width */
+			::-webkit-scrollbar {
+			  width: 10px;
+			}
+
+			/* Track */
+			::-webkit-scrollbar-track {
+			  background: #f1f1f1;
+			}
+
+			/* Handle */
+			::-webkit-scrollbar-thumb {
+			  background: #001F3F;
+			}
+
+			/* Handle on hover */
+			::-webkit-scrollbar-thumb:hover {
+			  background: #555;
+			}
+
+			.modal {
+				width: 100%;
+				background-color: rgba(0, 0, 0, 0.6);
+				backdrop-filter: blur(2px);
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				overflow-y: scroll;
+			}
+
+			.modal section {
+				width: 63%;
+				background-color: white;
+				border-radius: 10px;
+				padding: 40px;
+				padding-top: 20px;
+			}
+
+			.modal section i {
+				font-size: 22px;
+				display: flex;
+				justify-content: end;
+				margin-bottom: 10px;
+				cursor: pointer;
+				color: #001F3F;
+			}
+
+			.modal section i:hover {
+				color: red;
+			}
+
+			.modal h1 {
+				text-align: center;
+				font-size: 28px;
+			}
+
+			.modal li {
+				margin-top: 20px;
+				color: #001F3F;
+				font-weight: 500;
+			}
+
+			.modal p {
+				font-size: 14px;
+				padding-left: 25px;
+				margin: 5px 0;
+			}
+
+			@media screen and (max-width: 730px) {
+				/* width */
+				::-webkit-scrollbar {
+				  width: initial;
+				}
+
+				/* Track */
+				::-webkit-scrollbar-track {
+				  background: initial;
+				}
+
+				/* Handle */
+				::-webkit-scrollbar-thumb {
+				  background: initial;
+				}
+
+				/* Handle on hover */
+				::-webkit-scrollbar-thumb:hover {
+				  background: initial;
+				}
+
+				.modal {
+					padding: 30px 0;
+				}
+
+				.modal section {
+					width: 90%;
+					padding: 30px 20px;
+					margin: 30px initial;
+					padding-top: 10px;
+				}
+
+				.modal h1 {
+					text-align: center;
+					font-size: 24px;
+				}
+			}
+		</style>
 </head>
 
 <body id="test">
@@ -74,6 +182,25 @@
 	<div id="div-test" style="overflow: hidden;padding: 0;">
 			<img src="Files/hero.png" style="width: 100%;">
 	</div>
+
+	<figure id="modal" class="modal">
+		<section>
+			<i title="Close" onclick="modal_dis()" class="fa-solid fa-close"></i>
+			<h1>Teams Description</h1>
+			<ul>
+				<li>Tech Team</li>
+				<p>The Technical Team will be comprised of enthusiasts with a zeal to learn and teach others. If you're familiar with any Web Technologies such as HTML, CSS and JS or any front-end frameworks like React or Angular or are into Android or IOS or Hybrid App development, it will be a big plus.</p>
+				<li>Graphic Design</li>
+				<p>A good graphics sense can create eye pleasing magic. If you are good with any graphics software like Canva or Photoshop or maybe Illustrator, join our team where you can show off your skills.</p>
+				<li>Marketing and Promotions</li>
+				<p>A good product always needs the best marketing. If you are confident in your social skills and are willing to improve our image and growth in the market, let's shake hands and grow together.</p>
+				<li>Content Team</li>
+				<p>We at All About Programming have been sharing great content to improve the knowledge of our audience. If you are good with your writing skills and would like to contribute to the community, join us and get a chance to improve.</p>
+				<li>Video Editors</li>
+				<p>Graphics and content is a great way to share the knowledge with the audience but video content just takes the top spot when it comes to infotainment. If you are familliar with any video editing software like premier pro or filmora x or maybe final cut pro, come on and let's create some awesome content together</p>
+			</ul>
+		</section>
+	</figure>
 
 	<content id="form-1">
 		<hello id="snackbar">Please enter valid value.</hello>
