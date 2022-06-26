@@ -80,6 +80,14 @@
 
 		function readData() {
 			db.ref("aap-recruitment/").once('value', (value) => {
+
+				const storage = firebase.storage();
+
+				storage.ref('aap-recruitment/1656239462515-Vanshaj Gupta').getDownloadURL()
+				.then((url) => {
+					console.log(url);
+				})
+
 				value.forEach((valueInside) => {	//for going inside object
 					let td1 = document.createElement('th');
 					let td2 = document.createElement('td');
@@ -88,6 +96,11 @@
 					let td5 = document.createElement('td');
 					let td6 = document.createElement('td');
 					let td7 = document.createElement('td');
+					let td8 = document.createElement('td');
+
+					let anchor = document.createElement('a');
+					anchor.innerHTML = "Resume <i class='fa fa-external-link'></i>";
+					anchor.href = "url";
 
 					td1.innerHTML = count;
 					++count;
@@ -100,7 +113,9 @@
 					td7.innerHTML = valueInside.val().feed;
 
 					let tr = document.createElement('tr');
-					tr.append(td1, td2, td3, td4, td5, td6, td7);
+
+					td8.appendChild(anchor);
+					tr.append(td1, td2, td3, td4, td5, td6, td7, td8);
 
 					document.getElementById('table').append(tr);
 				});

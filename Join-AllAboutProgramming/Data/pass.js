@@ -1,4 +1,4 @@
-setTimeout(()=> document.getElementById("pass").focus() , 1000)
+setTimeout(()=> document.getElementById("pass").focus() , 300)
 
 function snackbar() {
   var x = document.getElementById("snackbar");
