@@ -79,7 +79,7 @@
 		count = 1;
 
 		function readData() {
-			db.ref("gfg-volunteer/").once('value', (value) => {
+			db.ref("cess-scavenger-hunt/").once('value', (value) => {
 				value.forEach((valueInside) => {	//for going inside object
 					let td1 = document.createElement('th');
 					let td2 = document.createElement('td');
@@ -92,16 +92,13 @@
 					td1.innerHTML = count;
 					++count;
 
-					td2.innerHTML = valueInside.val().name1;
-					td3.innerHTML = valueInside.val().mail;
-					td4.innerHTML = valueInside.val().num;
-					td5.innerHTML = valueInside.val().team;
-					td6.innerHTML = valueInside.val().sem + " Sem";
-					td7.innerHTML = valueInside.val().feed;
+					td2.innerHTML = valueInside.val().name1 + " &nbsp;&nbsp;" + valueInside.val().name2 + " &nbsp;&nbsp;" + valueInside.val().name3;
+					td3.innerHTML = valueInside.val().num;
+					td4.innerHTML = valueInside.val().feed;
 
 					let tr = document.createElement('tr');
 
-					tr.append(td1, td2, td3, td4, td5, td6, td7);
+					tr.append(td1, td2, td3, td4);
 
 					document.getElementById('table').append(tr);
 				});
