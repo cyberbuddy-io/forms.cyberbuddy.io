@@ -1,0 +1,4 @@
+Change in private key - Added Date and Time
+Adding Button for user to change theme
+Themes - Dark Mode, Peach, Purple, Green
+Minor changes in interface - Font changed
