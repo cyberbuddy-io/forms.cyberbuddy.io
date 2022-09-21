@@ -1,18 +1,23 @@
 var utc = new Date().toJSON().slice(0,10).replace(/-/g,'/');
 
-document.getElementById('other_lang').addEventListener('focus', function() {
-  document.getElementById('other_lang_check').checked = true;
-});
+function checkCondition(field, box) {
+  document.getElementById(field).addEventListener('focus', function() {
+    document.getElementById(box).checked = true;
+  });
 
-document.getElementById('other_lang').addEventListener('blur', function() {
-  if (document.getElementById('other_lang').value == "") {
-    document.getElementById('other_lang_check').checked = false;
-  }
-});
+  document.getElementById(field).addEventListener('blur', function() {
+    if (document.getElementById(field).value == "") {
+      document.getElementById(box).checked = false;
+    }
+  });
 
-document.getElementById('other_lang_check').addEventListener('click', function() {
-  document.getElementById('other_lang').focus();
-});
+  document.getElementById(box).addEventListener('click', function() {
+    document.getElementById(field).focus();
+  });
+}
+
+checkCondition("other_lang", "other_lang_check");
+checkCondition("other_field", "other_field_check");
 
 function start() {
   var ele = document.querySelectorAll("input");
@@ -44,7 +49,7 @@ function send_message1() {
   }
 
   var bin = 0;
-  var fields = [name1, number, email, linkedin, branch];
+  var fields = [name1, number, email, branch];
   for (var i = 0; i < fields.length ; i++) {
     if (fields[i].value == '') {
       fields[i].focus();
@@ -52,7 +57,7 @@ function send_message1() {
       break;
     }
   }
-  if (name1.value != '' && number.value != '' && email.value != '' && linkedin.value != '' && branch.value != '') {
+  if (name1.value != '' && number.value != '' && email.value != '' && branch.value != '') {
     bin = 1;
   }
 
@@ -66,7 +71,8 @@ function send_message1() {
       number: number.value,
       email : email.value,
       linkedin : linkedin.value,
-      branch : branch.value
+      branch : branch.value,
+      year: year
     })
     .then( (onResolved) => {
       document.getElementById("form-1").style.display = "none";
@@ -80,17 +86,22 @@ function send_message1() {
 function back() {
   document.getElementById("form-1").style.display = "unset";
   document.getElementById("form-2").style.display = "none";
+  document.getElementById("submit-btn").disabled = false;
+  document.getElementById("submit-btn").innerHTML = "Next";
   window.scrollTo(0,0);
 }
 
 function send_message2() {
   var level = null;
   var tech = document.getElementById("tech").value;
+
   var language = ["html","js","python","cpp","java"];
+  var skills = ["communication","Graphic Designing","Public Skills","Management","Entrepreneur Skills"];
   var language_push = "";
+  var skills_push = "";
   var other_lang = document.getElementById("other_lang").value;
-  var proj = document.getElementById("proj").value;
-  var exp = document.getElementById("exp").value;
+  var other_field = document.getElementById("other_field").value;
+
   var feed = document.getElementById("feed").value;
   var db = firebase.database();
 
@@ -99,20 +110,29 @@ function send_message2() {
       level = "level" + i;
     }
   }
+  
   for (var i = 0; i < language.length; i++) {
     if(document.getElementById(language[i]).checked == true) {
       language_push = language_push + language[i] + ", ";
     }
   }
 
-  language_push += other_lang;
+  for (var i = 0; i < skills.length; i++) {
+    if(document.getElementById(skills[i]).checked == true) {
+      skills_push = skills_push + skills[i] + ", ";
+    }
+  }
 
+  language_push += other_lang;
+  skills_push += other_field;
+
+  document.getElementById("submit-btn2").disabled = true;
+  document.getElementById("submit-btn2").innerHTML = "Loading <i style='margin-left:8px' class='fa fa-spinner spinner'></i>";
   db.ref('ecell-gndu-survey/' + name1.value + number.value + "/").push({
     level : level,
     tech : tech,
     language : language_push,
-    proj : proj,
-    exp : exp,
+    skills : skills_push,
     feed : feed
   })
   .then(
