@@ -78,10 +78,11 @@
 
 <body id="test">
 
+	<div id="div-test" style="overflow: hidden;padding: 0;">
+		<img src="Files/hero.png" style="width: 100%;">
+	</div>
+
 	<content id="form-1">
-		<!-- <div id="div-test" style="padding: 10px;">
-			<img src="Files/hero.png" style="width: 100%;">
-		</div> -->
 
 		<hello id="snackbar">Please enter valid value.</hello>
 
@@ -89,17 +90,17 @@
 			<section>
 				<h1><span>Skills</span> Survey Form</h1>
 				<h2 style="font-size:18px">For E-Cell GNDU</h2>
-				<p></p>
+				<p>Hello Everyone!! <br><br><b>E-cell</b> is a non-profit student’s organization dedicated to promoting the spirit of <b>entrepreneurship</b> among students throughout the Campus.<br><br>This Form Will help You in Providing Opportunities in Future E cell <b>events</b> and activities. You will also get opportunity to work with new <b>startups</b> and innovative <b>ideas</b>. This is Best Way to Show Your Skills.</p>
 				<p class="truncate" style="font-size: 15px;margin-bottom: 13px;">
 					<b>Connect with us</b>
 					<figure style="display:flex;gap: 20px;">
-						<a target="_blank" href="https://chat.whatsapp.com/ImevO8suMHPFCuZanP04f2">
-							<i class="fa-brands fa-whatsapp"></i>
+						<a target="_blank" href="https://www.facebook.com/profile.php?id=100085479042689">
+							<i class="fa-brands fa-facebook"></i>
 						</a>
-						<a target="_blank" href="https://instagram.com/gfg.gndu?igshid=YmMyMTA2M2Y=">
+						<a target="_blank" href="https://www.instagram.com/e_cellgndu">
 							<i class="fa-brands fa-instagram"></i>
 						</a>
-						<a target="_blank" href="https://www.linkedin.com/company/geeksforgeeks-gndu/">
+						<a target="_blank" href="https://www.linkedin.com/in/e-cell-gndu-amritsar-350333250/">
 							<i class="fa-brands fa-linkedin"></i>
 						</a>
 						<!-- <a target="_blank" href="https://t.me/joinchat/9BGQriK9JrllNDU1">
@@ -225,13 +226,13 @@
 				<p class="truncate" style="font-size: 15px;margin-bottom: 13px;">
 					<b>Connect with us</b>
 					<figure style="display:flex;gap: 20px;">
-						<a target="_blank" href="https://chat.whatsapp.com/ImevO8suMHPFCuZanP04f2">
-							<i class="fa-brands fa-whatsapp"></i>
+						<a target="_blank" href="https://www.facebook.com/profile.php?id=100085479042689">
+							<i class="fa-brands fa-facebook"></i>
 						</a>
-						<a target="_blank" href="https://instagram.com/gfg.gndu?igshid=YmMyMTA2M2Y=">
+						<a target="_blank" href="https://www.instagram.com/e_cellgndu">
 							<i class="fa-brands fa-instagram"></i>
 						</a>
-						<a target="_blank" href="https://www.linkedin.com/company/geeksforgeeks-gndu/">
+						<a target="_blank" href="https://www.linkedin.com/in/e-cell-gndu-amritsar-350333250/">
 							<i class="fa-brands fa-linkedin"></i>
 						</a>
 						<!-- <a target="_blank" href="https://t.me/joinchat/9BGQriK9JrllNDU1">
@@ -250,7 +251,7 @@
 
 		<div id="div-test">
 			<section class="qna">
-				<h2>Coding level? <span>*</span></h2>
+				<h2>Coding level?</h2>
 				<input type="radio" id="level-1" name = ".." value=".."> <label for="level-1">Beginner</label> </br>
 				<input type="radio" id="level-2" name = ".." value=".."> <label for="level-2">Intermediate</label> </br>
 				<input type="radio" id="level-3" name = ".." value=".."> <label for="level-3">Expert</label> </br>
@@ -259,14 +260,7 @@
 
 		<div id="div-test">
 			<section class="qna">
-				<h2>Technologies familiar with?</h2>
-				<input type="text" id="tech" placeholder="Your answer" required="Please enter your valid answer">
-			</section>
-		</div>
-
-		<div id="div-test">
-			<section class="qna">
-				<h2>Languages you're familiar with <span>*</span></h2>
+				<h2>Languages you're familiar with</h2>
 				<input type="checkbox" id="html"> <label for="html">HTML and CSS</label> </br>
 				<input type="checkbox" id="js"> <label for="js">JavaScript</label> </br>
 				<input type="checkbox" id="python"> <label for="python">Python</label> </br>
@@ -279,28 +273,48 @@
 
 		<div id="div-test">
 			<section class="qna">
-				<h2>Have you made any projects till now? <span>*</span></h2>
-				<input type="text" id="proj" placeholder="Your answer" required="Please enter your valid answer">
+				<h2>Technologies familiar with if any?</h2>
+				<input type="text" id="tech" placeholder="Your answer" required="Please enter your valid answer">
 			</section>
 		</div>
 
 		<div id="div-test">
+			<section class="qna">
+				<h2>Field you're working in</h2>
+				<input type="checkbox" id="communication"> <label for="communication">Communication</label> </br>
+				<input type="checkbox" id="Graphic Designing"> <label for="Graphic Designing">Graphic Designing</label> </br>
+				<input type="checkbox" id="Public Skills"> <label for="Public Skills">Public Skills</label> </br>
+				<input type="checkbox" id="Management"> <label for="Management">Management</label> </br>
+				<input type="checkbox" id="Entrepreneur Skills"> <label for="Entrepreneur Skills">Entrepreneur Skills</label> </br>
+				<input type="checkbox" id="other_field_check">
+				<input type="text" id="other_field" placeholder="Other skills">
+			</section>
+		</div>
+
+		<!-- <div id="div-test">
+			<section class="qna">
+				<h2>Have you made any projects till now? <span>*</span></h2>
+				<input type="text" id="proj" placeholder="Your answer" required="Please enter your valid answer">
+			</section>
+		</div> -->
+
+		<!-- <div id="div-test">
 			<section class="qna">
 				<h2>Any past achievements and experiences in any of these fields? </h2>
 				<input type="text" id="exp" placeholder="Your answer" required="Please enter your valid answer">
 			</section>
-		</div>
+		</div> -->
 
 		<div id="div-test">
 			<section class="qna">
-				<h2>Any Suggestions/Feedback</h2>
+				<h2>Any questions/feedback for us?</h2>
 				<input type="text" id="feed" placeholder="Your answer" required="Please enter your valid answer">
 			</section>
 		</div>
 
 		<footer id="input-test">
 			<input style="margin-right: 50px;" type="button" value="Back" onclick="back()">
-			<input type="submit" placeholder="Submit" onclick="send_message2()">
+			<input type="submit" id="submit-btn2" placeholder="Submit" onclick="send_message2()">
 		</footer>
 	</content>
 
