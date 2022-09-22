@@ -63,9 +63,8 @@ function send_message1() {
 
   if (bin == 1) {
     document.getElementById("submit-btn").disabled = true;
-    document.getElementById("submit-btn").innerHTML = "Loading <i style='margin-left:8px' class='fa fa-spinner spinner'></i>";
     var db = firebase.database();
-    db.ref('ecell-gndu-survey/' + name1.value + number.value + "/").push({
+    db.ref('ecell-gndu-survey/' + name1.value + number.value + "/1").set({
       date : utc,
       name: name1.value,
       number: number.value,
@@ -93,7 +92,8 @@ function back() {
 
 function send_message2() {
   var level = null;
-  var tech = document.getElementById("tech").value;
+  var skill = document.getElementById("skill").value;
+  var exp = document.getElementById("exp").value;
 
   var language = ["html","js","python","cpp","java"];
   var skills = ["communication","Graphic Designing","Public Skills","Management","Entrepreneur Skills"];
@@ -102,7 +102,6 @@ function send_message2() {
   var other_lang = document.getElementById("other_lang").value;
   var other_field = document.getElementById("other_field").value;
 
-  var feed = document.getElementById("feed").value;
   var db = firebase.database();
 
   for (var i = 1; i <= 3; i++) {  //coding level
@@ -127,13 +126,12 @@ function send_message2() {
   skills_push += other_field;
 
   document.getElementById("submit-btn2").disabled = true;
-  document.getElementById("submit-btn2").innerHTML = "Loading <i style='margin-left:8px' class='fa fa-spinner spinner'></i>";
-  db.ref('ecell-gndu-survey/' + name1.value + number.value + "/").push({
+  db.ref('ecell-gndu-survey/' + name1.value + number.value + "/2").set({
     level : level,
-    tech : tech,
+    skill : skill,
+    exp : exp,
     language : language_push,
     skills : skills_push,
-    feed : feed
   })
   .then(
     (onResolved) => {
