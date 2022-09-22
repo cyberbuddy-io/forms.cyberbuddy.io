@@ -147,6 +147,15 @@ div:focus-within {
             -11px -11px 27px #ffffff;
 }
 
+.img_div {
+	padding: 0;
+	overflow: hidden;
+}
+
+.img_div img {
+	width: 100%;
+}
+
 section {
 	width: 90%;
 	margin: auto;
@@ -207,7 +216,7 @@ footer {
 	justify-content: center;
 }
 
-footer input {
+footer button {
 	margin-top: 35px;
 	width: 200px;
 	height: 50px;
@@ -222,7 +231,8 @@ footer input {
              -7px -7px 14px #ffffff;
 }
 
-footer input:focus {
+footer button:focus {
+	outline: none;
 	box-shadow:  13px 14px 15px rgba(0, 0, 0, 0.2),
              -10px -14px 15px #ffffff;
 }
@@ -372,7 +382,10 @@ a {
 }
 
 .dark-bg-div ul {
-	border-top: 2px solid rgba(234,234,234, 0.5);
+	color: #A1A1A3;
+}
+
+.dark-bg-div ol {
 	color: #A1A1A3;
 }
 
