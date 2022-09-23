@@ -111,15 +111,17 @@
 					td7.innerHTML = valueInside.val()[1].year;
 					td8.innerHTML = valueInside.val()[1].linkedin;
 
-					// var exp = valueInside.val()[2].exp || "Not Filled";
+					var exp = valueInside.val()[2] || {exp: "Not Submitted"};
+					var language = valueInside.val()[2] || {language: "Not Submitted"};
+					var level = valueInside.val()[2] || {level: "Not Submitted"};
+					var skill = valueInside.val()[2] || {skill: "Not Submitted"};
+					var skills = valueInside.val()[2] || {skills: "Not Submitted"};
 
-					// console.log(exp);
-
-					// td9.innerHTML = exp;
-					// td10.innerHTML = valueInside.val()[2].language || "Not Filled";
-					// td11.innerHTML = valueInside.val()[2].level || "Not Filled";
-					// td12.innerHTML = valueInside.val()[2].skill || "Not Filled";
-					// td13.innerHTML = valueInside.val()[2].skills || "Not Filled";
+					td9.innerHTML = exp.exp || "Not Filled";
+					td10.innerHTML = language.language || "Not Filled";
+					td11.innerHTML = level.level || "Not Filled";
+					td12.innerHTML = skill.skill || "Not Filled";
+					td13.innerHTML = skills.skills || "Not Filled";
 
 					let tr = document.createElement('tr');
 
