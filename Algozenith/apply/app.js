@@ -64,17 +64,18 @@ function send_message() {
     return;
   }
 
-  var checkboxes = document.querySelectorAll("input[type='checkbox']");
-  var team = [];
+  var team = '';
+  var management = document.getElementById('Management and PR Team');
+  var content = document.getElementById('Content Team');
+  var graphics = document.getElementById('Graphics team');
+  var tech = document.getElementById('Tech team');
 
-  for (var i = 0; i < checkboxes.length; i++) {
-    if (checkboxes[i].checked == true) {
-      team.push(checkboxes[i].id);
-    }
-  }
-
-  if (team.length == 0) {
-    checkboxes[0].focus();
+  if (management.checked == true) team = 'Management and PR Team';
+  else if (content.checked == true) team = 'Content Team';
+  else if (graphics.checked == true) team = 'Graphics team';
+  else if (tech.checked == true) team = 'Tech team';
+  else {
+    management.focus();
     snackbar();
     return;
   }
