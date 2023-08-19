@@ -83,6 +83,8 @@
           <th>Questions</th>
         </tr>
       </table>
+      <h2>All Mails</h2>
+      <p id="mails"></p>
     </section>
 
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
@@ -110,8 +112,9 @@
       var db = firebase.database();
       count = 1;
 
-      function readData() {
-      	db.ref("GDSC-amritsar/cybersecurity-event").once('value', (value) => {
+      async function readData() {
+        let arr = "";
+      	await db.ref("GDSC-amritsar/cybersecurity-event").once('value', (value) => {
       		value.forEach((valueInside) => {	//for going inside object
       			let td1 = document.createElement('th');
       			let td2 = document.createElement('td');
@@ -125,6 +128,8 @@
       			td3.innerHTML = valueInside.val().mail || "Not Entered";
       			td10.innerHTML = valueInside.val().feed;
 
+            arr+=valueInside.val().mail + " ";
+
       			let tr = document.createElement('tr');
 
       			tr.append(td1, td2, td3, td10);
@@ -132,6 +137,7 @@
       			document.getElementById('table').append(tr);
       		});
       	});
+        document.getElementById('mails').innerHTML = arr;
       }
 
       readData();
