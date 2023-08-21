@@ -37,9 +37,13 @@ function send_message() {
   var course = 0;
   var Btech = document.getElementById('Btech');
   var BCA = document.getElementById('BCA');
+  var ECE = document.getElementById('ECE');
+  var ECM = document.getElementById('ECM');
 
   if (Btech.checked == true) course = "B.Tech";
   else if (BCA.checked == true) course = "BCA";
+  else if (ECE.checked == true) course = "ECE";
+  else if (ECM.checked == true) course = "ECM";
   else {
     Btech.focus();
     snackbar();
