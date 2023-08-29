@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Placement Ready Web & ML Workshop</title>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../Files/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../Files/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../Files/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Meta Tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="" />
+  <meta name="”robots”" content="”noindex," nofollow” />
+  <meta name="”robots”" content="”index," follow” />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Font Awesome Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- For SEO -->
+  <link rel="canonical" href="http://blog.cyberbuddy.io/" />
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" type="text/css" href="pass.css" />
+</head>
+
+<body>
+  <div id="snackbar"></div>
+
+  <!-- <section id="login">
+    <div>
+      <h1>Enter the password</h1>
+      <input type="password" id="pass" placeholder="Your Input">
+      <button id="sub">Submit</button>
+    </div>
+  </section> -->
+
+  <section id="data">
+    <table id="table">
+      <tr>
+        <th>Srno.</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Batch</th>
+        <th>Interest</th>
+        <th>Questions</th>
+      </tr>
+    </table>
+  </section>
+
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyD_lLg5hzvqyNwx33GBdH8NkMwzTNeyU58",
+      authDomain: "all-forms-66e2a.firebaseapp.com",
+      databaseURL: "https://all-forms-66e2a-default-rtdb.firebaseio.com",
+      projectId: "all-forms-66e2a",
+      storageBucket: "all-forms-66e2a.appspot.com",
+      messagingSenderId: "581577108602",
+      appId: "1:581577108602:web:60ebe743023f8311905fc3",
+      measurementId: "G-X8J2FP581Q",
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+  <script type="text/javascript">
+    var db = firebase.database();
+    count = 1;
+
+    function readData() {
+      db.ref("GDSC-amritsar/offline-ml-web-workshop").once('value', (value) => {
+        value.forEach((valueInside) => {	//for going inside object
+          let td1 = document.createElement('th');
+          let td2 = document.createElement('td');
+          let td3 = document.createElement('td');
+          let td31 = document.createElement('td');
+          let td4 = document.createElement('td');
+          let td5 = document.createElement('td');
+          let td6 = document.createElement('td');
+          let td9 = document.createElement('td');
+          let td10 = document.createElement('td');
+
+          td1.innerHTML = count;
+          ++count;
+
+          td2.innerHTML = valueInside.val().name1 || "Not Entered";
+          td3.innerHTML = valueInside.val().mail || "Not Entered";
+          td31.innerHTML = valueInside.val().phone || "Not Entered";
+          td4.innerHTML = valueInside.val().year || "Not Entered";
+          td5.innerHTML = valueInside.val().team || "Not Entered";
+          td10.innerHTML = valueInside.val().feed || "Not Entered";
+
+          let tr = document.createElement('tr');
+
+          tr.append(td1, td2, td3, td31, td4, td5, td10);
+
+          document.getElementById('table').append(tr);
+        });
+      });
+    }
+
+    readData();
+  </script>
+
+  <script type="text/javascript" src="pass.js"></script>
+</body>
+
+</html>
