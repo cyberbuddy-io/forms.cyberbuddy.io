@@ -44,14 +44,14 @@
 
 <body>
   <div id="snackbar"></div>
-
+<!-- 
   <section id="login">
     <div>
       <h1>Enter the password</h1>
       <input type="password" id="pass" placeholder="Your Input">
       <button id="sub">Submit</button>
     </div>
-  </section>
+  </section> -->
 
   <section id="data">
     <table id="table">
@@ -65,6 +65,8 @@
         <th>Questions</th>
       </tr>
     </table>
+    <h2>All Mails</h2>
+    <p id="mails"></p>
   </section>
 
   <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
@@ -93,6 +95,7 @@
     count = 1;
 
     function readData() {
+      let arr = "";
       db.ref("GDSC-amritsar/offline-ml-web-workshop").once('value', (value) => {
         value.forEach((valueInside) => {	//for going inside object
           let td1 = document.createElement('th');
@@ -115,12 +118,15 @@
           td5.innerHTML = valueInside.val().team || "Not Entered";
           td10.innerHTML = valueInside.val().feed || "Not Entered";
 
+          arr+=valueInside.val().mail + "<br />";
+
           let tr = document.createElement('tr');
 
           tr.append(td1, td2, td3, td31, td4, td5, td10);
 
           document.getElementById('table').append(tr);
         });
+        document.getElementById('mails').innerHTML = arr;
       });
     }
 
