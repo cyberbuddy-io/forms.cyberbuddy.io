@@ -37,7 +37,7 @@ function send_message() {
   document.getElementById("submit_btn").disabled = true;
   document.getElementById("submit_btn").innerHTML = "Loading <i style='margin-left:8px' class='fa fa-spinner spinner'></i>";
   var db = firebase.database();
-  db.ref("GDSC-amritsar/ml-event").push({
+  db.ref("GDSC-amritsar/iot-event").push({
       name1: name1.value,
       mail: mail.value,
       feed: feed.value
