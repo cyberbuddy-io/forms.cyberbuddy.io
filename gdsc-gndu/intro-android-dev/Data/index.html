@@ -114,7 +114,7 @@
 
       async function readData() {
         let arr = "";
-      	await db.ref("GDSC-amritsar/ml-event").once('value', (value) => {
+      	await db.ref("GDSC-amritsar/intro-android-dev").once('value', (value) => {
       		value.forEach((valueInside) => {	//for going inside object
       			let td1 = document.createElement('th');
       			let td2 = document.createElement('td');
