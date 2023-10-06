@@ -83,6 +83,8 @@
           <th>Questions</th>
         </tr>
       </table>
+      <h2>All Mails</h2>
+      <p id="mails"></p>
     </section>
 
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
@@ -126,7 +128,7 @@
       			td3.innerHTML = valueInside.val().mail || "Not Entered";
       			td10.innerHTML = valueInside.val().feed;
 
-            arr+=valueInside.val().mail + " ";
+            arr+=valueInside.val().mail + " <br />";
 
       			let tr = document.createElement('tr');
 
@@ -135,7 +137,7 @@
       			document.getElementById('table').append(tr);
       		});
       	});
-        document.getElementById('mails').innerHTML = arr + "<br />";
+        document.getElementById('mails').innerHTML = arr;
       }
 
       readData();
