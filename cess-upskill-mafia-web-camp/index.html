@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>FREE Web development Workshop</title>
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="./Files/apple-touch-icon.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="./Files/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="./Files/favicon-16x16.png" />
+	<link rel="manifest" href="./Files/site.webmanifest">
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description"
+		content="Upskill Mafia in collaboration with CESS(computer engineering student society) of GNDU Amritsar  is conducting a FREE Web Development  hands-on live workshop. " />
+	<meta name="”robots”" content="”noindex," nofollow” />
+	<meta name="”robots”" content="”index," follow” />
+	<meta property="og:title" content="FREE Web development Workshop" />
+	<meta property="og:image" content="./Files/favicon-32x32.png" />
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+		rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+
+	<!-- Font Awesome Library -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+		integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+	<!-- For SEO -->
+	<link rel="canonical" href="http://blog.cyberbuddy.io/" />
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<!-- Main CSS -->
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<style>
+		input:-webkit-autofill,
+		input:-webkit-autofill:hover,
+		input:-webkit-autofill:focus,
+		input:-webkit-autofill:active {
+			transition: background-color 5000s ease-in-out 0s;
+		}
+
+		aside img {
+			-webkit-transition-duration: 0.5s;
+			-moz-transition-duration: 0.5s;
+			-o-transition-duration: 0.5s;
+			transition-duration: 1s;
+			-webkit-transition-property: -webkit-transform;
+			-moz-transition-property: -moz-transform;
+			-o-transition-property: -o-transform;
+			transition-property: transform;
+		}
+
+		.truncate {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			word-wrap: break-word;
+		}
+
+		ul li {
+			margin-bottom: 6px;
+		}
+
+		figure a i {
+			font-size: 25px;
+		}
+
+		label {
+			user-select: none;
+		}
+	</style>
+	<style type="text/css">
+		/* width */
+		::-webkit-scrollbar {
+			width: 10px;
+		}
+
+		/* Track */
+		::-webkit-scrollbar-track {
+			background: #f1f1f1;
+		}
+
+		/* Handle */
+		::-webkit-scrollbar-thumb {
+			background: #001f3f;
+		}
+
+		/* Handle on hover */
+		::-webkit-scrollbar-thumb:hover {
+			background: #555;
+		}
+
+		.modal {
+			width: 100%;
+			background-color: rgba(0, 0, 0, 0.6);
+			backdrop-filter: blur(2px);
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			overflow-y: scroll;
+		}
+
+		.modal section {
+			width: 63%;
+			background-color: white;
+			border-radius: 10px;
+			padding: 40px;
+			padding-top: 20px;
+		}
+
+		.modal section i {
+			font-size: 22px;
+			display: flex;
+			justify-content: end;
+			margin-bottom: 10px;
+			cursor: pointer;
+			color: #001f3f;
+		}
+
+		.modal section i:hover {
+			color: red;
+		}
+
+		.modal h1 {
+			text-align: center;
+			font-size: 28px;
+		}
+
+		.modal li {
+			margin-top: 20px;
+			color: #001f3f;
+			font-weight: 500;
+		}
+
+		.modal p {
+			font-size: 14px;
+			padding-left: 25px;
+			margin: 5px 0;
+		}
+
+		@media screen and (max-width: 730px) {
+
+			/* width */
+			::-webkit-scrollbar {
+				width: initial;
+			}
+
+			/* Track */
+			::-webkit-scrollbar-track {
+				background: initial;
+			}
+
+			/* Handle */
+			::-webkit-scrollbar-thumb {
+				background: initial;
+			}
+
+			/* Handle on hover */
+			::-webkit-scrollbar-thumb:hover {
+				background: initial;
+			}
+
+			.modal {
+				padding: 30px 0;
+			}
+
+			.modal section {
+				width: 90%;
+				padding: 30px 20px;
+				margin: 30px initial;
+				padding-top: 10px;
+			}
+
+			.modal h1 {
+				text-align: center;
+				font-size: 24px;
+			}
+		}
+	</style>
+</head>
+
+<body id="test" onload="dark_bg()">
+	<div id="div-test" style="overflow: hidden; padding: 0">
+		<img src="./Files/hero.gif" style="width: 100%" />
+	</div>
+
+	<figure id="modal" class="modal">
+		<section>
+			<i title="Close" onclick="modal_dis()" class="fa-solid fa-close"></i>
+			<h1>Teams Description</h1>
+			<ul>
+				<li>Graphics Team</li>
+				<p>
+					A good graphics sense can create eye pleasing magic. If you are good
+					with any graphics software like Canva or Photoshop or maybe
+					Illustrator, join our team where you can show off your skills.
+				</p>
+				<li>Management and PR Team</li>
+				<p>
+					A good product always needs the best marketing. If you are confident
+					in your social skills and are willing to improve our image and
+					growth in the market, let's shake hands and grow together.
+				</p>
+				<li>Content Team</li>
+				<p>
+					We at All About Programming have been sharing great content to
+					improve the knowledge of our audience. If you are good with your
+					writing skills and would like to contribute to the community, join
+					us and get a chance to improve.
+				</p>
+			</ul>
+		</section>
+	</figure>
+
+	<content id="form-1">
+		<hello id="snackbar">Please enter valid value.</hello>
+
+		<div id="div-test">
+			<section>
+				<h1>FREE Web development Workshop</h1>
+				<h2 style="font-size:18px">For Guru Nanak Dev University</h2>
+				<p>
+					<b>Upskill Mafia</b>b in collaboration with <b>CESS(Computer Engineering Student Society)</b> of
+					GNDU Amritsar is
+					conducting a FREE Web Development hands-on live workshop. <br><br>
+
+					⏰ <b>Date:</b>&nbsp; 2/March/24 <br>
+					🗓️ <b>Day:</b>&nbsp; Saturday @4:00 pm <br>
+					📳 <b>Mode of workshop:</b>&nbsp; Online| Links will shared on mail <br><br>
+
+
+					<b>Note:</b> Kindly join the workshop with your laptop.
+				</p>
+				<!-- <p>Technical Students Society along with the students of GNDU are planning to host an educational
+					session where every participant will be able to experience the joy of learning along with their
+					peers in the field.</p>
+				<p>
+					<b>Venue: </b> CSE Department, Maharaja Ranjit Singh Bhawan <br> <br>
+					<b>Timings: </b> Yet to be decided
+				</p>
+
+				<p><i style="position: relative; top: -5px;" class="fa-solid fa-quote-left"></i> It's high time that we
+					come together to learn from each other to reach our goals by putting our maximum efforts.</p> -->
+				<!-- <p class="truncate" style="font-size: 15px;margin-bottom: 13px;">
+					<b>Connect with us</b>
+					<figure style="display:flex;gap: 20px;">
+						<a target="_blank" href="https://chat.whatsapp.com/ImevO8suMHPFCuZanP04f2">
+							<i class="fa-brands fa-whatsapp"></i>
+						</a>
+						<a target="_blank" href="https://instagram.com/gfg.gndu?igshid=YmMyMTA2M2Y=">
+							<i class="fa-brands fa-instagram"></i>
+						</a>
+						<a target="_blank" href="https://www.linkedin.com/company/geeksforgeeks-gndu/">
+							<i class="fa-brands fa-linkedin"></i>
+						</a>
+						<a target="_blank" href="https://t.me/joinchat/9BGQriK9JrllNDU1">
+							<i class="fa-brands fa-telegram"></i>
+						</a>
+						<a target="_blank" href="https://discord.gg/v5ttrXJ4C3">
+							<i class="fa-brands fa-discord"></i>
+						</a>
+						<a target="_blank" href="https://www.youtube.com/channel/UCHHMuJfu_OsEJ_pvErbbsNA">
+							<i class="fa-brands fa-youtube"></i>
+						</a><br>
+					</figure>
+				</p> -->
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Full Name <span>*</span></h2>
+				<input type="text" id="name" placeholder="Your Input" required="Please enter your name" />
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Email ID <span>*</span></h2>
+				<input type="email" id="mail" placeholder="Your Input" required="Please enter your name" />
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Your branch <span>*</span></h2>
+				<input type="radio" id="Btech" name=".." value=".."> <label for="Btech">CSE</label> </br>
+				<input type="radio" id="BCA" name=".." value=".."> <label for="BCA">BCA</label> </br>
+				<input type="radio" id="ECE" name=".." value=".."> <label for="ECE">ECE</label> </br>
+				<input type="radio" id="ECM" name=".." value=".."> <label for="ECM">ECM</label> </br>
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>WhatsApp Number <span>*</span></h2>
+				<input type="text" id="num" placeholder="Your Input" required="Please enter your valid Input" />
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Your question for the session? <span>*</span></h2>
+				<input type="text" id="feed" placeholder="Your Input" required="Please enter your valid Input" />
+			</section>
+		</div>
+
+		<footer id="input-test">
+			<button id="submit_btn" onclick="send_message()">Submit</button>
+		</footer>
+	</content>
+
+	<content id="form-2">
+		<div id="div-test">
+			<section class="qna">
+				<h6 style="font-size: 15px">
+					<span>To refill the form, reload the page.</span>
+				</h6>
+				<h1>
+					Thank you <span id="username"></span> for filling out this form. We
+					will contact you soon.
+				</h1>
+			</section>
+		</div>
+	</content>
+
+	<p style="line-height: 25px; margin-bottom: 8px;">
+		Made by your
+		<a href="https://cyberbuddy-manas.github.io" target="_blank">Cyberbuddy</a><br /><span
+			style="font-size: 14px; color: unset"><a href="../Terms-of-Service/">Terms of Service</a> |
+			<a href="../Privacy-Policy/">Privacy policy</a> |
+			<a href="../Report-Abuse/">Report Abuse</a></span>
+	</p>
+
+	<aside style="position: fixed; bottom: 55px; right: 15px" class="dropup">
+		<button data-toggle="dropdown">
+			<img style="mix-blend-mode: multiply;position: absolute; right: 0;top: 0;margin-top: 10px;"
+				src="Files/ico-fixed.png" />
+		</button>
+		<ul class="dropdown-menu" style="border: none; background: transparent; transition: none">
+			<li>
+				<input style="filter: saturate(0%) brightness(0.6)" checked="on" type="radio" onclick="dark_bg()" />
+			</li>
+			<li>
+				<input style="filter: grayscale(100%) brightness(2.7)" checked="on" type="radio" onclick="white_bg()" />
+			</li>
+			<br />
+			<li>
+				<input style="filter: saturate(500%) brightness(1.2) hue-rotate(180deg)" checked="on" type="radio"
+					onclick="peach_bg()" />
+			</li>
+			<li>
+				<input style="filter: brightness(1.2) hue-rotate(280deg)" checked="on" type="radio"
+					onclick="green_bg()" />
+			</li>
+			<li>
+				<input style="filter: brightness(1.2) hue-rotate(70deg)" checked="on" type="radio"
+					onclick="purple_bg()" />
+			</li>
+		</ul>
+	</aside>
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+	     https://firebase.google.com/docs/web/setup#available-libraries -->
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase.js"></script>
+
+	<script>
+		// Your web app's Firebase configuration
+		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+		const firebaseConfig = {
+			apiKey: "AIzaSyD_lLg5hzvqyNwx33GBdH8NkMwzTNeyU58",
+			authDomain: "all-forms-66e2a.firebaseapp.com",
+			databaseURL: "https://all-forms-66e2a-default-rtdb.firebaseio.com",
+			projectId: "all-forms-66e2a",
+			storageBucket: "all-forms-66e2a.appspot.com",
+			messagingSenderId: "581577108602",
+			appId: "1:581577108602:web:60ebe743023f8311905fc3",
+			measurementId: "G-X8J2FP581Q",
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+		firebase.analytics();
+	</script>
+	<script src="./app.js"></script>
+
+	<!-- Adding JQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</body>
+
+</html>
