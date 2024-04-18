@@ -151,7 +151,7 @@ li {
 
 body {
   margin: 0;
-  background-image: url("./Files/bg.png");
+  /* background-image: url("./Files/bg.png"); */
   background-color: #ededed;
 }
 
