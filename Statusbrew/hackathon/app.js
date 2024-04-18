@@ -33,7 +33,7 @@ function send_message() {
   var linkedin4 = document.getElementById("linkedin4");
   var feed = document.getElementById("feed");
 
-  var fields = [name1, linkedin1, num, name2, linkedin2, feed];
+  var fields = [team, name1, linkedin1, num, name2, linkedin2];
   for (var i = 0; i < fields.length; i++) {
     if (fields[i].value == '') {
       fields[i].focus();
