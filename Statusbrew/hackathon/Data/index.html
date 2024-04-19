@@ -57,6 +57,7 @@
     <table id="table">
       <tr>
         <th>Srno.</th>
+        <th>Team Name</th>
         <th>Team Lead</th>
         <th>Contact</th>
         <th>Lead Linkedin</th>
@@ -100,6 +101,7 @@
       db.ref("statusbrew/hackathon").once('value', (value) => {
         value.forEach((valueInside) => {	//for going inside object
           let td1 = document.createElement('th');
+          let td0 = document.createElement('th');
           let td2 = document.createElement('td');
           let td3 = document.createElement('td');
           let td4 = document.createElement('td');
@@ -116,6 +118,7 @@
 
           let data = valueInside.val();
 
+          td0.innerHTML = data.team || "Not Entered";
           td2.innerHTML = data.name1 || "Not Entered";
           td3.innerHTML = data.num || "Not Entered";
           td4.innerHTML = "<a href='" + data.linkedin1 + "'>" + data.linkedin1 + "</a>";
@@ -128,7 +131,7 @@
           td11.innerHTML = data.feed || "Not Entered";
           let tr = document.createElement('tr');
 
-          tr.append(td1, td2, td3, td4, td5, td6, td7, td8, td9, td10, td11);
+          tr.append(td1, td0, td2, td3, td4, td5, td6, td7, td8, td9, td10, td11);
 
           document.getElementById('table').append(tr);
         });
