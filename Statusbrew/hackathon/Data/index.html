@@ -45,23 +45,28 @@
 <body>
   <div id="snackbar"></div>
 
-  <!-- <section id="login">
+  <section id="login">
     <div>
       <h1>Enter the password</h1>
       <input type="password" id="pass" placeholder="Your Input">
       <button id="sub">Submit</button>
     </div>
-  </section> -->
+  </section>
 
   <section id="data">
     <table id="table">
       <tr>
         <th>Srno.</th>
-        <th>Name</th>
-        <th>Email ID</th>
-        <th>Course</th>
-        <th>Batch</th>
-        <th>Feedback</th>
+        <th>Team Lead</th>
+        <th>Contact</th>
+        <th>Lead Linkedin</th>
+        <th>Member2</th>
+        <th>Linkedin2</th>
+        <th>Member3</th>
+        <th>Linkedin3</th>
+        <th>Member4</th>
+        <th>Linkedin4</th>
+        <th>Query</th>
       </tr>
     </table>
   </section>
@@ -101,18 +106,29 @@
           let td5 = document.createElement('td');
           let td6 = document.createElement('td');
           let td7 = document.createElement('td');
+          let td8 = document.createElement('td');
+          let td9 = document.createElement('td');
+          let td10 = document.createElement('td');
+          let td11 = document.createElement('td');
 
           td1.innerHTML = count;
           ++count;
 
-          td2.innerHTML = valueInside.val().name1 || "Not Entered";
-          td3.innerHTML = valueInside.val().mail || "Not Entered";
-          td4.innerHTML = valueInside.val().num || "Not Entered";
-          td5.innerHTML = valueInside.val().course || "Not Entered";
-          td7.innerHTML = valueInside.val().feed || "Not Entered";
+          let data = valueInside.val();
+
+          td2.innerHTML = data.name1 || "Not Entered";
+          td3.innerHTML = data.num || "Not Entered";
+          td4.innerHTML = "<a href='" + data.linkedin1 + "'>" + data.linkedin1 + "</a>";
+          td5.innerHTML = data.name2 || "Not Entered";
+          td6.innerHTML = "<a href='" + data.linkedin2 + "'>" + data.linkedin2 + "</a>";
+          td7.innerHTML = data.name3 || "Not Entered";
+          td8.innerHTML = "<a href='" + data.linkedin3 + "'>" + data.linkedin3 + "</a>";
+          td9.innerHTML = data.name4 || "Not Entered";
+          td10.innerHTML = "<a href='" + data.linkedin4 + "'>" + data.linkedin4 + "</a>";
+          td11.innerHTML = data.feed || "Not Entered";
           let tr = document.createElement('tr');
 
-          tr.append(td1, td2, td3, td4, td5, td7);
+          tr.append(td1, td2, td3, td4, td5, td6, td7, td8, td9, td10, td11);
 
           document.getElementById('table').append(tr);
         });

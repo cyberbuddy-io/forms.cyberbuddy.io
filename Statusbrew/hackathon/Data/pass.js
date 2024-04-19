@@ -14,7 +14,7 @@ function passCheck() {
 		snack.innerHTML = "Login Successful";
 		snackbar();
 		document.getElementById("login").style.display = "none";
-		document.getElementById("data").style.overflow = "unset";
+		document.getElementById("data").style.overflow = "auto";
 	}
 	else {
 		pass.style.borderBottom = "2.5px solid red"
