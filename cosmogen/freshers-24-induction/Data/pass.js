@@ -10,7 +10,7 @@ function passCheck() {
 	var pass = document.getElementById("pass");
 	var snack = document.getElementById("snackbar");
 
-	if (pass.value == "statusbrew@123") {
+	if (pass.value == "cosmogen@123") {
 		snack.innerHTML = "Login Successful";
 		snackbar();
 		document.getElementById("login").style.display = "none";
