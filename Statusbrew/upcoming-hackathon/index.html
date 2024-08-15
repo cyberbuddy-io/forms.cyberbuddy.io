@@ -390,6 +390,168 @@
 			<a href="../Report-Abuse/">Report Abuse</a></span>
 	</p>
 
+	<style>
+		.whatsapp-icon {
+			position: fixed;
+			/* display: none; */
+			right: 10px;
+			bottom: 30px;
+			z-index: 100;
+		}
+
+		.whatsapp-icon img {
+			width: 60px;
+			border-radius: 7px;
+		}
+
+		#wa-box {
+			z-index: 1000;
+			box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15);
+		}
+
+		.wa-float {
+			width: 200px;
+			background-color: rgb(242, 242, 242);
+			position: fixed;
+			bottom: 90px;
+			/* Adjusted for triangle */
+			right: 20px;
+			border-radius: 10px;
+			padding: 10px;
+			padding-top: 0;
+			opacity: 0;
+			/* Initial state hidden */
+			transform: scale(0.5);
+			/* Initial scale for pop-in effect */
+			transition: opacity 0.5s ease, transform 0.5s ease;
+		}
+
+		.wa-float::after {
+			content: "";
+			position: absolute;
+			bottom: -10px;
+			/* Position the triangle */
+			right: 10px;
+			/* Adjust this value to position the triangle horizontally */
+			width: 0;
+			height: 0;
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			border-top: 10px solid rgb(242, 242, 242);
+			border-top-color: rgb(242, 242, 242);
+			border-top-style: solid;
+			border-top-width: 10px;
+		}
+
+		.wa-float a {
+			color: #001f3f;
+		}
+
+		.wa-float .bi-x {
+			color: #001f3f;
+			display: flex;
+			justify-content: right;
+			font-size: 22px;
+			transition: 0.3s;
+			height: 20px;
+		}
+
+		.wa-float .bi-x:hover {
+			transform: translateY(-2px);
+		}
+
+		.wa-disappear {
+			animation: 0.5s linear fadeOut;
+		}
+
+		.wa-float.pop-in {
+			opacity: 1;
+			/* Visible */
+			transform: scale(1);
+			/* Scale back to normal size */
+		}
+
+		.wa-float.fade-out {
+			animation: 0.5s linear fadeOut;
+			animation-fill-mode: forwards;
+			/* Ensure the element stays faded out after animation */
+		}
+
+		@keyframes fadeOut {
+			0% {
+				opacity: 1;
+			}
+
+			100% {
+				opacity: 0;
+			}
+		}
+
+		@media (max-width: 468px) {
+			.whatsapp-icon {
+				zoom: 0.85;
+			}
+		}
+	</style>
+
+	<!-- Back to Top -->
+	<audio id="popSound" src="./Files/pop.mp3" preload="auto"></audio>
+
+	<div id="wa-box" class="wa-float whatsapp-icon">
+		<i style="display: flex; flex-direction: row-reverse;position: relative;top: 10px;"
+			class="flaticon-close-cross">
+			<img onclick="closeWA()" style="cursor: pointer; width: 18px;"
+				src="https://cdn-icons-png.flaticon.com/512/9312/9312232.png">
+		</i>
+		<p style="text-align: left;margin: 0;">Checkout forms in different colors. Must try dark mode!</p>
+	</div>
+
+	<script>
+		function closeWA() {
+			document.getElementById("wa-box").classList.add("wa-disappear");
+			setTimeout(() => {
+				document.getElementById("wa-box").style.display = "none";
+			}, 500);
+		}
+
+		document.addEventListener("DOMContentLoaded", function () {
+			const waFloat = document.querySelector('.wa-float');
+			const popSound = document.getElementById('popSound');
+
+			// Ensure the audio is loaded and can be played
+			popSound.addEventListener('canplaythrough', () => {
+				console.log('Audio can play through.');
+			});
+
+			popSound.load();
+
+			// Function to play the pop sound
+			function playPopSound() {
+				if (popSound.readyState >= 2) { // Check if the audio is ready to play
+					popSound.currentTime = 0; // Reset to start
+					popSound.play().catch(error => console.log('Audio play failed:', error));
+				} else {
+					console.log('Audio not ready to play');
+				}
+			}
+
+			// Pop in after 2 seconds
+			setTimeout(() => {
+				waFloat.classList.add('pop-in');
+				playPopSound(); // Play sound on pop-in
+			}, 2000);
+
+			// Fade out after 10 seconds
+			setTimeout(() => {
+				waFloat.classList.add('fade-out');
+			}, 15000); // 2 seconds delay + 10 seconds display = 12 seconds
+
+			setTimeout(() => {
+				waFloat.style.display = 'none';
+			}, 15500); // 2 seconds delay + 10 seconds display = 12 seconds
+		});
+	</script>
+
 	<aside style="position: fixed; bottom: 55px; right: 15px" class="dropup">
 		<button data-toggle="dropdown">
 			<img style="mix-blend-mode: multiply;position: absolute; right: 0;top: 0;margin-top: 10px;"

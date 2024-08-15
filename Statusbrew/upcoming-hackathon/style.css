@@ -499,6 +499,10 @@ object h3 {
   color: white;
 }
 
+.dark-bg h6 {
+  color: rgba(216, 216, 216, 0.889);
+}
+
 .dark-bg a {
   color: #d9d44e;
 }
