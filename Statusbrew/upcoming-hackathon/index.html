@@ -495,8 +495,6 @@
 	</style>
 
 	<!-- Back to Top -->
-	<audio id="popSound" src="./Files/pop.mp3" preload="auto"></audio>
-
 	<div id="wa-box" class="wa-float whatsapp-icon">
 		<i style="display: flex; flex-direction: row-reverse;position: relative;top: 10px;"
 			class="flaticon-close-cross">
@@ -516,39 +514,24 @@
 
 		document.addEventListener("DOMContentLoaded", function () {
 			const waFloat = document.querySelector('.wa-float');
-			const popSound = document.getElementById('popSound');
 
-			// Ensure the audio is loaded and can be played
-			popSound.addEventListener('canplaythrough', () => {
-				console.log('Audio can play through.');
-			});
+			const popSound = new Audio('./Files/pop.mp3');
 
-			popSound.load();
-
-			// Function to play the pop sound
-			function playPopSound() {
-				if (popSound.readyState >= 2) { // Check if the audio is ready to play
-					popSound.currentTime = 0; // Reset to start
-					popSound.play().catch(error => console.log('Audio play failed:', error));
-				} else {
-					console.log('Audio not ready to play');
+			// Check scroll position to show the pop-up
+			function checkScroll() {
+				if (window.scrollY > 100) { // Trigger after scrolling down 100px
+					waFloat.classList.add('pop-in');
+					popSound.play();
+					window.removeEventListener('scroll', checkScroll); // Remove event listener once triggered
 				}
 			}
 
-			// Pop in after 2 seconds
-			setTimeout(() => {
-				waFloat.classList.add('pop-in');
-				playPopSound(); // Play sound on pop-in
-			}, 2000);
-
-			// Fade out after 10 seconds
+			// Fade out after 10 seconds of being visible
 			setTimeout(() => {
 				waFloat.classList.add('fade-out');
-			}, 15000); // 2 seconds delay + 10 seconds display = 12 seconds
+			}, 12000); // 2 seconds delay + 10 seconds display = 12 seconds
 
-			setTimeout(() => {
-				waFloat.style.display = 'none';
-			}, 15500); // 2 seconds delay + 10 seconds display = 12 seconds
+			setTimeout(() => { window.addEventListener('scroll', checkScroll); }, 3000)
 		});
 	</script>
 
