@@ -61,6 +61,14 @@
 			transition: background-color 5000s ease-in-out 0s;
 		}
 
+		/* Autofill input styling */
+		.dark-bg input:-webkit-autofill input,
+		.dark-bg input:-webkit-autofill:hover,
+		.dark-bg input:-webkit-autofill:focus,
+		.dark-bg input:-webkit-autofill:active {
+			transition: none;
+		}
+
 		/* Transition for images in aside */
 		aside img {
 			transition-duration: 1s;
@@ -515,13 +523,13 @@
 		document.addEventListener("DOMContentLoaded", function () {
 			const waFloat = document.querySelector('.wa-float');
 
-			const popSound = new Audio('./Files/pop.mp3');
+			// const popSound = new Audio('./Files/pop.mp3');
 
 			// Check scroll position to show the pop-up
 			function checkScroll() {
 				if (window.scrollY > 100) { // Trigger after scrolling down 100px
 					waFloat.classList.add('pop-in');
-					popSound.play();
+					// popSound.play();
 					window.removeEventListener('scroll', checkScroll); // Remove event listener once triggered
 				}
 			}
@@ -529,7 +537,12 @@
 			// Fade out after 10 seconds of being visible
 			setTimeout(() => {
 				waFloat.classList.add('fade-out');
-			}, 12000); // 2 seconds delay + 10 seconds display = 12 seconds
+			}, 15000); // 2 seconds delay + 10 seconds display = 12 seconds
+
+			// Fade out after 10 seconds of being visible
+			setTimeout(() => {
+				waFloat.style.display = 'none';
+			}, 15600); // 2 seconds delay + 10 seconds display = 12 seconds
 
 			setTimeout(() => { window.addEventListener('scroll', checkScroll); }, 3000)
 		});
