@@ -68,13 +68,9 @@
       <tr>
         <th>Srno.</th>
         <th>Full Name</th>
-        <th>Mail ID</th>
+        <th>Contact Number</th>
         <th>Department</th>
         <th>Year</th>
-        <th>GitHub ID</th>
-        <th>Domain</th>
-        <th>Tech Stack</th>
-        <th>Expectations</th>
         <th>Questions for us</th>
       </tr>
     </table>
@@ -184,7 +180,7 @@
         var db = firebase.database();
         count = 1;
 
-        db.ref("statusbrew/upcoming-hackathon").once('value', (value) => {
+        db.ref("fun-football-match-2024").once('value', (value) => {
           value.forEach((valueInside) => {
             let td0 = document.createElement('th');
             let td1 = document.createElement('th');
@@ -192,10 +188,6 @@
             let td3 = document.createElement('td');
             let td4 = document.createElement('td');
             let td5 = document.createElement('td');
-            let td6 = document.createElement('td');
-            let td7 = document.createElement('td');
-            let td8 = document.createElement('td');
-            let td9 = document.createElement('td');
 
             td0.innerHTML = count;
             ++count;
@@ -203,17 +195,13 @@
             let data = valueInside.val();
 
             td1.innerHTML = data.name || "Not Entered";
-            td2.innerHTML = data.email || "Not Entered";
+            td2.innerHTML = data.contact || "Not Entered";
             td3.innerHTML = data.department || "Not Entered";
             td4.innerHTML = data.year || "Not Entered";
-            td5.innerHTML = data.github || "Not Entered";
-            td6.innerHTML = data.domain || "Not Entered";
-            td7.innerHTML = data.techstack || "Not Entered";
-            td8.innerHTML = data.expectations || "Not Entered";
-            td9.innerHTML = data.feedback || "Not Entered";
+            td5.innerHTML = data.feedback || "Not Entered";
             let tr = document.createElement('tr');
 
-            tr.append(td0, td1, td2, td3, td4, td5, td6, td7, td8, td9);
+            tr.append(td0, td1, td2, td3, td4, td5);
 
             document.getElementById('table').append(tr);
           });
