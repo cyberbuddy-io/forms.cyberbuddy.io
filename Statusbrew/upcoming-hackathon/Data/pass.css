@@ -7,7 +7,7 @@
 /* Works on Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: blue orange;
+  scrollbar-color: rgb(255, 255, 255) rgb(0, 0, 0);
 }
 
 /* Works on Chrome, Edge, and Safari */

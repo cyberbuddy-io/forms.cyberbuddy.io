@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>GNDU Fun Football Match - August 21st</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="./Files/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./Files/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./Files/favicon-16x16.png">
+	<link rel="manifest" href="./Files/site.webmanifest">
+
+	<!-- Open Graph Meta Tags -->
+	<meta property="og:title" content="GNDU Fun Football Match - August 21st">
+	<meta property="og:description"
+		content="We are excited to invite all football enthusiasts to our exclusive fun match on Wednesday">
+	<meta property="og:image" content="./Files/og-image.png"> <!-- Update this to the image you want to display -->
+	<meta property="og:url" content="https://forms.cyberbuddy.link/"> <!-- Replace with your actual URL -->
+	<meta property="og:type" content="website">
+
+	<!-- Twitter Card Meta Tags (Optional) -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="GNDU Fun Football Match - August 21st">
+	<meta name="twitter:description"
+		content="We are excited to invite all football enthusiasts to our exclusive fun match on Wednesday">
+	<meta name="twitter:image" content="./Files/twitter-image.png">
+	<!-- Update this to the image you want to display -->
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+		rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+
+	<!-- Font Awesome Library -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+		integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+	<!-- For SEO -->
+	<link rel="canonical" href="https://forms.cyberbuddy.link" />
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<!-- Main CSS -->
+	<link rel="stylesheet" type="text/css" href="./style.css" />
+	<style>
+		/* Autofill input styling */
+		input:-webkit-autofill,
+		input:-webkit-autofill:hover,
+		input:-webkit-autofill:focus,
+		input:-webkit-autofill:active {
+			transition: background-color 5000s ease-in-out 0s;
+		}
+
+		/* Autofill input styling */
+		.dark-bg input:-webkit-autofill input,
+		.dark-bg input:-webkit-autofill:hover,
+		.dark-bg input:-webkit-autofill:focus,
+		.dark-bg input:-webkit-autofill:active {
+			transition: none;
+		}
+
+		/* Transition for images in aside */
+		aside img {
+			transition-duration: 1s;
+			transition-property: transform;
+		}
+
+		/* Text truncation */
+		.truncate {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			word-wrap: break-word;
+		}
+
+		/* List item margin */
+		ul li {
+			margin-bottom: 6px;
+		}
+
+		/* Icon font size in figure links */
+		figure a i {
+			font-size: 25px;
+		}
+
+		/* Prevent text selection for labels */
+		label {
+			user-select: none;
+		}
+
+		/* Scrollbar styling */
+		::-webkit-scrollbar {
+			width: 10px;
+		}
+
+		::-webkit-scrollbar-track {
+			background: #f1f1f1;
+		}
+
+		::-webkit-scrollbar-thumb {
+			background: #001f3f;
+		}
+
+		::-webkit-scrollbar-thumb:hover {
+			background: #555;
+		}
+
+		/* Modal styling */
+		.modal {
+			width: 100%;
+			background-color: rgba(0, 0, 0, 0.6);
+			backdrop-filter: blur(2px);
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			overflow-y: scroll;
+		}
+
+		.modal section {
+			width: 63%;
+			background-color: white;
+			border-radius: 10px;
+			padding: 20px 40px;
+		}
+
+		.modal section i {
+			font-size: 22px;
+			display: flex;
+			justify-content: flex-end;
+			margin-bottom: 10px;
+			cursor: pointer;
+			color: #001f3f;
+		}
+
+		.modal section i:hover {
+			color: red;
+		}
+
+		.modal h1 {
+			text-align: center;
+			font-size: 28px;
+		}
+
+		.modal li {
+			margin-top: 20px;
+			color: #001f3f;
+			font-weight: 500;
+		}
+
+		.modal p {
+			font-size: 14px;
+			padding-left: 25px;
+			margin: 5px 0;
+		}
+
+		/* Responsive adjustments */
+		@media screen and (max-width: 730px) {
+
+			::-webkit-scrollbar,
+			::-webkit-scrollbar-track,
+			::-webkit-scrollbar-thumb,
+			::-webkit-scrollbar-thumb:hover {
+				width: initial;
+				background: initial;
+			}
+
+			.modal {
+				padding: 30px 0;
+			}
+
+			.modal section {
+				width: 90%;
+				padding: 10px 20px 30px 20px;
+				margin: 30px auto;
+			}
+
+			.modal h1 {
+				font-size: 24px;
+			}
+		}
+	</style>
+</head>
+
+<body id="test">
+	<div id="div-test" style="overflow: hidden; padding: 0">
+		<img src="./Files/hero.gif" style="width: 100%" />
+	</div>
+
+	<figure id="modal" class="modal">
+		<section>
+			<i title="Close" onclick="modal_dis()" class="fa-solid fa-close"></i>
+			<h1>Teams Description</h1>
+			<ul>
+				<li>Graphics Team</li>
+				<p>
+					A good graphics sense can create eye pleasing magic. If you are good
+					with any graphics software like Canva or Photoshop or maybe
+					Illustrator, join our team where you can show off your skills.
+				</p>
+				<li>Management and PR Team</li>
+				<p>
+					A good product always needs the best marketing. If you are confident
+					in your social skills and are willing to improve our image and
+					growth in the market, let's shake hands and grow together.
+				</p>
+				<li>Content Team</li>
+				<p>
+					We at All About Programming have been sharing great content to
+					improve the knowledge of our audience. If you are good with your
+					writing skills and would like to contribute to the community, join
+					us and get a chance to improve.
+				</p>
+			</ul>
+		</section>
+	</figure>
+
+	<div id="snackbar"></div>
+ 
+	<content id="form-1">
+
+		<div id="div-test">
+			<section>
+				<h1>Fun Football Match <span>This Wednesday!!!</span></h1>
+				<b style="line-height: 25px;"><i>Exclusively for LAW Department</i></b><br>
+				<p class="mb-0">We are excited to invite all football enthusiasts to our exclusive
+					fun match on Wednesday, <b>August 21st, 2024, at 3:00 PM</b>. Whether you're a <b>pro player or a newbie</b>, this
+					event is all about having fun, playing with intensity, and enjoying the camaraderie of your fellow
+					students. <br><br>
+
+					The match will take place at <b>the main football ground of GNDU</b>, where we'll split into teams and play
+					a spirited game. Afterward, everyone can cool down and <b>socialize with a chilled can of Red Bull</b>.
+					While the focus is on the Law Department, we welcome anyone from GNDU who is interested in joining
+					us for an afternoon of football and fun. <br><br>
+
+					<b>Join our whatsapp group</b> for an energetic game and a refreshing post-match celebration!
+				</p>
+				<p style="margin-bottom: 0; margin-top: 5px;"><a class="truncate" target="_blank"
+						href="https://chat.whatsapp.com/LE3jx5Vp4pnGFwb85Px7ih">Click here
+						to join <i style="font-size: 22px;margin-left: 4px;" class="fa fa-whatsapp"></i></a></p>
+				<!-- <p class="truncate" style="font-size: 15px;margin-bottom: 10px;">
+					<b>Connect with us</b>
+				<figure style="display:flex;gap: 20px;">
+					<a target="_blank" href="https://chat.whatsapp.com/Jf10PJlY33RJY5QeR1MTP9">
+						<i class="fa-brands fa-whatsapp"></i>
+					</a>
+					<a target="_blank" href="https://www.instagram.com/Cosmogen.gndu/">
+						<i class="fa-brands fa-instagram"></i>
+					</a>
+					<a target="_blank" href="https://www.linkedin.com/company/gdscgndu/">
+						<i class="fa-brands fa-linkedin"></i>
+					</a>
+					<a target="_blank" href="https://t.me/joinchat/9BGQriK9JrllNDU1">
+							<i class="fa-brands fa-telegram"></i>
+						</a>
+						<a target="_blank" href="https://discord.gg/v5ttrXJ4C3">
+							<i class="fa-brands fa-discord"></i>
+						</a>
+					<a target="_blank" href="https://www.youtube.com/@gdscgndu">
+						<i class="fa-brands fa-youtube"></i>
+					</a><br>
+				</figure>
+				</p> -->
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Full Name <span>*</span></h2>
+				<input type="text" id="name" placeholder="Your Input" required="Please enter your name" />
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Contact Number <span>*</span></h2>
+				<input type="email" id="phone" placeholder="Your Input" required="Please enter your valid Input" />
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Your Department <span>*</span></h2>
+				<input type="radio" name="department" id="Law Department" value="Law Department"> <label
+					for="Law Department">Law Department</label> </br>
+				<input type="radio" name="department" id="departmentRadio">
+				<input type="text" id="departmentOther" placeholder="Other Input"> <label style="display: none;"
+					id="departmentLabel" for="departmentRadio"></label>
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Year of Study <span>*</span></h2>
+				<input type="radio" name="year" id="1st Year" value="1st Year"> <label for="1st Year">1st Year</label>
+				</br>
+				<input type="radio" name="year" id="2nd Year" value="2nd Year"> <label for="2nd Year">2nd Year</label>
+				</br>
+				<input type="radio" name="year" id="3rd Year" value="3rd Year"> <label for="3rd Year">3rd Year</label>
+				<br>
+				<input type="radio" name="year" id="yearRadio">
+				<input type="text" id="yearOther" placeholder="Other Input"> <label style="display: none;"
+					id="yearLabel" for="yearRadio"></label>
+			</section>
+		</div>
+
+		<div id="div-test">
+			<section class="qna">
+				<h2>Any questions for us?</h2>
+				<input type="text" id="feed" placeholder="Your Input" required="Please enter your valid Input" />
+			</section>
+		</div>
+
+		<footer id="input-test">
+			<button id="submit_btn" onclick="sendMessage()">Submit</button>
+		</footer>
+	</content>
+
+	<content id="form-2">
+		<div id="div-test">
+			<section class="qna">
+				<h6 style="font-size: 15px">
+					<span>To refill the form, reload the page.</span>
+				</h6>
+				<h1>
+					Thank you <span id="username"></span> for filling out this form. More details will be shared in the
+					group so click below to join!! <br><br>
+					<a class="truncate" target="_blank" href="https://chat.whatsapp.com/LE3jx5Vp4pnGFwb85Px7ih">Click
+						here to join <i style="font-size: 22px;margin-left: 4px;" class="fa fa-whatsapp"></i></a>
+				</h1>
+			</section>
+		</div>
+	</content>
+
+	<p style="line-height: 25px; margin-bottom: 8px;">
+		Made by your
+		<a href="https://cyberbuddy-manas.github.io" target="_blank">Cyberbuddy</a><br /><span
+			style="font-size: 14px; color: unset"><a href="../Terms-of-Service/">Terms of Service</a> |
+			<a href="../Privacy-Policy/">Privacy policy</a> |
+			<a href="../Report-Abuse/">Report Abuse</a></span>
+	</p>
+
+	<style>
+		.whatsapp-icon {
+			position: fixed;
+			/* display: none; */
+			right: 10px;
+			bottom: 30px;
+			z-index: 100;
+		}
+
+		.whatsapp-icon img {
+			width: 60px;
+			border-radius: 7px;
+		}
+
+		#wa-box {
+			z-index: 1000;
+			box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15);
+		}
+
+		.wa-float {
+			width: 200px;
+			background-color: rgb(242, 242, 242);
+			position: fixed;
+			bottom: 90px;
+			/* Adjusted for triangle */
+			right: 20px;
+			border-radius: 10px;
+			padding: 10px;
+			padding-top: 0;
+			opacity: 0;
+			/* Initial state hidden */
+			transform: scale(0.5);
+			/* Initial scale for pop-in effect */
+			transition: opacity 0.5s ease, transform 0.5s ease;
+		}
+
+		.wa-float::after {
+			content: "";
+			position: absolute;
+			bottom: -10px;
+			/* Position the triangle */
+			right: 10px;
+			/* Adjust this value to position the triangle horizontally */
+			width: 0;
+			height: 0;
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			border-top: 10px solid rgb(242, 242, 242);
+			border-top-color: rgb(242, 242, 242);
+			border-top-style: solid;
+			border-top-width: 10px;
+		}
+
+		.wa-float a {
+			color: #001f3f;
+		}
+
+		.wa-float .bi-x {
+			color: #001f3f;
+			display: flex;
+			justify-content: right;
+			font-size: 22px;
+			transition: 0.3s;
+			height: 20px;
+		}
+
+		.wa-float .bi-x:hover {
+			transform: translateY(-2px);
+		}
+
+		.wa-disappear {
+			animation: 0.5s linear fadeOut;
+		}
+
+		.wa-float.pop-in {
+			opacity: 1;
+			/* Visible */
+			transform: scale(1);
+			/* Scale back to normal size */
+		}
+
+		.wa-float.fade-out {
+			animation: 0.5s linear fadeOut;
+			animation-fill-mode: forwards;
+			/* Ensure the element stays faded out after animation */
+		}
+
+		@keyframes fadeOut {
+			0% {
+				opacity: 1;
+			}
+
+			100% {
+				opacity: 0;
+			}
+		}
+
+		@media (max-width: 468px) {
+			.whatsapp-icon {
+				zoom: 0.85;
+			}
+		}
+	</style>
+
+	<!-- Back to Top -->
+	<div id="wa-box" class="wa-float whatsapp-icon">
+		<i style="display: flex; flex-direction: row-reverse;position: relative;top: 10px;"
+			class="flaticon-close-cross">
+			<img onclick="closeWA()" style="cursor: pointer; width: 18px;"
+				src="https://cdn-icons-png.flaticon.com/512/9312/9312232.png">
+		</i>
+		<p style="text-align: left;margin: 0;">Checkout forms in different colors. Must try dark mode!</p>
+	</div>
+
+	<script>
+		function closeWA() {
+			document.getElementById("wa-box").classList.add("wa-disappear");
+			setTimeout(() => {
+				document.getElementById("wa-box").style.display = "none";
+			}, 500);
+		}
+
+		document.addEventListener("DOMContentLoaded", function () {
+			const waFloat = document.querySelector('.wa-float');
+
+			// const popSound = new Audio('./Files/pop.mp3');
+
+			// Check scroll position to show the pop-up
+			function checkScroll() {
+				if (window.scrollY > 100) { // Trigger after scrolling down 100px
+					waFloat.classList.add('pop-in');
+					// popSound.play();
+					window.removeEventListener('scroll', checkScroll); // Remove event listener once triggered
+				}
+			}
+
+			// Fade out after 10 seconds of being visible
+			setTimeout(() => {
+				waFloat.classList.add('fade-out');
+			}, 15000); // 2 seconds delay + 10 seconds display = 12 seconds
+
+			// Fade out after 10 seconds of being visible
+			setTimeout(() => {
+				waFloat.style.display = 'none';
+			}, 15600); // 2 seconds delay + 10 seconds display = 12 seconds
+
+			setTimeout(() => { window.addEventListener('scroll', checkScroll); }, 3000)
+		});
+	</script>
+
+	<aside style="position: fixed; bottom: 55px; right: 15px" class="dropup">
+		<button data-toggle="dropdown">
+			<img style="mix-blend-mode: multiply;position: absolute; right: 0;top: 0;margin-top: 10px;"
+				src="./Files/ico-fixed.png" />
+		</button>
+		<ul class="dropdown-menu" style="border: none; background: transparent; transition: none">
+			<li>
+				<input style="filter: saturate(0%) brightness(0.6)" checked="on" type="radio" onclick="dark_bg()" />
+			</li>
+			<li>
+				<input style="filter: grayscale(100%) brightness(2.7)" checked="on" type="radio" onclick="white_bg()" />
+			</li>
+			<br />
+			<li>
+				<input style="filter: saturate(500%) brightness(1.2) hue-rotate(180deg)" checked="on" type="radio"
+					onclick="peach_bg()" />
+			</li>
+			<li>
+				<input style="filter: brightness(1.2) hue-rotate(280deg)" checked="on" type="radio"
+					onclick="green_bg()" />
+			</li>
+			<li>
+				<input style="filter: brightness(1.2) hue-rotate(70deg)" checked="on" type="radio"
+					onclick="purple_bg()" />
+			</li>
+		</ul>
+	</aside>
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+	     https://firebase.google.com/docs/web/setup#available-libraries -->
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase.js"></script>
+
+	<script>
+		// Your web app's Firebase configuration
+		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+		const firebaseConfig = {
+			apiKey: "AIzaSyD_lLg5hzvqyNwx33GBdH8NkMwzTNeyU58",
+			authDomain: "all-forms-66e2a.firebaseapp.com",
+			databaseURL: "https://all-forms-66e2a-default-rtdb.firebaseio.com",
+			projectId: "all-forms-66e2a",
+			storageBucket: "all-forms-66e2a.appspot.com",
+			messagingSenderId: "581577108602",
+			appId: "1:581577108602:web:60ebe743023f8311905fc3",
+			measurementId: "G-X8J2FP581Q",
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+		firebase.analytics();
+	</script>
+	<script src="./app.js"></script>
+
+	<!-- Adding JQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</body>
+
+</html>
