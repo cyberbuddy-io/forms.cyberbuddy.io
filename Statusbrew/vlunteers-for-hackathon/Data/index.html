@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Heads Up! Hackathon coming up!!!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../Files/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../Files/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../Files/favicon-16x16.png">
+  <link rel="manifest" href="../Files/site.webmanifest">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Heads Up! Hackathon coming up!!!">
+  <meta property="og:description"
+    content="We need to know the amount of students studying at GNDU that own a Laptop or a Desktop. This data will help us to plan our further sessions and provide valid opportunities to the students.">
+  <meta property="og:image" content="../Files/og-image.png"> <!-- Update this to the image you want to display -->
+  <meta property="og:url" content="https://forms.cyberbuddy.link/induction-24"> <!-- Replace with your actual URL -->
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card Meta Tags (Optional) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Heads Up! Hackathon coming up!!!">
+  <meta name="twitter:description"
+    content="We need to know the amount of students studying at GNDU that own a Laptop or a Desktop. This data will help us to plan our further sessions and provide valid opportunities to the students.">
+  <meta name="twitter:image" content="../Files/twitter-image.png">
+  <!-- Update this to the image you want to display -->
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Font Awesome Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- For SEO -->
+  <link rel="canonical" href="http://blog.cyberbuddy.io/" />
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" type="text/css" href="pass.css" />
+</head>
+
+<body>
+  <div id="snackbar"></div>
+
+  <!-- <section id="login">
+    <div>
+      <h1>Enter the password</h1>
+      <input type="password" id="pass" placeholder="Your Input">
+      <button id="sub">Submit</button>
+    </div>
+  </section> -->
+
+  <section id="data">
+    <table id="table">
+      <tr>
+        <th>Srno.</th>
+        <th>Full Name</th>
+        <th>Mail ID</th>
+        <th>Contact</th>
+        <th>Department</th>
+        <th>Year</th>
+        <th>Selection</th>
+        <th>Expectations</th>
+        <th>Questions for us</th>
+      </tr>
+    </table>
+  </section>
+
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyD_lLg5hzvqyNwx33GBdH8NkMwzTNeyU58",
+      authDomain: "all-forms-66e2a.firebaseapp.com",
+      databaseURL: "https://all-forms-66e2a-default-rtdb.firebaseio.com",
+      projectId: "all-forms-66e2a",
+      storageBucket: "all-forms-66e2a.appspot.com",
+      messagingSenderId: "581577108602",
+      appId: "1:581577108602:web:60ebe743023f8311905fc3",
+      measurementId: "G-X8J2FP581Q",
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      let isResizing = false;
+      let startX, startWidth, currentColumnIndex;
+
+      function addResizeHandles() {
+        const headers = table.querySelectorAll('th');
+        headers.forEach((header, index) => {
+          const currentWidth = parseInt(window.getComputedStyle(header).width, 10);
+          if (currentWidth >= 200) {
+            let resizeHandle = header.querySelector('.resize-handle');
+            if (!resizeHandle) {
+              resizeHandle = document.createElement('div');
+              resizeHandle.classList.add('resize-handle');
+              header.appendChild(resizeHandle);
+
+              resizeHandle.addEventListener('mousedown', (e) => {
+                isResizing = true;
+                startX = e.clientX;
+                startWidth = header.offsetWidth;
+                currentColumnIndex = index;
+
+                document.addEventListener('mousemove', onMouseMove);
+                document.addEventListener('mouseup', onMouseUp);
+              });
+            }
+          } else {
+            const resizeHandle = header.querySelector('.resize-handle');
+            if (resizeHandle) {
+              resizeHandle.remove();
+            }
+          }
+        });
+      }
+
+      function onMouseMove(e) {
+        if (!isResizing) return;
+
+        const dx = e.clientX - startX;
+        const newWidth = Math.min(startWidth + dx, 200); // Max width of 200px
+        const cols = table.querySelectorAll('col');
+        if (cols[currentColumnIndex]) {
+          cols[currentColumnIndex].style.width = `${newWidth}px`;
+        }
+      }
+
+      function onMouseUp() {
+        isResizing = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+
+      function setupTable() {
+        const table = document.querySelector('table');
+        if (!table) return;
+
+        const cols = table.querySelectorAll('th');
+        if (cols.length === 0) return;
+
+        // Ensure <colgroup> exists
+        let colGroup = table.querySelector('colgroup');
+        if (!colGroup) {
+          colGroup = document.createElement('colgroup');
+          table.insertBefore(colGroup, table.firstChild);
+        }
+
+        // Add or update col elements
+        while (colGroup.firstChild) {
+          colGroup.firstChild.remove();
+        }
+        cols.forEach(() => {
+          const colElem = document.createElement('col');
+          colGroup.appendChild(colElem);
+        });
+
+        addResizeHandles();
+      }
+
+      function readDataAndSetup() {
+        var db = firebase.database();
+        count = 1;
+
+        db.ref("statusbrew/volunteers-for-hackathon").once('value', (value) => {
+          value.forEach((valueInside) => {
+            let td0 = document.createElement('th');
+            let td1 = document.createElement('th');
+            let td2 = document.createElement('td');
+            let td3 = document.createElement('td');
+            let td4 = document.createElement('td');
+            let td5 = document.createElement('td');
+            let td6 = document.createElement('td');
+            let td7 = document.createElement('td');
+            let td8 = document.createElement('td');
+
+            td0.innerHTML = count;
+            ++count;
+
+            let data = valueInside.val();
+
+            td1.innerHTML = data.name || "Not Entered";
+            td2.innerHTML = data.email || "Not Entered";
+            td3.innerHTML = data.contact || "Not Entered";
+            td4.innerHTML = data.department || "Not Entered";
+            td5.innerHTML = data.year || "Not Entered";
+            td6.innerHTML = data.selection || "Not Entered";
+            td7.innerHTML = data.expectations || "Not Entered";
+            td8.innerHTML = data.feedback || "Not Entered";
+            let tr = document.createElement('tr');
+
+            tr.append(td0, td1, td2, td3, td4, td5, td6, td7, td8);
+
+            document.getElementById('table').append(tr);
+          });
+
+          setupTable(); // Setup table and add resize handles after data is loaded
+        });
+      }
+
+      readDataAndSetup(); // Start data loading and setup
+    });
+  </script>
+
+  <!-- <script type="text/javascript" src="pass.js"></script> -->
+</body>
+
+</html>
