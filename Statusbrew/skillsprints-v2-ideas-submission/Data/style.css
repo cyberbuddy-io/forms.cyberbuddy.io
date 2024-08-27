@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+/*============== Table Elements ==============*/
+
+#data {
+    width: 100%;
+    height: 100vh;
+    overflow: scroll;
+    /* Enable scrolling if content overflows */
+}
+
+/* General table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    table-layout: auto;
+    /* Use auto for flexible width */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    /* Add outer border */
+}
+
+th,
+td {
+    padding: 12px 20px;
+    /* Increase padding for better spacing */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    /* Add border for cells */
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    /* Hide overflow */
+    text-overflow: ellipsis;
+    /* Show ellipsis for truncated text */
+    position: relative;
+    /* Position for resizable handle */
+    max-width: 200px;
+    /* Max width for columns */
+}
+
+/* Resize handle styles */
+.resize-handle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 10px;
+    height: 100%;
+    cursor: col-resize;
+    user-select: none;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Other styles */
+tr:nth-child(even) {
+    background-color: rgba(0, 98, 255, 0.05);
+    /* Lighter background for even rows */
+}
+
+tr {
+    transition: background-color 0.2s ease-in-out;
+}
+
+tr:hover {
+    background-color: rgba(12, 15, 83, 0.1);
+    /* Lighter hover color */
+}
+
+a {
+    color: rgba(12, 15, 83, 1);
+    text-decoration: underline;
+    /* Underline links for better visibility */
+}
+
+a:hover {
+    color: rgba(12, 15, 83, 0.8);
+    /* Slightly darken link on hover */
+}
+/* 
+@media screen and (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    th,
+    td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    tr {
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    tr:nth-child(even) {
+        background-color: transparent;
+    }
+
+    th {
+        background-color: rgba(0, 98, 255, 0.1);
+    }
+
+    td {
+        border: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        position: relative;
+        padding-left: 50%;
+        max-width: none;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 15px;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+} */
+
+
+
+/* Fullscreen icon styles */
+.fullscreen-icon {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    /* background-image: url('fullscreen-icon.png'); */
+    background-size: cover;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Show icon on hover */
+td:hover .fullscreen-icon {
+    opacity: 1;
+}
+
+/* Modal styles */
+#modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80%;
+    overflow: auto;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+#modal-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#modal-close:hover,
+#modal-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
