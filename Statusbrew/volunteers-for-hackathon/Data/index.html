@@ -50,6 +50,29 @@
   <!-- Main CSS -->
   <link rel="stylesheet" type="text/css" href="style.css" />
   <link rel="stylesheet" type="text/css" href="pass.css" />
+
+  <style>
+    /* Add styles for context menu */
+    #context-menu {
+      display: none;
+      position: fixed;
+      list-style-type: none;
+      /* Keep the menu fixed in the viewport */
+      background: #fff;
+      border: 1px solid #ccc;
+      z-index: 1000;
+      /* Ensure it appears on top of other elements */
+    }
+
+    #context-menu li {
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    #context-menu li:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
 </head>
 
 <body>
@@ -79,6 +102,10 @@
     </table>
   </section>
 
+  <ul id="context-menu">
+    <li id="delete-row">Delete Row</li>
+  </ul>
+
   <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase.js"></script>
@@ -103,166 +130,129 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      let isResizing = false;
-      let startX, startWidth, currentColumnIndex;
+      const contextMenu = document.getElementById('context-menu');
+      const deleteRowOption = document.getElementById('delete-row');
+      let selectedRow = null;
 
-      function addResizeHandles() {
-        const headers = table.querySelectorAll('th');
-        headers.forEach((header, index) => {
-          const currentWidth = parseInt(window.getComputedStyle(header).width, 10);
-          if (currentWidth >= 200) {
-            let resizeHandle = header.querySelector('.resize-handle');
-            if (!resizeHandle) {
-              resizeHandle = document.createElement('div');
-              resizeHandle.classList.add('resize-handle');
-              header.appendChild(resizeHandle);
+      // Initialize Firebase and table data
+      async function init() {
+        await loadTableData();
+        addContextMenuListener();
+        setupModal();
+      }
 
-              resizeHandle.addEventListener('mousedown', (e) => {
-                isResizing = true;
-                startX = e.clientX;
-                startWidth = header.offsetWidth;
-                currentColumnIndex = index;
+      // Load table data from Firebase
+      async function loadTableData() {
+        var db = firebase.database();
+        let count = 1;
 
-                document.addEventListener('mousemove', onMouseMove);
-                document.addEventListener('mouseup', onMouseUp);
-              });
-            }
-          } else {
-            const resizeHandle = header.querySelector('.resize-handle');
-            if (resizeHandle) {
-              resizeHandle.remove();
-            }
+        await db.ref("statusbrew/volunteers-for-hackathon").once('value', (snapshot) => {
+          snapshot.forEach((childSnapshot) => {
+            const rowData = childSnapshot.val();
+            const tr = createTableRow(count++, rowData, childSnapshot.key);
+            document.getElementById('table').append(tr);
+          });
+        });
+      }
+
+      // Create a table row element
+      function createTableRow(count, data, key) {
+        const tr = document.createElement('tr');
+        tr.dataset.key = key;
+        const cells = [
+          count,
+          data.name || "Not Entered",
+          data.email || "Not Entered",
+          data.contact || "Not Entered",
+          data.department || "Not Entered",
+          data.year || "Not Entered",
+          data.selection || "Not Entered",
+          data.expectations || "Not Entered",
+          data.feedback || "Not Entered"
+        ];
+
+        cells.forEach(cellData => {
+          const td = document.createElement(cells.indexOf(cellData) === 0 ? 'th' : 'td');
+          td.innerHTML = cellData;
+          tr.appendChild(td);
+        });
+
+        return tr;
+      }
+
+      // Add context menu listener to table rows
+      function addContextMenuListener() {
+        document.querySelectorAll('tr').forEach(row => {
+          row.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+            selectedRow = this;
+            positionContextMenu(e, this);
+          });
+        });
+      }
+
+      // Position the context menu based on the row's position
+      function positionContextMenu(e, row) {
+        const rect = row.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+        const top = rect.top + scrollTop + e.clientY - rect.top;
+        const left = rect.left + scrollLeft + e.clientX - rect.left;
+
+        contextMenu.style.top = `${top}px`;
+        contextMenu.style.left = `${left}px`;
+        contextMenu.style.display = 'block';
+        contextMenu.style.zIndex = '1000';
+      }
+
+      // Hide context menu on click outside
+      document.addEventListener('click', function (e) {
+        if (!contextMenu.contains(e.target)) {
+          contextMenu.style.display = 'none';
+        }
+      });
+
+      // Handle row deletion
+      deleteRowOption.addEventListener('click', function () {
+        if (selectedRow) {
+          const rowKey = selectedRow.dataset.key;
+          deleteRow(rowKey);
+        }
+      });
+
+      // Delete row data from Firebase and reload the page
+      function deleteRow(key) {
+        var db = firebase.database();
+        db.ref(`statusbrew/volunteers-for-hackathon/${key}`).remove()
+          .then(() => location.reload())
+          .catch(error => console.error("Error deleting data: ", error));
+      }
+
+      // Setup modal functionality
+      function setupModal() {
+        const modal = document.createElement('div');
+        modal.id = 'modal';
+        modal.innerHTML = `
+      <div id="modal-content">
+          <span id="modal-close">&times;</span>
+          <div id="modal-body"></div>
+      </div>`;
+        document.body.appendChild(modal);
+
+        const modalClose = document.getElementById('modal-close');
+        const modalBody = document.getElementById('modal-body');
+
+        modalClose.addEventListener('click', () => modal.style.display = 'none');
+        window.addEventListener('click', (event) => {
+          if (event.target == modal) {
+            modal.style.display = 'none';
           }
         });
       }
 
-      function onMouseMove(e) {
-        if (!isResizing) return;
-
-        const dx = e.clientX - startX;
-        const newWidth = Math.min(startWidth + dx, 200); // Max width of 200px
-        const cols = table.querySelectorAll('col');
-        if (cols[currentColumnIndex]) {
-          cols[currentColumnIndex].style.width = `${newWidth}px`;
-        }
-      }
-
-      function onMouseUp() {
-        isResizing = false;
-        document.removeEventListener('mousemove', onMouseMove);
-        document.removeEventListener('mouseup', onMouseUp);
-      }
-
-      function setupTable() {
-        const table = document.querySelector('table');
-        if (!table) return;
-
-        const cols = table.querySelectorAll('th');
-        if (cols.length === 0) return;
-
-        // Ensure <colgroup> exists
-        let colGroup = table.querySelector('colgroup');
-        if (!colGroup) {
-          colGroup = document.createElement('colgroup');
-          table.insertBefore(colGroup, table.firstChild);
-        }
-
-        // Add or update col elements
-        while (colGroup.firstChild) {
-          colGroup.firstChild.remove();
-        }
-        cols.forEach(() => {
-          const colElem = document.createElement('col');
-          colGroup.appendChild(colElem);
-        });
-
-        addResizeHandles();
-      }
-
-      async function readDataAndSetup() {
-        var db = firebase.database();
-        count = 1;
-
-        await db.ref("statusbrew/volunteers-for-hackathon").once('value', (value) => {
-          value.forEach((valueInside) => {
-            let td0 = document.createElement('th');
-            let td1 = document.createElement('th');
-            let td2 = document.createElement('td');
-            let td3 = document.createElement('td');
-            let td4 = document.createElement('td');
-            let td5 = document.createElement('td');
-            let td6 = document.createElement('td');
-            let td7 = document.createElement('td');
-            let td8 = document.createElement('td');
-
-            td0.innerHTML = count;
-            ++count;
-
-            let data = valueInside.val();
-
-            td1.innerHTML = data.name || "Not Entered";
-            td2.innerHTML = data.email || "Not Entered";
-            td3.innerHTML = data.contact || "Not Entered";
-            td4.innerHTML = data.department || "Not Entered";
-            td5.innerHTML = data.year || "Not Entered";
-            td6.innerHTML = data.selection || "Not Entered";
-            td7.innerHTML = data.expectations || "Not Entered";
-            td8.innerHTML = data.feedback || "Not Entered";
-            let tr = document.createElement('tr');
-
-            tr.append(td0, td1, td2, td3, td4, td5, td6, td7, td8);
-
-            document.getElementById('table').append(tr);
-          });
-
-          setupTable(); // Setup table and add resize handles after data is loaded
-
-          // Add fullscreen icon to each cell after rows are added
-          const cells = document.querySelectorAll('td');
-          cells.forEach((cell) => {
-            const icon = document.createElement('div');
-            icon.classList.add('fullscreen-icon'); // Assuming this class is defined in your CSS
-            icon.innerHTML = `<i class="fa fa-expand-alt"></i>`;
-            cell.appendChild(icon);
-
-            icon.addEventListener('click', () => {
-              showModal(cell.textContent.trim()); // Show modal with cell content
-            });
-          });
-        });
-      }
-
-      readDataAndSetup(); // Start data loading and setup
-
-      // Modal handling
-      const modal = document.createElement('div');
-      modal.id = 'modal';
-      modal.innerHTML = `
-        <div id="modal-content">
-            <span id="modal-close">&times;</span>
-            <div id="modal-body"></div>
-        </div>`;
-      document.body.appendChild(modal);
-
-      const modalClose = document.getElementById('modal-close');
-      const modalBody = document.getElementById('modal-body');
-
-      function showModal(content) {
-        modalBody.innerHTML = content;
-        modal.style.display = 'flex';
-      }
-
-      modalClose.addEventListener('click', () => {
-        modal.style.display = 'none';
-      });
-
-      window.addEventListener('click', (event) => {
-        if (event.target == modal) {
-          modal.style.display = 'none';
-        }
-      });
+      // Initialize everything
+      init();
     });
-
   </script>
 
   <!-- <script type="text/javascript" src="pass.js"></script> -->
