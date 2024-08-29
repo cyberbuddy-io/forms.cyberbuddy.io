@@ -50,6 +50,35 @@
   <!-- Main CSS -->
   <link rel="stylesheet" type="text/css" href="style.css" />
   <link rel="stylesheet" type="text/css" href="pass.css" />
+  <style>
+    /* Add styles for context menu */
+    #context-menu {
+      display: none;
+      position: fixed;
+      list-style-type: none;
+      /* Keep the menu fixed in the viewport */
+      background: #fff;
+      border: 1px solid #ccc;
+      z-index: 1000;
+      /* Ensure it appears on top of other elements */
+    }
+
+    #context-menu li {
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    #context-menu li:hover {
+      background-color: #f0f0f0;
+    }
+
+    .no-select {
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -90,6 +119,11 @@
     </table>
   </section>
 
+  <ul id="context-menu">
+    <li id="copy-cell">Copy</li>
+    <li id="delete-row">Delete Row</li>
+  </ul>
+
   <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase.js"></script>
@@ -114,62 +148,95 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      const contextMenu = document.getElementById('context-menu');
+      const copyCellOption = document.getElementById('copy-cell');
+      const deleteRowOption = document.getElementById('delete-row');
+      let selectedCell = null;
+
       let isResizing = false;
       let startX, startWidth, currentColumnIndex;
 
-      function addResizeHandles() {
-        const headers = table.querySelectorAll('th');
-        headers.forEach((header, index) => {
-          const currentWidth = parseInt(window.getComputedStyle(header).width, 10);
-          if (currentWidth >= 200) {
-            let resizeHandle = header.querySelector('.resize-handle');
-            if (!resizeHandle) {
-              resizeHandle = document.createElement('div');
-              resizeHandle.classList.add('resize-handle');
-              header.appendChild(resizeHandle);
+      // Declare modal elements at a higher scope
+      let modal, modalBody;
 
-              resizeHandle.addEventListener('mousedown', (e) => {
-                isResizing = true;
-                startX = e.clientX;
-                startWidth = header.offsetWidth;
-                currentColumnIndex = index;
+      // Initialize Firebase and other setups
+      async function init() {
+        await readDataAndSetup();
+        setupTable();
+        // After adding cells to the table
+        const cells = document.querySelectorAll('td');
+        cells.forEach((cell) => {
+          cell.classList.add('no-select');
+          cell.addEventListener('dblclick', () => {
+            showModal(cell.textContent.trim());
+          });
+        });
 
-                document.addEventListener('mousemove', onMouseMove);
-                document.addEventListener('mouseup', onMouseUp);
-              });
-            }
-          } else {
-            const resizeHandle = header.querySelector('.resize-handle');
-            if (resizeHandle) {
-              resizeHandle.remove();
-            }
-          }
+        setupContextMenu();
+        setupModal();
+      }
+
+      // Load table data from Firebase
+      async function readDataAndSetup() {
+        var db = firebase.database();
+        let count = 1;
+
+        await db.ref("statusbrew/skillsprints-v2-ideas-submission").once('value', (snapshot) => {
+          snapshot.forEach((childSnapshot) => {
+            const data = childSnapshot.val();
+            const tr = createTableRow(count++, data, childSnapshot.key);
+            document.getElementById('table').append(tr);
+          });
+
+          addFullscreenIconsToCells(); // Add fullscreen icon to each cell after rows are added
         });
       }
 
-      function onMouseMove(e) {
-        if (!isResizing) return;
+      // Create a table row element
+      function createTableRow(count, data, key) {
+        const tr = document.createElement('tr');
+        tr.dataset.key = key;
+        const values = [
+          count,
+          data.team,
+          data.mem1, data.mem2, data.mem3, data.mem4, data.mem5,
+          data.contact,
+          data.email1, data.email2, data.email3, data.email4, data.email5,
+          data.github1, data.github2, data.github3, data.github4, data.github5,
+          data.project,
+          data.feedback
+        ];
 
-        const dx = e.clientX - startX;
-        const newWidth = Math.min(startWidth + dx, 200); // Max width of 200px
-        const cols = table.querySelectorAll('col');
-        if (cols[currentColumnIndex]) {
-          cols[currentColumnIndex].style.width = `${newWidth}px`;
-        }
+        values.forEach((val, index) => {
+          const cell = document.createElement(index === 0 || index === 1 ? 'th' : 'td');
+          cell.innerHTML = val || "Not Entered";
+          tr.appendChild(cell);
+        });
+
+        return tr;
       }
 
-      function onMouseUp() {
-        isResizing = false;
-        document.removeEventListener('mousemove', onMouseMove);
-        document.removeEventListener('mouseup', onMouseUp);
+      // Add fullscreen icons to table cells
+      function addFullscreenIconsToCells() {
+        const cells = document.querySelectorAll('td');
+        cells.forEach((cell) => {
+          const icon = document.createElement('div');
+          icon.classList.add('fullscreen-icon'); // Assuming this class is defined in your CSS
+          icon.innerHTML = `<i class="fa fa-expand-alt"></i>`;
+          cell.appendChild(icon);
+
+          icon.addEventListener('click', () => {
+            showModal(cell.textContent.trim()); // Show modal with cell content
+          });
+        });
       }
 
       function setupTable() {
         const table = document.querySelector('table');
         if (!table) return;
 
-        const cols = table.querySelectorAll('th');
-        if (cols.length === 0) return;
+        const headers = table.querySelectorAll('th');
+        if (headers.length === 0) return;
 
         // Ensure <colgroup> exists
         let colGroup = table.querySelector('colgroup');
@@ -179,96 +246,175 @@
         }
 
         // Add or update col elements
-        while (colGroup.firstChild) {
-          colGroup.firstChild.remove();
-        }
-        cols.forEach(() => {
+        colGroup.innerHTML = ''; // Clear existing col elements
+        headers.forEach(() => {
           const colElem = document.createElement('col');
           colGroup.appendChild(colElem);
+        });
+
+        // Set initial column widths based on header content
+        headers.forEach((header, index) => {
+          const headerWidth = header.scrollWidth;
+          header.style.width = `${headerWidth}px`;
+          document.querySelectorAll(`td:nth-child(${index + 1})`).forEach(td => {
+            td.style.width = `${headerWidth}px`;
+          });
+          document.querySelectorAll('col')[index].style.width = `${headerWidth}px`;
         });
 
         addResizeHandles();
       }
 
-      async function readDataAndSetup() {
-        var db = firebase.database();
-        count = 1;
+      function addResizeHandles() {
+        const table = document.querySelector('table');
+        const headers = table.querySelectorAll('th');
 
-        await db.ref("statusbrew/skillsprints-v2-ideas-submission").once('value', (value) => {
-          value.forEach((valueInside) => {
-            let tr = document.createElement('tr');
-            let data = valueInside.val();
-            let values = [
-              count++,
-              data.team,
-              data.mem1, data.mem2, data.mem3, data.mem4, data.mem5,
-              data.contact,
-              data.email1, data.email2, data.email3, data.email4, data.email5,
-              data.github1, data.github2, data.github3, data.github4, data.github5,
-              data.project,
-              data.feedback
-            ];
+        headers.forEach((header, index) => {
+          header.style.position = 'relative'; // Ensure header is positioned relative
 
-            values.forEach((val, index) => {
-              let cell = document.createElement(index === 0 || index === 1 ? 'th' : 'td');
-              cell.innerHTML = val || "Not Entered";
-              tr.appendChild(cell);
+          let resizeHandle = header.querySelector('.resize-handle');
+          if (!resizeHandle) {
+            resizeHandle = document.createElement('div');
+            resizeHandle.classList.add('resize-handle');
+            header.appendChild(resizeHandle);
+
+            resizeHandle.addEventListener('mousedown', (e) => {
+              isResizing = true;
+              startX = e.clientX;
+              startWidth = header.offsetWidth;
+              currentColumnIndex = index;
+
+              // Store the minimum width based on header content and cell content
+              minWidth = Math.max(header.scrollWidth, ...Array.from(document.querySelectorAll(`td:nth-child(${index + 1})`)).map(td => td.scrollWidth));
+
+              document.addEventListener('mousemove', onMouseMove);
+              document.addEventListener('mouseup', onMouseUp);
             });
-
-            document.getElementById('table').append(tr);
-          });
-
-          setupTable(); // Setup table and add resize handles after data is loaded
-
-          // Add fullscreen icon to each cell after rows are added
-          const cells = document.querySelectorAll('td');
-          cells.forEach((cell) => {
-            const icon = document.createElement('div');
-            icon.classList.add('fullscreen-icon'); // Assuming this class is defined in your CSS
-            icon.innerHTML = `<i class="fa fa-expand-alt"></i>`;
-            cell.appendChild(icon);
-
-            icon.addEventListener('click', () => {
-              showModal(cell.textContent.trim()); // Show modal with cell content
-            });
-          });
+          }
         });
       }
 
-      readDataAndSetup(); // Start data loading and setup
+      function onMouseMove(e) {
+        if (!isResizing) return;
 
-      // Modal handling
-      const modal = document.createElement('div');
-      modal.id = 'modal';
-      modal.innerHTML = `
-        <div id="modal-content">
-            <span id="modal-close">&times;</span>
-            <div id="modal-body"></div>
-        </div>`;
-      document.body.appendChild(modal);
+        console.log('Resizing...'); // Debug log
+        const dx = e.clientX - startX;
+        const newWidth = Math.max(startWidth + dx, minWidth); // Use minWidth for the minimum width constraint
 
-      const modalClose = document.getElementById('modal-close');
-      const modalBody = document.getElementById('modal-body');
+        const headers = document.querySelectorAll('th');
+        const cols = document.querySelectorAll('col');
 
+        if (headers[currentColumnIndex]) {
+          headers[currentColumnIndex].style.width = `${newWidth}px`;
+          cols[currentColumnIndex].style.width = `${newWidth}px`;
+          // Apply the same width to cells in the column
+          document.querySelectorAll(`td:nth-child(${currentColumnIndex + 1})`).forEach(td => {
+            td.style.width = `${newWidth}px`;
+          });
+        }
+      }
+
+      function onMouseUp() {
+        isResizing = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+
+      // Setup context menu functionality
+      function setupContextMenu() {
+        document.querySelectorAll('td').forEach(cell => {
+          cell.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+            selectedCell = this;
+            positionContextMenu(e, this);
+          });
+        });
+
+        function hideContextMenu(e) {
+          if (!contextMenu.contains(e.target)) {
+            contextMenu.style.display = 'none';
+          }
+        }
+
+        document.addEventListener('click', (e) => { hideContextMenu(e) });
+
+        copyCellOption.addEventListener('click', function () {
+          if (selectedCell) {
+            const text = selectedCell.textContent.trim();
+            navigator.clipboard.writeText(text).then(() => {
+              snackbar('Copied to clipboard');
+              contextMenu.style.display = 'none';
+            }).catch(err => {
+              snackbar('Failed to copy: ', err);
+            });
+          }
+        });
+
+        deleteRowOption.addEventListener('click', function () {
+          if (selectedRow) {
+            const rowKey = selectedRow.dataset.key;
+            deleteRow(rowKey);
+          }
+        });
+      }
+
+      // Position the context menu based on the cell's position
+      function positionContextMenu(e, cell) {
+        const rect = cell.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+        const top = rect.top + scrollTop + e.clientY - rect.top;
+        const left = rect.left + scrollLeft + e.clientX - rect.left;
+
+        contextMenu.style.top = `${top}px`;
+        contextMenu.style.left = `${left}px`;
+        contextMenu.style.display = 'block';
+        contextMenu.style.zIndex = '1000';
+      }
+
+      // Delete row data from Firebase and reload the page
+      function deleteRow(key) {
+        var db = firebase.database();
+        db.ref(`statusbrew/skillsprints-v2-ideas-submission/${key}`).remove()
+          .then(() => location.reload())
+          .catch(error => console.error("Error deleting data: ", error));
+      }
+
+      // Setup modal functionality
+      function setupModal() {
+        modal = document.createElement('div');
+        modal.id = 'modal';
+        modal.innerHTML = `
+          <div id="modal-content">
+              <span id="modal-close">&times;</span>
+              <div id="modal-body"></div>
+          </div>`;
+        document.body.appendChild(modal);
+
+        modalBody = document.getElementById('modal-body');
+        const modalClose = document.getElementById('modal-close');
+
+        modalClose.addEventListener('click', () => modal.style.display = 'none');
+        window.addEventListener('click', (event) => {
+          if (event.target == modal) {
+            modal.style.display = 'none';
+          }
+        });
+      }
+
+      // Show modal with content
       function showModal(content) {
         modalBody.innerHTML = content;
         modal.style.display = 'flex';
       }
 
-      modalClose.addEventListener('click', () => {
-        modal.style.display = 'none';
-      });
-
-      window.addEventListener('click', (event) => {
-        if (event.target == modal) {
-          modal.style.display = 'none';
-        }
-      });
+      // Initialize everything
+      init();
     });
 
   </script>
 
-  <!-- <script type="text/javascript" src="pass.js"></script> -->
+  <script type="text/javascript" src="pass.js"></script>
 </body>
 
 </html>

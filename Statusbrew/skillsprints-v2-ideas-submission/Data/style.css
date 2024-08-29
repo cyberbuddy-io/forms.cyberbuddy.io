@@ -19,10 +19,14 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
-    table-layout: auto;
+    table-layout: fixed;
     /* Use auto for flexible width */
     border: 1px solid rgba(0, 0, 0, 0.1);
     /* Add outer border */
+}
+
+th {
+    position: relative;
 }
 
 th,
@@ -39,7 +43,7 @@ td {
     /* Show ellipsis for truncated text */
     position: relative;
     /* Position for resizable handle */
-    max-width: 200px;
+    /* max-width: 200px; */
     /* Max width for columns */
 }
 
@@ -81,6 +85,7 @@ a:hover {
     color: rgba(12, 15, 83, 0.8);
     /* Slightly darken link on hover */
 }
+
 /* 
 @media screen and (max-width: 768px) {
     table {
@@ -130,7 +135,6 @@ a:hover {
         white-space: nowrap;
     }
 } */
-
 
 
 /* Fullscreen icon styles */
