@@ -137,6 +137,7 @@
       const copyCellOption = document.getElementById('copy-cell');
       const deleteRowOption = document.getElementById('delete-row');
       let selectedCell = null;
+      let selectedRow = null;  // Define selectedRow here
 
       let isResizing = false;
       let startX, startWidth, currentColumnIndex;
@@ -308,6 +309,7 @@
           cell.addEventListener('contextmenu', function (e) {
             e.preventDefault();
             selectedCell = this;
+            selectedRow = this.parentNode;
             positionContextMenu(e, this);
           });
         });
@@ -357,7 +359,7 @@
       // Delete row data from Firebase and reload the page
       function deleteRow(key) {
         var db = firebase.database();
-        db.ref(`statusbrew/skillsprints-v2-ideas-submission/${key}`).remove()
+        db.ref(`quine-goodies-star-submission/${key}`).remove()
           .then(() => location.reload())
           .catch(error => console.error("Error deleting data: ", error));
       }
