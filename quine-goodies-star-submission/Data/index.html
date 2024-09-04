@@ -162,19 +162,90 @@
         setupModal();
       }
 
-      // Load table data from Firebase
+      // Load table data from Firebase and set up real-time listeners
       async function readDataAndSetup() {
         var db = firebase.database();
         let count = 1;
 
-        await db.ref("quine-goodies-star-submission").once('value', (snapshot) => {
-          snapshot.forEach((childSnapshot) => {
-            const data = childSnapshot.val();
-            const tr = createTableRow(count++, data, childSnapshot.key);
-            document.getElementById('table').append(tr);
-          });
+        // Listen for new children added to the database
+        db.ref("quine-goodies-star-submission").on('child_added', (snapshot) => {
+          const data = snapshot.val();
+          const tr = createTableRow(count++, data, snapshot.key);
+          document.getElementById('table').append(tr);
 
-          addFullscreenIconsToCells(); // Add fullscreen icon to each cell after rows are added
+          // Add fullscreen icon and context menu to the newly added row only
+          addFullscreenIconsToRow(tr);
+          setupContextMenuForRow(tr);
+        });
+
+        // Listen for children modified in the database
+        db.ref("quine-goodies-star-submission").on('child_changed', (snapshot) => {
+          const updatedData = snapshot.val();
+          const rowToUpdate = document.querySelector(`tr[data-key='${snapshot.key}']`);
+          if (rowToUpdate) {
+            updateTableRow(rowToUpdate, updatedData);
+
+            // Re-apply context menu and fullscreen icon only to the updated row
+            setupContextMenuForRow(rowToUpdate);
+            addFullscreenIconsToRow(rowToUpdate);
+          }
+        });
+
+        // Listen for children removed from the database
+        db.ref("quine-goodies-star-submission").on('child_removed', (snapshot) => {
+          const rowToRemove = document.querySelector(`tr[data-key='${snapshot.key}']`);
+          if (rowToRemove) {
+            rowToRemove.remove();
+          }
+        });
+      }
+
+      // Add fullscreen icons to cells in a specific row
+      function addFullscreenIconsToRow(row) {
+        row.querySelectorAll('td').forEach((cell) => {
+          if (!cell.querySelector('.fullscreen-icon')) {  // Avoid adding multiple icons
+            const icon = document.createElement('div');
+            icon.classList.add('fullscreen-icon'); // Assuming this class is defined in your CSS
+            icon.innerHTML = `<i class="fa fa-expand-alt"></i>`;
+            cell.appendChild(icon);
+
+            icon.addEventListener('click', () => {
+              showModal(cell.textContent.trim()); // Show modal with cell content
+            });
+          }
+        });
+      }
+
+      // Setup context menu functionality for cells in a specific row
+      function setupContextMenuForRow(row) {
+        row.querySelectorAll('td').forEach(cell => {
+          if (!cell.hasContextMenuEventListener) {  // Custom property to prevent multiple bindings
+            cell.addEventListener('contextmenu', function (e) {
+              e.preventDefault();
+              selectedCell = this;
+              selectedRow = this.parentNode;
+              positionContextMenu(e, this);
+            });
+
+            // Mark as having an event listener
+            cell.hasContextMenuEventListener = true;
+          }
+        });
+      }
+
+      // Update table row with new data
+      function updateTableRow(tr, data) {
+        const values = [
+          tr.children[0].textContent, // Keep the existing count
+          data.name,
+          data.mail,
+          data.github,
+          data.feedback
+        ];
+
+        // Update each cell
+        values.forEach((val, index) => {
+          tr.children[index].innerHTML = val || "Not Entered";
         });
       }
 
