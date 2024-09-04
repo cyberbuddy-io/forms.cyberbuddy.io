@@ -431,9 +431,19 @@
       function deleteRow(key) {
         var db = firebase.database();
         db.ref(`quine-goodies-star-submission/${key}`).remove()
-          .then(() => location.reload())
-          .catch(error => console.error("Error deleting data: ", error));
+          .then(() => {
+            const rowToRemove = document.querySelector(`tr[data-key='${key}']`);
+            if (rowToRemove) {
+              rowToRemove.remove();  // Remove the row from the DOM
+              snackbar('Row deleted successfully');
+            }
+          })
+          .catch(error => {
+            console.error("Error deleting data: ", error);
+            snackbar('Error deleting row');
+          });
       }
+
 
       // Setup modal functionality
       function setupModal() {
